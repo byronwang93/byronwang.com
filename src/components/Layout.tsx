@@ -20,7 +20,6 @@ const Layout = ({ children }) => {
           left="0"
           bottom="20px"
           right="0"
-          backgroundColor="red"
         >
           <Footer />
         </Box>

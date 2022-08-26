@@ -1,0 +1,3 @@
+this autogenerates svg icons
+
+npx @svgr/cli src/assets/images --out-dir src/assets/icons --icon --typescript

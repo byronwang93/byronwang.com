@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../assets/css/main.css';
-import { ChakraProvider, VStack } from '@chakra-ui/react';
+import { Box, ChakraProvider, VStack } from '@chakra-ui/react';
 
 const Layout = ({ children }) => {
   return (
@@ -10,10 +10,20 @@ const Layout = ({ children }) => {
       <VStack
         display="flex"
         w="100%"
+        minHeight="100vh"
       >
         <Navbar />
         {children}
-        <Footer />
+        <Box
+          pt="15px"
+          position="absolute"
+          left="0"
+          bottom="20px"
+          right="0"
+          backgroundColor="red"
+        >
+          <Footer />
+        </Box>
       </VStack>
     </ChakraProvider>
   );

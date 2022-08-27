@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Mukta&display=swap');
+
 :root {
     --background-colour: #eeeff1;
     --main-text-colour: black;
@@ -20,5 +22,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-colour);
-    font-family: Helvetica, sans-serif;
+    font-family: 'Mukta' ,Helvetica, sans-serif;
+}
+
+.name {
+    font-family: 'Montserrat', sans-serif;
 }

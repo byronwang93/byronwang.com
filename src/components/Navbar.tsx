@@ -1,12 +1,7 @@
 import React from 'react';
 import {
   Box,
-  Button,
-  ButtonGroup,
-  Container,
   Flex,
-  HStack,
-  IconButton,
   useBreakpointValue,
   useColorModeValue,
   Text,
@@ -19,7 +14,6 @@ const navItems = ['About', 'Experience', 'Projects', 'Fun', 'Contact Me'];
 
 const Navbar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
-  console.log(navItems);
 
   return (
     <Box

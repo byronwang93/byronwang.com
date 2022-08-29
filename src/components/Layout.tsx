@@ -15,8 +15,8 @@ const Layout = ({ children }) => {
         <Navbar />
         {children}
         <Box
-          pt="15px"
-          position="absolute"
+          pt="35px"
+          position="relative"
           left="0"
           bottom="20px"
           right="0"

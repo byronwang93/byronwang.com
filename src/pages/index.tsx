@@ -7,6 +7,7 @@ import Projects from '../components/Projects';
 import Fun from '../components/Fun';
 import ContactMe from '../components/ContactMe';
 import Intro from '../components/Intro';
+import MovingArrow from '../components/MovingArrow';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         alignItems="center"
       >
         <About />
+        <MovingArrow />
         <Intro />
         <Experience />
         <Projects />

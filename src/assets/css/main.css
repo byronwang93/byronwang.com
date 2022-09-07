@@ -28,3 +28,15 @@ body {
 .name {
     font-family: 'Montserrat', sans-serif;
 }
+
+.moveArrow {
+    animation-name : mymove;
+    animation-iteration-count : infinite;
+    animation-direction : alternate;
+    animation-duration : 1s;
+}
+
+@keyframes mymove {
+    from {transform: translateY(-5px);}
+    to {transform: translateY(0px);}
+}

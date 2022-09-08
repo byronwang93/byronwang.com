@@ -51,11 +51,11 @@ const About = () => {
         height="84vh"
         width={{ base: '390px', md: '450px' }}
       >
-        <Text fontSize={{ base: '15px', lg: '20px' }}>Howdy peeps! I'm</Text>
+        <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>
         <Text
           pt="50px"
           pb="50px"
-          fontSize={{ base: '30px', lg: '50px' }}
+          fontSize="50px"
           className="name"
         >
           <HStack spacing="0">
@@ -70,7 +70,7 @@ const About = () => {
             <Text color="#34a853">NG</Text>
           </HStack>
         </Text>
-        <Text fontSize={{ base: '15px', lg: '20px' }}>
+        <Text fontSize={{ base: '25px', md: '20px' }}>
           <Typist
             className="typist"
             onTypingDone={handleChange}
@@ -86,9 +86,10 @@ const About = () => {
         </Text>
       </Flex>
       <Icon
-        mt="100px"
+        display={{ base: 'none', md: 'initial' }}
+        mt={{ base: '100px', md: '160px', lg: '100px' }}
         as={waving[currWave]}
-        boxSize={350}
+        boxSize={{ base: 200, md: 280, lg: 350 }}
       />
       <Icon
         position="absolute"
@@ -99,12 +100,13 @@ const About = () => {
       />
       <Icon
         position="absolute"
-        mt="500px"
-        ml="410px"
+        mt={{ base: '440px', md: '500px' }}
+        ml={{ base: '300px', md: '410px' }}
         as={stars[currWave]}
         boxSize={5}
       />
       <Icon
+        display={{ base: 'none', lg: 'initial' }}
         position="absolute"
         mt="180px"
         ml="850px"
@@ -112,9 +114,10 @@ const About = () => {
         boxSize={5}
       />
       <Icon
+        display={{ base: 'none', md: 'initial' }}
         position="absolute"
-        mt="630px"
-        ml="750px"
+        mt={{ base: '50px', lg: '630px' }}
+        ml={{ base: '640px', lg: '750px' }}
         as={stars[currWave]}
         boxSize={5}
       />

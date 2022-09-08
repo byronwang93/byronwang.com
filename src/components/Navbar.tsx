@@ -17,7 +17,7 @@ const Navbar = () => {
       pr="20px"
     >
       <Flex
-        pl="35px"
+        pl="22px"
         pt="20px"
       >
         <>

@@ -1,0 +1,5 @@
+this deploys the current code to github pages:
+npm run deploy
+
+this autogenerates svg icons:
+npx @svgr/cli src/assets/images --out-dir src/assets/icons --icon --typescript

@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   plugins: [
     {
-      resolve: "@chakra-ui/gatsby-plugin",
+      resolve: '@chakra-ui/gatsby-plugin',
       options: {
         /**
          * @property {boolean} [resetCSS=true]
@@ -23,4 +23,5 @@ module.exports = {
       },
     },
   ],
-}
+  pathPrefix: '/byronwang.com',
+};

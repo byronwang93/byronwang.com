@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_hello_world=self.webpackChunkgatsby_starter_hello_world||[]).push([[218],{2513:function(e,t,l){l.r(t);var n=l(7294),r=l(9868);t.default=function(){return n.createElement(r.Z,null,n.createElement("h1",null,"404"),n.createElement("h3",null,"Page Not Found"))}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-295d3cb9f2b436902b12.js.map

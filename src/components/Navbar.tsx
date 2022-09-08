@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  useBreakpointValue,
-  useColorModeValue,
-  Text,
-  Icon,
-} from '@chakra-ui/react';
+import { Box, Flex, useBreakpointValue, Text, Icon } from '@chakra-ui/react';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { SunIcon } from '../assets/icons';
 
@@ -24,7 +17,7 @@ const Navbar = () => {
       pr="20px"
     >
       <Flex
-        pl="62px"
+        pl="35px"
         pt="20px"
       >
         <>

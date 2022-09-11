@@ -45,10 +45,13 @@ const About = () => {
     >
       <Flex
         pt="170px"
+        pb="280px"
+        // backgroundColor="orange"
         alignItems="flex-start"
         flexDirection="column"
         flexWrap="wrap"
-        height="84vh"
+        height="auto"
+        minHeight={{ base: '70vh', md: '84vh' }}
         width={{ base: '390px', md: '450px' }}
       >
         <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>

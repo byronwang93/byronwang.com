@@ -51,7 +51,8 @@ const About = () => {
         flexDirection="column"
         flexWrap="wrap"
         height="auto"
-        minHeight={{ base: '70vh', md: '84vh' }}
+        minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
+        // minHeight={{ base: '70vh', md: '84vh' }}
         width={{ base: '390px', md: '450px' }}
       >
         <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>

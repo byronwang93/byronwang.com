@@ -1,7 +1,8 @@
+import { Flex } from '@chakra-ui/react';
 import React from 'react';
 
 const Intro = () => {
-  return <div>This is the intro</div>;
+  return <Flex flexDirection={{ base: 'column', md: 'row' }}></Flex>;
 };
 
 export default Intro;

@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
         w="100%"
         minHeight="100vh"
       >
-        <Navbar />
         {children}
         <Box
           pt="35px"

@@ -8,22 +8,24 @@ import Fun from '../components/Fun';
 import ContactMe from '../components/ContactMe';
 import Intro from '../components/Intro';
 import MovingArrow from '../components/MovingArrow';
+import Navbar from '../components/Navbar';
 
 export default function Home() {
   return (
     <Layout>
+      <Navbar />
       <Flex
         height="100%"
         direction="column"
         alignItems="center"
       >
-        <About />
+        <About id="about" />
         <MovingArrow />
-        <Intro />
-        <Experience />
-        <Projects />
-        <Fun />
-        <ContactMe />
+        <Intro id="intro" />
+        <Experience id="experience" />
+        <Projects id="projects" />
+        <Fun id="fun" />
+        <ContactMe id="contact-me" />
       </Flex>
     </Layout>
   );

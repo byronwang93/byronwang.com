@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Fun = () => {
-  return <div>Fun</div>;
+const Fun = ({ id }) => {
+  return <div id={id}>Fun</div>;
 };
 
 export default Fun;

@@ -29,6 +29,8 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+/* arrow moving animation */
 .moveArrow {
     animation-name : mymove;
     animation-iteration-count : infinite;
@@ -39,4 +41,15 @@ body {
 @keyframes mymove {
     from {transform: translateY(-5px);}
     to {transform: translateY(0px);}
+}
+
+/* header line */
+.header-line {
+    height: 5;
+    color: #1a202c;
+}
+
+/* popout text */
+.popout-text {
+    color: #FF5970;
 }

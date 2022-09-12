@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Wave1, Wave2, Star1, Star2 } from '../assets/icons';
 import Typist from 'react-typist';
 
-const About = () => {
+const About = ({ id }) => {
   const waving = [Wave1, Wave2];
   const stars = [Star1, Star2];
   const [currWave, setCurrWave] = useState(0);
@@ -37,21 +37,19 @@ const About = () => {
 
   return (
     <Flex
+      id={id}
       flex={1}
       pt="20px"
       flexDirection="row"
-      maxWidth={{ base: '90%' }}
-      minWidth={{ base: '90%', md: '100%', lg: '100%' }}
     >
       <Flex
         pt="170px"
         pb="280px"
-        alignItems="flex-start"
         flexDirection="column"
         flexWrap="wrap"
         height="auto"
         minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
-        width={{ base: '390px', md: '450px' }}
+        width={{ base: '390px', md: '500px' }}
       >
         <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>
         <Text

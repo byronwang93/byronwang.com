@@ -1,9 +1,22 @@
 import React from 'react';
-import { Box, Flex, useBreakpointValue, Text, Icon } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  useBreakpointValue,
+  Text,
+  Icon,
+  Link,
+} from '@chakra-ui/react';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { SunIcon } from '../assets/icons';
 
-const navItems = ['About', 'Experience', 'Projects', 'Fun', 'Contact Me'];
+const navItems = [
+  { text: 'About', ref: '#about' },
+  { text: 'Experience', ref: '#experience' },
+  { text: 'Projects', ref: '#projects' },
+  { text: 'Fun', ref: '#fun' },
+  { text: 'Contact Me', ref: '#contact-me' },
+];
 
 const Navbar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
@@ -21,24 +34,26 @@ const Navbar = () => {
         pt="20px"
       >
         <>
-          <Text
-            as="button"
+          <Link
+            href="#experience"
             mr="84px"
             fontSize="20px"
+            textDecoration="none !important"
           >
             Byron Wang
-          </Text>
+          </Link>
           {isDesktop ? (
             navItems.map((item, index) => {
               return (
-                <Text
+                <Link
+                  href={item.ref}
                   pl="24px"
                   pr="24px"
-                  as="button"
+                  textDecoration="none !important"
                   key={index}
                 >
-                  {item}
-                </Text>
+                  {item.text}
+                </Link>
               );
             })
           ) : (

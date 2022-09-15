@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../assets/css/main.css';
 import { Box, ChakraProvider, VStack } from '@chakra-ui/react';

@@ -13,7 +13,6 @@ const Intro = ({ id }) => {
       flexDirection="column"
       height="auto"
       justifyContent="center"
-      // backgroundColor="beige"
       width={{ base: '390px', md: '700px', lg: '1200px' }}
     >
       <LeftWordsHeader text="About Me" />

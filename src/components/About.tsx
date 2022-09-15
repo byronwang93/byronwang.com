@@ -2,6 +2,7 @@ import { Flex, HStack, Icon, Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Wave1, Wave2, Star1, Star2 } from '../assets/icons';
 import Typist from 'react-typist';
+import { animated, useSpring } from '@react-spring/web';
 
 const About = ({ id }) => {
   const waving = [Wave1, Wave2];
@@ -35,99 +36,110 @@ const About = ({ id }) => {
     return () => clearInterval(intervalId);
   }, [currWave]);
 
+  const styles = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  });
+
   return (
-    <Flex
-      id={id}
-      flex={1}
-      pt="20px"
-      flexDirection="row"
-    >
+    <animated.div style={styles}>
       <Flex
-        pt="170px"
-        pb="280px"
-        flexDirection="column"
-        flexWrap="wrap"
-        height="auto"
-        minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
-        width={{ base: '390px', md: '500px' }}
+        id={id}
+        flex={1}
+        pt="20px"
+        flexDirection="row"
       >
-        <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>
-        <Text
-          pt="50px"
-          pb="50px"
-          fontSize="50px"
-          className="name"
+        <Flex
+          pt="170px"
+          pb="280px"
+          flexDirection="column"
+          flexWrap="wrap"
+          height="auto"
+          minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
+          width={{ base: '380px', md: '460px', lg: '500px' }}
         >
-          <HStack spacing="0">
-            <Text color="#4285f4">BY</Text>
-            <Text
-              color="#ea4335"
-              pr="10px"
-            >
-              RON
-            </Text>
-            <Text color="#fbbc05">WA</Text>
-            <Text color="#34a853">NG</Text>
-          </HStack>
-        </Text>
-        <Text fontSize={{ base: '25px', md: '20px' }}>
-          <Typist
-            className="typist"
-            onTypingDone={handleChange}
-            stdTypingDelay={25}
-            key={index}
+          <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>
+          <Text
+            pt="50px"
+            pb="50px"
+            fontSize="50px"
+            className="name"
           >
-            {descriptions[index]}
-            <Typist.Backspace
-              count={descriptions[index].length - 2}
-              delay={2000}
-            />
-          </Typist>
-        </Text>
+            <HStack spacing="0">
+              <Text color="#4285f4">BY</Text>
+              <Text
+                color="#ea4335"
+                pr="10px"
+              >
+                RON
+              </Text>
+              <Text color="#fbbc05">WA</Text>
+              <Text color="#34a853">NG</Text>
+            </HStack>
+          </Text>
+          <Text fontSize={{ base: '25px', md: '20px' }}>
+            <Typist
+              className="typist"
+              onTypingDone={handleChange}
+              stdTypingDelay={25}
+              key={index}
+            >
+              {descriptions[index]}
+              <Typist.Backspace
+                count={descriptions[index].length - 2}
+                delay={2000}
+              />
+            </Typist>
+          </Text>
+        </Flex>
+        <Icon
+          display={{ base: 'none', md: 'initial' }}
+          mt={{ base: '100px', md: '160px', lg: '110px' }}
+          as={waving[currWave]}
+          boxSize={{ base: 200, md: 280, lg: 350 }}
+        />
+        <Icon
+          position="absolute"
+          mt="100px"
+          ml="50px"
+          as={stars[currWave]}
+          boxSize={5}
+        />
+        <Icon
+          position="absolute"
+          mt={{ base: '440px', md: '500px' }}
+          ml={{ base: '300px', md: '410px' }}
+          as={stars[currWave]}
+          boxSize={5}
+        />
+        <Icon
+          display={{ base: 'none', lg: 'initial' }}
+          position="absolute"
+          mt="180px"
+          ml="850px"
+          as={stars[currWave]}
+          boxSize={5}
+        />
+        <Icon
+          display={{ base: 'none', md: 'initial' }}
+          position="absolute"
+          mt={{ base: '50px', lg: '630px' }}
+          ml={{ base: '640px', lg: '750px' }}
+          as={stars[currWave]}
+          boxSize={5}
+        />
+        <Icon
+          position="absolute"
+          mt="580px"
+          as={stars[currWave]}
+          boxSize={5}
+        />
       </Flex>
-      <Icon
-        display={{ base: 'none', md: 'initial' }}
-        mt={{ base: '100px', md: '160px', lg: '100px' }}
-        as={waving[currWave]}
-        boxSize={{ base: 200, md: 280, lg: 350 }}
-      />
-      <Icon
-        position="absolute"
-        mt="100px"
-        ml="50px"
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        position="absolute"
-        mt={{ base: '440px', md: '500px' }}
-        ml={{ base: '300px', md: '410px' }}
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        display={{ base: 'none', lg: 'initial' }}
-        position="absolute"
-        mt="180px"
-        ml="850px"
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        display={{ base: 'none', md: 'initial' }}
-        position="absolute"
-        mt={{ base: '50px', lg: '630px' }}
-        ml={{ base: '640px', lg: '750px' }}
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        position="absolute"
-        mt="580px"
-        as={stars[currWave]}
-        boxSize={5}
-      />
-    </Flex>
+    </animated.div>
   );
 };
 

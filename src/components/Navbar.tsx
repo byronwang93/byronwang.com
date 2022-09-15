@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  useBreakpointValue,
-  Text,
-  Icon,
-  Link,
-} from '@chakra-ui/react';
+import { Box, Flex, useBreakpointValue, Icon, Link } from '@chakra-ui/react';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { SunIcon } from '../assets/icons';
 
 const navItems = [
-  { text: 'About', ref: '#about' },
+  { text: 'About', ref: '#intro' },
   { text: 'Experience', ref: '#experience' },
   { text: 'Projects', ref: '#projects' },
   { text: 'Fun', ref: '#fun' },
@@ -35,7 +28,7 @@ const Navbar = () => {
       >
         <>
           <Link
-            href="#experience"
+            href="#about"
             mr="84px"
             fontSize="20px"
             textDecoration="none !important"

@@ -27,7 +27,7 @@ const Intro = ({ id }) => {
           <Image
             pr={{ md: '40px' }}
             borderRadius="full"
-            src="/round-byron-pfp.png"
+            src="/static/round.png"
             alt="profile"
           />
         </Box>
@@ -64,7 +64,7 @@ const Intro = ({ id }) => {
               className="popout-text"
             >
               Computer Science Student Society
-            </Link>{' '}
+            </Link>
             ), playing ping pong, or sipping a coffee.
           </Text>
           <br />

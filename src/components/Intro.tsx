@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Text, Link } from '@chakra-ui/react';
 import React from 'react';
-import LeftWordsHeader from './HeaderText';
+import HeaderText from './HeaderText';
 
 const Intro = ({ id }) => {
   return (
@@ -15,7 +15,7 @@ const Intro = ({ id }) => {
       justifyContent="center"
       width={{ base: '390px', md: '700px', lg: '1200px' }}
     >
-      <LeftWordsHeader text="About Me" />
+      <HeaderText text="About Me" />
       <Flex
         pt="20px"
         justifyContent="center"
@@ -26,7 +26,7 @@ const Intro = ({ id }) => {
           <Image
             pr={{ md: '40px' }}
             borderRadius="full"
-            src="/static/round.png"
+            src={`../../round.png`}
             alt="profile"
           />
         </Box>

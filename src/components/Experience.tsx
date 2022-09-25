@@ -27,7 +27,7 @@ const query = graphql`
 
 const Experience = ({ id }) => {
   const data = useStaticQuery(query);
-  const experiences = data.allContentfulExperience.nodes;
+  const experiences = data.allContentfulExperience.nodes.reverse();
   console.log(experiences, ' is experiences');
 
   return (
@@ -43,7 +43,25 @@ const Experience = ({ id }) => {
       width={{ base: '390px', md: '700px', lg: '900px' }}
     >
       <HeaderText text="Experience" />
-      <ExperienceCard />
+      {experiences.map((experience, id) => {
+        const title = experience.title;
+        const link = experience.childContentfulExperienceLinkTextNode.link;
+        const location =
+          experience.childContentfulExperienceLocationTextNode.location;
+        const description =
+          experience.childContentfulExperienceContentJsonNode.description;
+        const tags = experience.childContentfulExperienceContentJsonNode.tags;
+        return (
+          <ExperienceCard
+            link={link}
+            description={description}
+            tags={tags}
+            title={title}
+            key={id}
+            location={location}
+          />
+        );
+      })}
     </Flex>
   );
 };

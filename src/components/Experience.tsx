@@ -27,16 +27,15 @@ const query = graphql`
 
 const Experience = ({ id }) => {
   const data = useStaticQuery(query);
-  const experiences = data.allContentfulExperience.nodes.reverse();
-  console.log(experiences, ' is experiences');
+  const experiences = data.allContentfulExperience.nodes;
 
   return (
     <Flex
       id={id}
-      backgroundColor="beige"
+      // backgroundColor="beige"
       pt="20px"
-      mt="50px"
-      mb="50px"
+      mt="70px"
+      mb="70px"
       height="auto"
       flexDirection="column"
       justifyContent="center"

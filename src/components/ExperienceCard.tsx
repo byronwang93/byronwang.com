@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import Tag from './Tag';
 
@@ -17,12 +17,66 @@ const ExperienceCard = ({
   description,
   tags,
 }: ExperienceProps) => {
+  const firstHalf = title.substring(0, title.lastIndexOf(' ')) + ' ';
+  const secondHalf = title.split(' ').pop();
   return (
-    <Flex flexDirection="column">
-      <Text>{title}</Text>
-      {tags.map((tag, id) => {
-        return <Tag />;
-      })}
+    <Flex
+      flexDirection="column"
+      pt="40px"
+      pb="40px"
+    >
+      <Text
+        pb="10px"
+        fontWeight="bold"
+        fontSize="24px"
+      >
+        {firstHalf}
+        <Link
+          isExternal
+          href={link}
+          color="#FF5970"
+        >
+          {secondHalf}
+        </Link>
+      </Text>
+      <Text
+        fontSize="20px"
+        pb="10px"
+      >
+        📍{location}
+      </Text>
+      <Flex
+        flexDirection="column"
+        flexWrap="wrap"
+        pb="10px"
+      >
+        {description.map((entry, id) => {
+          return (
+            <Text
+              pb="10px"
+              fontSize="18px"
+              position="relative"
+              left="20px"
+              key={id}
+            >
+              ●{entry}
+            </Text>
+          );
+        })}
+      </Flex>
+      <Flex
+        flexDirection="row"
+        flexWrap="wrap"
+      >
+        {tags.map((tag, id) => {
+          return (
+            <Tag
+              key={id}
+              content={tag}
+            />
+          );
+        })}
+      </Flex>
     </Flex>
   );
 };

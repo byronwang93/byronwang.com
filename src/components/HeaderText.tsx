@@ -12,7 +12,7 @@ const HeaderText: FC<HeaderProps> = (props): JSX.Element => {
       alignSelf="center"
       mb="20px"
     >
-      <Text fontSize="30px">{props.text}</Text>
+      <Text fontSize="35px">{props.text}</Text>
     </Flex>
   );
 };

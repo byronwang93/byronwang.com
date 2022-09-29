@@ -32,7 +32,6 @@ const Experience = ({ id }) => {
   return (
     <Flex
       id={id}
-      // backgroundColor="beige"
       pt="20px"
       mt="70px"
       mb="70px"

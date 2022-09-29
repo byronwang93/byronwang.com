@@ -27,7 +27,7 @@ const query = graphql`
 
 const Experience = ({ id }) => {
   const data = useStaticQuery(query);
-  const experiences = data.allContentfulExperience.nodes;
+  const experiences = data.allContentfulExperience.nodes.reverse();
 
   return (
     <Flex

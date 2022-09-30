@@ -33,8 +33,8 @@ const Experience = ({ id }) => {
     <Flex
       id={id}
       pt="20px"
-      mt="70px"
-      mb="70px"
+      mt="50px"
+      mb="50px"
       height="auto"
       flexDirection="column"
       justifyContent="center"

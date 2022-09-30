@@ -22,7 +22,7 @@ const Intro = ({ id }) => {
         alignItems={{ base: 'center', md: 'normal' }}
         flexDirection={{ base: 'column', md: 'row' }}
       >
-        <Box boxSize={320}>
+        <Box boxSize={340}>
           <Image
             pr={{ md: '40px' }}
             borderRadius="full"
@@ -33,7 +33,7 @@ const Intro = ({ id }) => {
         <Box
           pt={{ base: '30px', md: '0' }}
           pl="20px"
-          fontSize="18px"
+          fontSize="20px"
           width={{ md: '50%' }}
         >
           <Text>

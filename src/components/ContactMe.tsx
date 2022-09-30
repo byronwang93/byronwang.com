@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Button, Flex, FormLabel, Input } from '@chakra-ui/react';
 import React from 'react';
 import LeftWordsHeader from './HeaderText';
 
@@ -16,43 +16,62 @@ const ContactMe = ({ id }) => {
     >
       <LeftWordsHeader text="Contact Me" />
       <Box
-        // backgroundColor="green"
         textAlign="center"
+        alignSelf="center"
       >
         <form
           className="form contact-form"
           action="https://formspree.io/f/xknejgzr"
           method="POST"
         >
-          <div className="form-row">
-            <label htmlFor="name">your name</label>
-            <input
+          <Flex
+            pb="10px"
+            flexDirection="column"
+          >
+            <FormLabel
+              align-self="baseline"
+              htmlFor="name"
+            >
+              name
+            </FormLabel>
+            <Input
+              w={{ base: '400px', md: '500px', lg: '650px' }}
+              backgroundColor="white"
               type="text"
               name="name"
               id="name"
             />
-          </div>
-          <div className="form-row">
-            <label htmlFor="email">your email</label>
-            <input
+          </Flex>
+          <Flex
+            pb="10px"
+            flexDirection="column"
+          >
+            <FormLabel htmlFor="email">email</FormLabel>
+            <Input
+              backgroundColor="white"
               type="text"
               name="email"
               id="email"
             />
-          </div>
-          <div className="form-row">
-            <label htmlFor="message">message</label>
-            <textarea
+          </Flex>
+          <Flex flexDirection="column">
+            <FormLabel htmlFor="message">message</FormLabel>
+            <Input
+              flexWrap="wrap"
+              backgroundColor="white"
               name="message"
               id="message"
-            ></textarea>
-          </div>
-          <button
+            />
+          </Flex>
+          <Button
             type="submit"
-            className="btn block"
+            mt="40px"
+            w="100%"
+            _hover={{ bg: '#FF5970' }}
+            bg="#FFA0AD"
           >
             submit
-          </button>
+          </Button>
         </form>
       </Box>
     </Flex>

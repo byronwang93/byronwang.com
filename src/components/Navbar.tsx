@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <Box
       width="100%"
-      height="100%"
+      height="auto"
       as="section"
       pb="12px"
       pr="20px"
@@ -28,6 +28,8 @@ const Navbar = () => {
       >
         <>
           <Link
+            position="relative"
+            bottom="4px"
             href="#about"
             mr="84px"
             fontSize="20px"
@@ -44,6 +46,7 @@ const Navbar = () => {
                   pr="24px"
                   textDecoration="none !important"
                   key={index}
+                  fontSize="17px"
                 >
                   {item.text}
                 </Link>

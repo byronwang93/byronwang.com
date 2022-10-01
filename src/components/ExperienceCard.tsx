@@ -1,4 +1,4 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import Tag from './Tag';
 
@@ -19,6 +19,11 @@ const ExperienceCard = ({
 }: ExperienceProps) => {
   const firstHalf = title.substring(0, title.lastIndexOf(' ')) + ' ';
   const secondHalf = title.split(' ').pop();
+  const standoutText = useColorModeValue(
+    'light.standoutText',
+    'dark.standoutText'
+  );
+
   return (
     <Flex
       flexDirection="column"
@@ -34,7 +39,7 @@ const ExperienceCard = ({
         <Link
           isExternal
           href={link}
-          color="#FF5970"
+          color={standoutText}
         >
           {secondHalf}
         </Link>

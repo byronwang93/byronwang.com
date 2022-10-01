@@ -1,8 +1,19 @@
-import { Box, Flex, Image, Text, Link } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Image,
+  Text,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import React from 'react';
 import HeaderText from './HeaderText';
 
 const Intro = ({ id }) => {
+  const standoutText = useColorModeValue(
+    'light.standoutText',
+    'dark.standoutText'
+  );
   return (
     <Flex
       id={id}
@@ -43,7 +54,7 @@ const Intro = ({ id }) => {
             <Link
               isExternal
               href="https://www.ubc.ca/"
-              className="popout-text"
+              color={standoutText}
             >
               UBC
             </Link>{' '}
@@ -52,7 +63,7 @@ const Intro = ({ id }) => {
             <Link
               isExternal
               href="https://nwplus.io/"
-              className="popout-text"
+              color={standoutText}
             >
               nwPlus
             </Link>{' '}
@@ -60,7 +71,7 @@ const Intro = ({ id }) => {
             <Link
               isExternal
               href="https://ubccsss.org/"
-              className="popout-text"
+              color={standoutText}
             >
               Computer Science Student Society
             </Link>
@@ -79,7 +90,7 @@ const Intro = ({ id }) => {
             through my{' '}
             <Link
               href="#contact-me"
-              className="popout-text"
+              color={standoutText}
             >
               contact form
             </Link>{' '}

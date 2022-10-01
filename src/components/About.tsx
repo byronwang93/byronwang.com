@@ -1,9 +1,11 @@
-import { Flex, HStack, Icon, Text } from '@chakra-ui/react';
+import { Flex, HStack, Icon, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Wave1, Wave2, Star1, Star2 } from '../assets/icons';
 import Typist from 'react-typist';
 
 const About = ({ id }) => {
+  const iconColour = useColorModeValue('light.primary', 'dark.primary');
+
   const waving = [Wave1, Wave2];
   const stars = [Star1, Star2];
   const [currWave, setCurrWave] = useState(0);
@@ -86,12 +88,17 @@ const About = ({ id }) => {
         </Text>
       </Flex>
       <Icon
+        stroke={iconColour}
+        strokeLinecap="round"
+        strokeWidth={3}
         display={{ base: 'none', md: 'initial' }}
         mt={{ base: '100px', md: '160px', lg: '110px' }}
         as={waving[currWave]}
         boxSize={{ base: 200, md: 280, lg: 350 }}
       />
       <Icon
+        stroke={iconColour}
+        strokeWidth={2.5}
         position="absolute"
         mt="100px"
         ml="50px"
@@ -99,6 +106,8 @@ const About = ({ id }) => {
         boxSize={5}
       />
       <Icon
+        stroke={iconColour}
+        strokeWidth={2.5}
         position="absolute"
         mt={{ base: '440px', md: '500px' }}
         ml={{ base: '300px', md: '410px' }}
@@ -106,6 +115,8 @@ const About = ({ id }) => {
         boxSize={5}
       />
       <Icon
+        stroke={iconColour}
+        strokeWidth={2.5}
         display={{ base: 'none', lg: 'initial' }}
         position="absolute"
         mt="180px"
@@ -114,6 +125,8 @@ const About = ({ id }) => {
         boxSize={5}
       />
       <Icon
+        stroke={iconColour}
+        strokeWidth={2.5}
         display={{ base: 'none', md: 'initial' }}
         position="absolute"
         mt={{ base: '50px', lg: '630px' }}
@@ -122,6 +135,8 @@ const About = ({ id }) => {
         boxSize={5}
       />
       <Icon
+        stroke={iconColour}
+        strokeWidth={2.5}
         position="absolute"
         mt="580px"
         as={stars[currWave]}

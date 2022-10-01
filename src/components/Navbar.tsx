@@ -1,7 +1,21 @@
 import React from 'react';
-import { Box, Flex, useBreakpointValue, Icon, Link } from '@chakra-ui/react';
+import {
+  useColorMode,
+  Box,
+  Flex,
+  useBreakpointValue,
+  Icon,
+  Link,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerBody,
+  Stack,
+} from '@chakra-ui/react';
 import { BiMenuAltRight } from 'react-icons/bi';
-import { SunIcon } from '../assets/icons';
+import { MoonIcon, SunIcon } from '../assets/icons';
 
 const navItems = [
   { text: 'About', ref: '#intro' },
@@ -13,6 +27,9 @@ const navItems = [
 
 const Navbar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
+  const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
 
   return (
     <Box
@@ -53,21 +70,60 @@ const Navbar = () => {
               );
             })
           ) : (
-            <Icon
-              cursor="pointer"
-              alignSelf="center"
-              ml="auto"
-              as={BiMenuAltRight}
-              boxSize={6}
-              mr="10px"
-            />
+            <>
+              <Icon
+                cursor="pointer"
+                alignSelf="center"
+                ml="auto"
+                as={BiMenuAltRight}
+                boxSize={6}
+                mr="10px"
+                onClick={onOpen}
+              />
+              <Drawer
+                isOpen={isOpen}
+                placement="right"
+                onClose={onClose}
+                finalFocusRef={btnRef}
+              >
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerBody>
+                    <Stack
+                      pt="35px"
+                      alignItems="center"
+                      spacing="30px"
+                    >
+                      {navItems.map((item, index) => {
+                        return (
+                          <Link
+                            textAlign="center"
+                            width="100%"
+                            href={item.ref}
+                            textDecoration="none !important"
+                            key={index}
+                            fontSize="20px"
+                            onClick={onClose}
+                            p="4px"
+                          >
+                            {item.text}
+                          </Link>
+                        );
+                      })}
+                    </Stack>
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
+            </>
           )}
           <Icon
             ml={{ base: 'none', lg: 'auto' }}
             boxSize={6}
             cursor="pointer"
             alignSelf="center"
-            as={SunIcon}
+            as={colorMode === 'light' ? SunIcon : MoonIcon}
+            onClick={toggleColorMode}
           />
         </>
       </Flex>

@@ -1,27 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Mukta&display=swap');
 
-:root {
-    --background-colour: #eeeff1;
-    --main-text-colour: black;
-    --standout-text: #ff5970;
-    --tag-text-colour: #ffa0ad;
-    --initial-button-colour: #ffa0ad;
-    --tag-text-colour: white;
-}
-
-.dark-theme {
-    --background-colour: #1a202c;
-    --main-text-colour: white;
-    --standout-text: #81e6d9;
-    --tag-text-colour: #81e6d9;
-    --initial-button-colour: #81e6d9;
-    --tag-text-colour: black;
-}
-
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--background-colour);
     font-family: 'Mukta' ,Helvetica, sans-serif;
 }
 
@@ -47,9 +28,4 @@ body {
 .header-line {
     height: 5;
     color: #1a202c;
-}
-
-/* popout text */
-.popout-text {
-    color: #FF5970;
 }

@@ -15,8 +15,8 @@ export default function Home() {
     <Layout>
       <Navbar />
       <Flex
-        height="100%"
         direction="column"
+        height="100%"
         alignItems="center"
       >
         <About id="about" />

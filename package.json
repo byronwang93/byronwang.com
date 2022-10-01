@@ -19,17 +19,20 @@
     "@chakra-ui/react": "^2.2.9",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "babel-plugin-styled-components": "^2.0.7",
     "eslint-config-react-app": "^7.0.1",
     "framer-motion": "^7.2.1",
     "gatsby": "^4.20.0",
     "gatsby-plugin-image": "^2.23.1",
+    "gatsby-plugin-styled-components": "^5.24.0",
     "gatsby-source-contentful": "^7.22.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",
     "react-responsive-carousel": "^3.2.23",
     "react-spring": "^9.5.4",
-    "react-typist": "^2.0.5"
+    "react-typist": "^2.0.5",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@types/react-typist": "^2.0.3",

@@ -15,6 +15,7 @@ const Tag = ({ content }: TagProps) => {
     'light.tagTextColour',
     'dark.tagTextColour'
   );
+
   return (
     <Box
       backgroundColor={tagColour}

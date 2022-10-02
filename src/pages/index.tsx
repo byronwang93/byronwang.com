@@ -1,6 +1,6 @@
-import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import Layout from '../components/Layout';
+import { Flex } from '@chakra-ui/react';
 import About from '../components/About';
 import Experience from '../components/Experience';
 import Projects from '../components/Projects';

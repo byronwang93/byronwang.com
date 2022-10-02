@@ -63,7 +63,7 @@ const ProjectCard = ({
               left="20px"
               key={id}
             >
-              ●{entry}
+              • {entry}
             </Text>
           );
         })}

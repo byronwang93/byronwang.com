@@ -23,6 +23,7 @@ const ProjectCard = ({
       flexDirection="column"
       pt="30px"
       pb="30px"
+      width="90%"
     >
       <Text
         pb="10px"

@@ -30,12 +30,12 @@ const Projects = ({ id }) => {
     <Flex
       id={id}
       pt="20px"
-      mt="50px"
-      mb="50px"
+      m="50px 4px 50px 4px"
       height="auto"
       justifyContent="center"
-      width={{ base: '390px', md: '700px', lg: '900px' }}
+      width={{ base: '370px', md: '700px', lg: '900px' }}
       flexDirection="column"
+      alignItems="center"
     >
       <HeaderText text="Projects" />
       {projects.map((project, id) => {

@@ -27,12 +27,10 @@ const ContactMe = ({ id }) => {
     <Flex
       id={id}
       pt="20px"
-      mt="50px"
-      mb="50px"
+      m="50px 4px 50px 4px"
       height="auto"
       flexDirection="column"
-      justifyContent="center"
-      width={{ base: '390px', md: '700px', lg: '1200px' }}
+      width={{ base: '370px', md: '700px', lg: '1200px' }}
     >
       <LeftWordsHeader text="Contact Me" />
       <Box
@@ -55,7 +53,7 @@ const ContactMe = ({ id }) => {
               name
             </FormLabel>
             <Input
-              w={{ base: '400px', md: '500px', lg: '650px' }}
+              w={{ base: '300px', md: '500px', lg: '650px' }}
               backgroundColor="white"
               type="text"
               name="name"

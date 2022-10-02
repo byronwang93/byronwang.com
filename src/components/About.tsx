@@ -46,18 +46,19 @@ const About = ({ id }) => {
     >
       <Flex
         pt="170px"
+        pl="5px"
         pb="280px"
         flexDirection="column"
         flexWrap="wrap"
         height="auto"
         minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
-        width={{ base: '380px', md: '460px', lg: '500px' }}
+        width={{ base: '340px', md: '460px', lg: '500px' }}
       >
         <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>
         <Text
           pt="50px"
           pb="50px"
-          fontSize="50px"
+          fontSize={{ base: '45px', md: '50px' }}
           className="name"
         >
           <HStack spacing="0">
@@ -139,6 +140,7 @@ const About = ({ id }) => {
         strokeWidth={2.5}
         position="absolute"
         mt="580px"
+        ml="20px"
         as={stars[currWave]}
         boxSize={5}
       />

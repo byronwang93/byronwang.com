@@ -35,10 +35,12 @@ const Experience = ({ id }) => {
       pt="20px"
       mt="50px"
       mb="50px"
+      m="0 4px 0 4px"
       height="auto"
       flexDirection="column"
       justifyContent="center"
-      width={{ base: '390px', md: '700px', lg: '900px' }}
+      alignItems="center"
+      width={{ base: '370px', md: '700px', lg: '900px' }}
     >
       <HeaderText text="Experience" />
       {experiences.map((experience, id) => {

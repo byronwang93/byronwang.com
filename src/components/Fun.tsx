@@ -15,7 +15,7 @@ const Fun = ({ id }) => {
       mb="50px"
       height="auto"
       justifyContent="center"
-      width={{ base: '390px', md: '700px', lg: '900px' }}
+      width={{ base: '330px', md: '700px', lg: '900px' }}
       alignItems="center"
     >
       <HeaderText text="Fun" />

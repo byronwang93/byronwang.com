@@ -30,3 +30,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const Head = () => <title>Byron Wang | Welcome!</title>;

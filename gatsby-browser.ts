@@ -1,2 +1,2 @@
 // global css file
-import './src/assets/css/main.css';
+import './src/components/layout.css';

@@ -22,6 +22,10 @@ const ContactMe = ({ id }) => {
     'light.tagTextColour',
     'dark.tagTextColour'
   );
+  const formColour = useColorModeValue(
+    'light.formBoxColour',
+    'dark.formBoxColour'
+  );
 
   return (
     <Flex
@@ -54,7 +58,7 @@ const ContactMe = ({ id }) => {
             </FormLabel>
             <Input
               w={{ base: '300px', md: '500px', lg: '650px' }}
-              backgroundColor="white"
+              backgroundColor={formColour}
               type="text"
               name="name"
               id="name"
@@ -66,7 +70,7 @@ const ContactMe = ({ id }) => {
           >
             <FormLabel htmlFor="email">email</FormLabel>
             <Input
-              backgroundColor="white"
+              backgroundColor={formColour}
               type="text"
               name="email"
               id="email"
@@ -76,7 +80,7 @@ const ContactMe = ({ id }) => {
             <FormLabel htmlFor="message">message</FormLabel>
             <Input
               flexWrap="wrap"
-              backgroundColor="white"
+              backgroundColor={formColour}
               name="message"
               id="message"
             />

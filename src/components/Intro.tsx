@@ -19,8 +19,8 @@ const Intro = ({ id }) => {
       id={id}
       flex={1}
       pt="20px"
-      mt="50px"
-      mb="50px"
+      mt="70px"
+      mb="70px"
       flexDirection="column"
       height="auto"
       justifyContent="center"

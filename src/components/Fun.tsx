@@ -11,8 +11,8 @@ const Fun = ({ id }) => {
       flexDirection="column"
       id={id}
       pt="20px"
-      mt="50px"
-      mb="50px"
+      mt="30px"
+      mb="70px"
       height="auto"
       justifyContent="center"
       width={{ base: '330px', md: '700px', lg: '900px' }}

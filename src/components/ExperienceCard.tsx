@@ -28,7 +28,7 @@ const ExperienceCard = ({
     <Flex
       flexDirection="column"
       width="91%"
-      pt="40px"
+      pt="20px"
       pb="40px"
     >
       <Text

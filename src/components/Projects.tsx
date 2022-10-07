@@ -30,7 +30,7 @@ const Projects = ({ id }) => {
     <Flex
       id={id}
       pt="20px"
-      m="50px 4px 50px 4px"
+      m="70px 4px 70px 4px"
       height="auto"
       justifyContent="center"
       width={{ base: '370px', md: '700px', lg: '900px' }}

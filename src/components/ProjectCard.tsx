@@ -21,8 +21,8 @@ const ProjectCard = ({
   return (
     <Flex
       flexDirection="column"
-      pt="30px"
-      pb="30px"
+      pt="20px"
+      pb="40px"
       width="90%"
     >
       <Text

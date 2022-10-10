@@ -1,6 +1,23 @@
-import { Flex, HStack, Icon, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Flex,
+  HStack,
+  Icon,
+  Text,
+  useColorModeValue,
+  useColorMode,
+  Box,
+} from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
-import { Wave1, Wave2, Star1, Star2 } from '../assets/icons';
+import {
+  Wave1,
+  Wave2,
+  LightModeDramatic,
+  DarkModeDramatic,
+  Star1,
+  Star2,
+  FirstQuestionMark,
+  SecondQuestionMark,
+} from '../assets/icons';
 import Typist from 'react-typist';
 
 const About = ({ id }) => {
@@ -8,7 +25,10 @@ const About = ({ id }) => {
 
   const waving = [Wave1, Wave2];
   const stars = [Star1, Star2];
+  const questionMark = [FirstQuestionMark, SecondQuestionMark];
   const [currWave, setCurrWave] = useState(0);
+  const [isEaster, setIsEaster] = useState(false);
+  const { colorMode } = useColorMode();
 
   const descriptions = [
     'A life science student turned programmer. 👾',
@@ -88,15 +108,53 @@ const About = ({ id }) => {
           </Typist>
         </Text>
       </Flex>
-      <Icon
-        stroke={iconColour}
-        strokeLinecap="round"
-        strokeWidth={3}
-        display={{ base: 'none', md: 'initial' }}
-        mt={{ base: '100px', md: '160px', lg: '110px' }}
-        as={waving[currWave]}
-        boxSize={{ base: 200, md: 280, lg: 350 }}
-      />
+      {isEaster ? (
+        <Box>
+          <Icon
+            as={questionMark[currWave]}
+            stroke={iconColour}
+            strokeLinecap="round"
+            strokeWidth={4}
+            boxSize={20}
+            position="absolute"
+            ml={{ md: '200px', lg: '270px' }}
+            mt={{ md: '150px', lg: '100px' }}
+            display={{ base: 'none', md: 'initial' }}
+          ></Icon>
+          <Icon
+            as={questionMark[currWave]}
+            stroke={iconColour}
+            strokeLinecap="round"
+            strokeWidth={4}
+            boxSize={20}
+            position="absolute"
+            ml={'-20px'}
+            mt={'300px'}
+            display={{ base: 'none', md: 'initial' }}
+          ></Icon>
+          <Icon
+            as={colorMode === 'light' ? LightModeDramatic : DarkModeDramatic}
+            stroke={iconColour}
+            strokeWidth={5}
+            strokeLinecap="round"
+            onClick={() => setIsEaster(false)}
+            boxSize={{ base: 200, md: 280, lg: 350 }}
+            mt={{ base: '100px', md: '160px', lg: '110px' }}
+            display={{ base: 'none', md: 'initial' }}
+          ></Icon>
+        </Box>
+      ) : (
+        <Icon
+          onClick={() => setIsEaster(true)}
+          stroke={iconColour}
+          strokeLinecap="round"
+          strokeWidth={3}
+          display={{ base: 'none', md: 'initial' }}
+          mt={{ base: '100px', md: '160px', lg: '110px' }}
+          as={waving[currWave]}
+          boxSize={{ base: 200, md: 280, lg: 350 }}
+        />
+      )}
       <Icon
         stroke={iconColour}
         strokeWidth={2.5}

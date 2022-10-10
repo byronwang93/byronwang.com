@@ -8,6 +8,7 @@ const SvgMoonIcon = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 43 43"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <path

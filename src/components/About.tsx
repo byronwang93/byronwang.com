@@ -135,6 +135,7 @@ const About = ({ id }) => {
           <Icon
             as={colorMode === 'light' ? LightModeDramatic : DarkModeDramatic}
             stroke={iconColour}
+            cursor="pointer"
             strokeWidth={5}
             strokeLinecap="round"
             onClick={() => setIsEaster(false)}
@@ -146,6 +147,7 @@ const About = ({ id }) => {
       ) : (
         <Icon
           onClick={() => setIsEaster(true)}
+          cursor="pointer"
           stroke={iconColour}
           strokeLinecap="round"
           strokeWidth={3}

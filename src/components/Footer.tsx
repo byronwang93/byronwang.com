@@ -29,11 +29,11 @@ const Footer = () => {
               boxSize={5}
               as={item.icon}
               cursor="pointer"
-              onClick={(e) => {
+              onClick={() => {
                 if (!item.link) {
-                  window.location.href = 'mailto:byronwang93@gmail.com';
+                  window.open('mailto:byronwang93@gmail.com');
                 } else {
-                  window.location.href = item.link;
+                  window.open(item.link);
                 }
               }}
             />

@@ -24,7 +24,7 @@ const query = graphql`
 
 const Projects = ({ id }) => {
   const data = useStaticQuery(query);
-  const projects = data.allContentfulProjects.nodes.reverse();
+  const projects = data.allContentfulProjects.nodes;
 
   return (
     <Flex

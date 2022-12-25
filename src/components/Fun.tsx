@@ -1,11 +1,13 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import HeaderText from './HeaderText';
-import { Carousel } from 'react-responsive-carousel';
+import YouTube from 'react-youtube';
 
 const Fun = ({ id }) => {
-  const slides = [{ image: 'test1' }, { image: 'test2' }];
-
+  const standoutText = useColorModeValue(
+    'light.standoutText',
+    'dark.standoutText'
+  );
   return (
     <Flex
       flexDirection="column"
@@ -20,32 +22,24 @@ const Fun = ({ id }) => {
     >
       <HeaderText text="Fun" />
       <Box
-        border="1px"
-        height="300px"
-        width={{ base: '100%', md: '500px', lg: '600px' }}
-        mb="40px"
-        borderRadius="10px"
-      ></Box>
+        width="100%"
+        //@ts-ignore
+        textAlign="-webkit-center"
+        pb="35px"
+      >
+        <YouTube
+          videoId="UYQfnTmqPCI"
+          opts={{
+            height: '380',
+            width: '80%',
+          }}
+        />
+      </Box>
       <Box
+        // width={{ base: '300px', md: '500px', lg: '700px' }}
         width={{ base: '300px', md: '400px', lg: '600px' }}
         fontSize="18px"
       >
-        {/* <Carousel
-          infiniteLoop
-          showArrows={true}
-        >
-          {slides.map((slide, id) => {
-            return (
-              <Text
-                // height="800px"
-                width="800px"
-                key={id}
-              >
-                {slide.image}
-              </Text>
-            );
-          })}
-        </Carousel> */}
         <Text pb="12px">
           Ever since I was a child, I’ve always had a passion for drawing,
           spending countless hours drawing comics with my brother and creating
@@ -53,9 +47,18 @@ const Fun = ({ id }) => {
         </Text>
         <Text>
           From the theme of my website, you can probably tell I haven’t grown
-          out of the doodling phase, so a goal for this year is to learn how to
-          animate! If I end up following through, here’s where I’ll be linking
-          the videos so keep checking back for future updates!
+          out of the doodling phase, so as of December 2022, I started a youtube
+          channel to practice animating! Looking to make more in the future so
+          keep checking back here for updates or consider checking out my
+          channel{' '}
+          <Link
+            isExternal
+            href="https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA"
+            color={standoutText}
+          >
+            here
+          </Link>{' '}
+          😌!
         </Text>
       </Box>
     </Flex>

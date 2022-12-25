@@ -36,7 +36,6 @@ const Fun = ({ id }) => {
         />
       </Box>
       <Box
-        // width={{ base: '300px', md: '500px', lg: '700px' }}
         width={{ base: '300px', md: '400px', lg: '600px' }}
         fontSize="18px"
       >

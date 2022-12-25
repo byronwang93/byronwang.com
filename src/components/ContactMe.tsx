@@ -34,7 +34,7 @@ const ContactMe = ({ id }) => {
       m="50px 4px 50px 4px"
       height="auto"
       flexDirection="column"
-      width={{ base: '370px', md: '700px', lg: '1200px' }}
+      width={{ base: '370px', md: '700px', lg: '1000px' }}
     >
       <LeftWordsHeader text="Contact Me" />
       <Box

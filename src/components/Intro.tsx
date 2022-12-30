@@ -37,7 +37,7 @@ const Intro = ({ id }) => {
           <Image
             pr={{ md: '40px' }}
             borderRadius="full"
-            src={`../../round.png`}
+            src={`../../round-coffee-picture copy.png`}
             alt="profile"
           />
         </Box>
@@ -48,9 +48,9 @@ const Intro = ({ id }) => {
           width={{ md: '50%' }}
         >
           <Text>
-            Hey, I’m Byron, and welcome to my website (version 2)! I’m an
-            incoming 4th year studying a combined major of Computer Science and
-            Microbiology & Immunology @{' '}
+            Hey, I’m Byron, and welcome to my website (version 2)! I’m an 4th
+            year studying a combined major of Computer Science and Microbiology
+            & Immunology @{' '}
             <Link
               isExternal
               href="https://www.ubc.ca/"

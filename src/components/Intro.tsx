@@ -37,7 +37,7 @@ const Intro = ({ id }) => {
           <Image
             pr={{ md: '40px' }}
             borderRadius="full"
-            src={`../../round-coffee-picture copy.png`}
+            src={`../../round-coffee-picture.png`}
             alt="profile"
           />
         </Box>

@@ -24,7 +24,7 @@ const Intro = ({ id }) => {
       flexDirection="column"
       height="auto"
       justifyContent="center"
-      width={{ base: '360px', md: '700px', lg: '1200px' }}
+      width={{ base: '360px', md: '700px', lg: '950px' }}
     >
       <HeaderText text="About Me" />
       <Flex

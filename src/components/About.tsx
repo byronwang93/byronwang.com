@@ -72,7 +72,6 @@ const About = ({ id }) => {
         pl={{ base: '5px', md: '30px' }}
         pb="280px"
         flexDirection="column"
-        // backgroundColor="pink"
         flexWrap="wrap"
         height="auto"
         minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
@@ -156,9 +155,8 @@ const About = ({ id }) => {
           fill={iconColour}
           strokeLinecap="round"
           strokeWidth={3}
-          // backgroundColor="red"
           display={{ base: 'none', md: 'initial' }}
-          mt={{ base: '100px', md: '100px', lg: '100px' }}
+          mt={{ base: '100px', md: '120px', lg: '100px' }}
           as={newWaving[currWave]}
           boxSize={{ base: 200, md: 330, lg: 400 }}
           position="relative"

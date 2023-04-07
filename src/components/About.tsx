@@ -11,6 +11,8 @@ import React, { useEffect, useState } from 'react';
 import {
   Wave1,
   Wave2,
+  Waving1Image,
+  Waving2Image,
   LightModeDramatic,
   DarkModeDramatic,
   Star1,
@@ -23,6 +25,7 @@ import Typist from 'react-typist';
 const About = ({ id }) => {
   const iconColour = useColorModeValue('light.primary', 'dark.primary');
 
+  const newWaving = [Waving1Image, Waving2Image];
   const waving = [Wave1, Wave2];
   const stars = [Star1, Star2];
   const questionMark = [FirstQuestionMark, SecondQuestionMark];
@@ -66,9 +69,10 @@ const About = ({ id }) => {
     >
       <Flex
         pt="170px"
-        pl="5px"
+        pl={{ base: '5px', md: '30px' }}
         pb="280px"
         flexDirection="column"
+        // backgroundColor="pink"
         flexWrap="wrap"
         height="auto"
         minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
@@ -118,7 +122,7 @@ const About = ({ id }) => {
             boxSize={20}
             position="absolute"
             ml={{ md: '200px', lg: '270px' }}
-            mt={{ md: '150px', lg: '100px' }}
+            mt={{ md: '90px', lg: '100px' }}
             display={{ base: 'none', md: 'initial' }}
           ></Icon>
           <Icon
@@ -129,7 +133,7 @@ const About = ({ id }) => {
             boxSize={20}
             position="absolute"
             ml={'-20px'}
-            mt={'300px'}
+            mt={'330px'}
             display={{ base: 'none', md: 'initial' }}
           ></Icon>
           <Icon
@@ -139,8 +143,9 @@ const About = ({ id }) => {
             strokeWidth={5}
             strokeLinecap="round"
             onClick={() => setIsEaster(false)}
-            boxSize={{ base: 200, md: 280, lg: 350 }}
-            mt={{ base: '100px', md: '160px', lg: '110px' }}
+            // boxSize={{ base: 200, md: 280, lg: 350 }}
+            boxSize={{ base: 200, md: 330, lg: 400 }}
+            mt={{ base: '100px', md: '130px', lg: '110px' }}
             display={{ base: 'none', md: 'initial' }}
           ></Icon>
         </Box>
@@ -148,13 +153,16 @@ const About = ({ id }) => {
         <Icon
           onClick={() => setIsEaster(true)}
           cursor="pointer"
-          stroke={iconColour}
+          fill={iconColour}
           strokeLinecap="round"
           strokeWidth={3}
+          // backgroundColor="red"
           display={{ base: 'none', md: 'initial' }}
-          mt={{ base: '100px', md: '160px', lg: '110px' }}
-          as={waving[currWave]}
-          boxSize={{ base: 200, md: 280, lg: 350 }}
+          mt={{ base: '100px', md: '100px', lg: '100px' }}
+          as={newWaving[currWave]}
+          boxSize={{ base: 200, md: 330, lg: 400 }}
+          position="relative"
+          right={{ base: '100px', md: '0px' }}
         />
       )}
       <Icon

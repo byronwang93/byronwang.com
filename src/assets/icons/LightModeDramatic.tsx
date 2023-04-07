@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
-
 const SvgLightModeDramatic = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="1em"
@@ -8,7 +7,6 @@ const SvgLightModeDramatic = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 521 552"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    role="img"
     {...props}
   >
     <path
@@ -62,5 +60,4 @@ const SvgLightModeDramatic = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SvgLightModeDramatic;

@@ -8,3 +8,5 @@ export { default as Star2 } from './Star2';
 export { default as SunIcon } from './SunIcon';
 export { default as Wave1 } from './Wave1';
 export { default as Wave2 } from './Wave2';
+export { default as Waving1Image } from './Waving1Image';
+export { default as Waving2Image } from './Waving2Image';

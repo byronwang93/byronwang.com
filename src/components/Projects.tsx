@@ -1,5 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import React from 'react';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 import HeaderText from './HeaderText';
 import ProjectCard from './ProjectCard';
 
@@ -64,8 +66,33 @@ const projects = [
 ];
 
 const Projects = ({ id }) => {
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Flex
+      ref={targetRef}
+      className="fade-in"
       id={id}
       pt="20px"
       m="70px 4px 70px 4px"

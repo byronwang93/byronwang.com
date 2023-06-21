@@ -2,6 +2,8 @@ import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import HeaderText from './HeaderText';
 import ExperienceCard from './ExperienceCard';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 const experiences = [
   // {
@@ -43,8 +45,33 @@ const experiences = [
 ];
 
 const Experience = ({ id }) => {
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Flex
+      ref={targetRef}
+      className="fade-in"
       id={id}
       pt="20px"
       mt="70px"

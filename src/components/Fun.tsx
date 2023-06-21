@@ -2,14 +2,42 @@ import { Box, Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import HeaderText from './HeaderText';
 import YouTube from 'react-youtube';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 const Fun = ({ id }) => {
   const standoutText = useColorModeValue(
     'light.standoutText',
     'dark.standoutText'
   );
+
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Flex
+      className="fade-in"
+      ref={targetRef}
       flexDirection="column"
       id={id}
       pt="20px"

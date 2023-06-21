@@ -6,7 +6,7 @@ import {
   Link,
   useColorModeValue,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
 
 const Intro = ({ id }) => {
@@ -14,8 +14,34 @@ const Intro = ({ id }) => {
     'light.standoutText',
     'dark.standoutText'
   );
+
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Flex
+      ref={targetRef}
+      className="fade-in"
       id={id}
       flex={1}
       pt="20px"

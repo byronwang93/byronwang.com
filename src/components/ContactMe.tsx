@@ -7,6 +7,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import React from 'react';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 import LeftWordsHeader from './HeaderText';
 
 const ContactMe = ({ id }) => {
@@ -27,8 +29,33 @@ const ContactMe = ({ id }) => {
     'dark.formBoxColour'
   );
 
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Flex
+      className="fade-in"
+      ref={targetRef}
       id={id}
       pt="20px"
       m="50px 4px 50px 4px"

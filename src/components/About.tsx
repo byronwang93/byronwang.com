@@ -21,6 +21,7 @@ import {
   SecondQuestionMark,
 } from '../assets/icons';
 import Typist from 'react-typist';
+import { useRef } from 'react';
 
 const About = ({ id }) => {
   const iconColour = useColorModeValue('light.primary', 'dark.primary');
@@ -60,8 +61,33 @@ const About = ({ id }) => {
     return () => clearInterval(intervalId);
   }, [currWave]);
 
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Flex
+      ref={targetRef}
+      className="fade-in"
       id={id}
       flex={1}
       pt="20px"

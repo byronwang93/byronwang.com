@@ -74,9 +74,9 @@ const Intro = ({ id }) => {
           width={{ md: '50%' }}
         >
           <Text>
-            Hey, I’m Byron, and welcome to my website (version 2)! I’m an 4th
-            year studying a combined major of Computer Science and Microbiology
-            & Immunology @{' '}
+            Hey, I’m Byron, and welcome to my website (version 2)! I’m an
+            incoming 5th year studying a combined major of Computer Science and
+            Microbiology & Immunology @{' '}
             <Link
               isExternal
               href="https://www.ubc.ca/"
@@ -92,14 +92,6 @@ const Intro = ({ id }) => {
               color={standoutText}
             >
               nwPlus
-            </Link>{' '}
-            and the{' '}
-            <Link
-              isExternal
-              href="https://ubccsss.org/"
-              color={standoutText}
-            >
-              Computer Science Student Society
             </Link>
             ), playing ping pong, or sipping a coffee.
           </Text>

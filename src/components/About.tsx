@@ -6,6 +6,7 @@ import {
   useColorModeValue,
   useColorMode,
   Box,
+  Image,
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import {
@@ -139,7 +140,18 @@ const About = ({ id }) => {
       </Flex>
       {isEaster ? (
         <Box>
-          <Icon
+          <Image
+            borderRadius="25%"
+            w="250px"
+            onClick={() => setIsEaster(false)}
+            src="./EasterEggGif.gif"
+            _hover={{
+              cursor: 'pointer',
+            }}
+            mt={{ base: '130px', md: '140px', lg: '140px' }}
+            display={{ base: 'none', md: 'initial' }}
+          />
+          {/* <Icon
             as={questionMark[currWave]}
             stroke={iconColour}
             strokeLinecap="round"
@@ -172,7 +184,7 @@ const About = ({ id }) => {
             boxSize={{ base: 200, md: 330, lg: 400 }}
             mt={{ base: '100px', md: '130px', lg: '110px' }}
             display={{ base: 'none', md: 'initial' }}
-          ></Icon>
+          ></Icon> */}
         </Box>
       ) : (
         <Icon

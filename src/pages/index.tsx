@@ -9,6 +9,7 @@ import ContactMe from '../components/ContactMe';
 import Intro from '../components/Intro';
 import MovingArrow from '../components/MovingArrow';
 import Navbar from '../components/Navbar';
+import NewAbout from '../components/NewAbout';
 
 export default function Home() {
   return (
@@ -19,13 +20,13 @@ export default function Home() {
         height="100%"
         alignItems="center"
       >
-        <About id="about" />
+        <NewAbout id="about" />
+        {/* <About id="about" /> */}
         <MovingArrow />
         <Intro id="intro" />
         <Experience id="experience" />
         <Projects id="projects" />
         <Fun id="fun" />
-        <ContactMe id="contact-me" />
       </Flex>
     </Layout>
   );

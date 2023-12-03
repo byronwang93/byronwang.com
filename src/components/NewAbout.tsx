@@ -24,7 +24,7 @@ import {
 import Typist from 'react-typist';
 import { useRef } from 'react';
 
-const About = ({ id }) => {
+const NewAbout = ({ id }) => {
   const iconColour = useColorModeValue('light.primary', 'dark.primary');
 
   const newWaving = [Waving1Image, Waving2Image];
@@ -36,10 +36,10 @@ const About = ({ id }) => {
   const { colorMode } = useColorMode();
 
   const descriptions = [
-    'A life science student turned programmer. 👾',
-    'A caffeine enthusiast. ☕️',
-    'A wannabe ping pong player. 🏓',
-    'A (self-proclaimed) cool guy. 😎',
+    'A life science student turned programmer.',
+    'A caffeine enthusiast.',
+    'A wannabe bowler.',
+    'A (self-proclaimed) cool guy.',
   ];
   const [index, setIndex] = useState(0);
   const handleChange = () => {
@@ -87,6 +87,7 @@ const About = ({ id }) => {
 
   return (
     <Flex
+      bgColor="green.100"
       ref={targetRef}
       className="fade-in"
       id={id}
@@ -95,35 +96,20 @@ const About = ({ id }) => {
       flexDirection="row"
     >
       <Flex
-        pt="170px"
+        pt={{ base: '200px', md: '230px' }}
+        bgColor="blue.100"
         pl={{ base: '5px', md: '30px' }}
-        pb="280px"
+        // pb="280px"
         flexDirection="column"
         flexWrap="wrap"
         height="auto"
         minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
         width={{ base: '340px', md: '460px', lg: '500px' }}
+        fontWeight="700"
       >
-        <Text fontSize={{ base: '25px', md: '20px' }}>Howdy peeps! I'm</Text>
-        <Text
-          pt="50px"
-          pb="50px"
-          fontSize={{ base: '45px', md: '50px' }}
-          className="name"
-        >
-          <HStack spacing="0">
-            <Text color="#4285f4">By</Text>
-            <Text
-              color="#ea4335"
-              pr="10px"
-            >
-              ron
-            </Text>
-            <Text color="#fbbc05">Wa</Text>
-            <Text color="#34a853">ng</Text>
-          </HStack>
-        </Text>
-        <Text fontSize={{ base: '25px', md: '20px' }}>
+        <Text fontSize={{ base: '25px', md: '30px' }}>Howdy! I'm</Text>
+        <Text fontSize={{ base: '40px', md: '50px' }}>Byron Wang</Text>
+        <Text fontSize={{ base: '25px', md: '30px' }}>
           <Typist
             className="typist"
             onTypingDone={handleChange}
@@ -138,8 +124,9 @@ const About = ({ id }) => {
           </Typist>
         </Text>
       </Flex>
+
       {isEaster ? (
-        <Box>
+        <Box bgColor="purple">
           <Image
             borderRadius="25%"
             w="250px"
@@ -151,43 +138,10 @@ const About = ({ id }) => {
             mt={{ base: '130px', md: '140px', lg: '140px' }}
             display={{ base: 'none', md: 'initial' }}
           />
-          {/* <Icon
-            as={questionMark[currWave]}
-            stroke={iconColour}
-            strokeLinecap="round"
-            strokeWidth={4}
-            boxSize={20}
-            position="absolute"
-            ml={{ md: '200px', lg: '270px' }}
-            mt={{ md: '90px', lg: '100px' }}
-            display={{ base: 'none', md: 'initial' }}
-          ></Icon>
-          <Icon
-            as={questionMark[currWave]}
-            stroke={iconColour}
-            strokeLinecap="round"
-            strokeWidth={4}
-            boxSize={20}
-            position="absolute"
-            ml={'-20px'}
-            mt={'330px'}
-            display={{ base: 'none', md: 'initial' }}
-          ></Icon>
-          <Icon
-            as={colorMode === 'light' ? LightModeDramatic : DarkModeDramatic}
-            stroke={iconColour}
-            cursor="pointer"
-            strokeWidth={5}
-            strokeLinecap="round"
-            onClick={() => setIsEaster(false)}
-            // boxSize={{ base: 200, md: 280, lg: 350 }}
-            boxSize={{ base: 200, md: 330, lg: 400 }}
-            mt={{ base: '100px', md: '130px', lg: '110px' }}
-            display={{ base: 'none', md: 'initial' }}
-          ></Icon> */}
         </Box>
       ) : (
         <Icon
+          bgColor="purple"
           onClick={() => setIsEaster(true)}
           cursor="pointer"
           fill={iconColour}
@@ -201,55 +155,8 @@ const About = ({ id }) => {
           right={{ base: '100px', md: '0px' }}
         />
       )}
-      <Icon
-        stroke={iconColour}
-        strokeWidth={2.5}
-        position="absolute"
-        mt="100px"
-        ml="50px"
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        stroke={iconColour}
-        strokeWidth={2.5}
-        position="absolute"
-        mt={{ base: '440px', md: '500px' }}
-        ml={{ base: '300px', md: '410px' }}
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        stroke={iconColour}
-        strokeWidth={2.5}
-        display={{ base: 'none', lg: 'initial' }}
-        position="absolute"
-        mt="180px"
-        ml="850px"
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        stroke={iconColour}
-        strokeWidth={2.5}
-        display={{ base: 'none', md: 'initial' }}
-        position="absolute"
-        mt={{ base: '50px', lg: '630px' }}
-        ml={{ base: '640px', lg: '750px' }}
-        as={stars[currWave]}
-        boxSize={5}
-      />
-      <Icon
-        stroke={iconColour}
-        strokeWidth={2.5}
-        position="absolute"
-        mt="580px"
-        ml="20px"
-        as={stars[currWave]}
-        boxSize={5}
-      />
     </Flex>
   );
 };
 
-export default About;
+export default NewAbout;

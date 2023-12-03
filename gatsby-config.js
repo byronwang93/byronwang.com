@@ -17,21 +17,29 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-omni-font-loader`,
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
-        enableListener: true,
-        preconnect: [
-          `https://fonts.googleapis.com`,
-          `https://fonts.gstatic.com`,
-        ],
-        web: [
-          {
-            name: `Mukta`,
-            file: `https://fonts.googleapis.com/css2?family=Montserrat&family=Mukta&display=swap`,
-          },
-        ],
+        google: {
+          families: ['Montserrat:300,400,600,700', 'Roboto:400,700'], // Specify the fonts and weights you want to use
+        },
       },
     },
+    // {
+    //   resolve: `gatsby-omni-font-loader`,
+    //   options: {
+    //     enableListener: true,
+    //     preconnect: [
+    //       `https://fonts.googleapis.com`,
+    //       `https://fonts.gstatic.com`,
+    //     ],
+    //     web: [
+    //       {
+    //         name: `Mukta`,
+    //         file: `https://fonts.googleapis.com/css2?family=Montserrat&family=Mukta&display=swap`,
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {

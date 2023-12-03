@@ -25,6 +25,7 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-image": "^2.23.1",
     "gatsby-plugin-styled-components": "^5.24.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^7.22.0",
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",

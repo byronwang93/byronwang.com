@@ -87,7 +87,6 @@ const NewAbout = ({ id }) => {
 
   return (
     <Flex
-      bgColor="green.100"
       ref={targetRef}
       className="fade-in"
       id={id}
@@ -97,7 +96,6 @@ const NewAbout = ({ id }) => {
     >
       <Flex
         pt={{ base: '200px', md: '230px' }}
-        bgColor="blue.100"
         pl={{ base: '5px', md: '30px' }}
         // pb="280px"
         flexDirection="column"
@@ -126,7 +124,7 @@ const NewAbout = ({ id }) => {
       </Flex>
 
       {isEaster ? (
-        <Box bgColor="purple">
+        <Box>
           <Image
             borderRadius="25%"
             w="250px"
@@ -141,7 +139,6 @@ const NewAbout = ({ id }) => {
         </Box>
       ) : (
         <Icon
-          bgColor="purple"
           onClick={() => setIsEaster(true)}
           cursor="pointer"
           fill={iconColour}

@@ -105,9 +105,9 @@ const NewAbout = ({ id }) => {
         width={{ base: '340px', md: '460px', lg: '500px' }}
         fontWeight="700"
       >
-        <Text fontSize={{ base: '25px', md: '30px' }}>Howdy! I'm</Text>
-        <Text fontSize={{ base: '40px', md: '50px' }}>Byron Wang</Text>
-        <Text fontSize={{ base: '25px', md: '30px' }}>
+        <Text fontSize={{ base: '27px', md: '30px' }}>Howdy! I'm</Text>
+        <Text fontSize={{ base: '44px', md: '50px' }}>Byron Wang</Text>
+        <Text fontSize={{ base: '27px', md: '30px' }}>
           <Typist
             className="typist"
             onTypingDone={handleChange}
@@ -127,30 +127,31 @@ const NewAbout = ({ id }) => {
         <Box>
           <Image
             borderRadius="25%"
-            w="250px"
+            w="400px"
             onClick={() => setIsEaster(false)}
             src="./EasterEggGif.gif"
             _hover={{
               cursor: 'pointer',
             }}
-            mt={{ base: '130px', md: '140px', lg: '140px' }}
+            mt={{ base: '130px', md: '120px', lg: '120px' }}
             display={{ base: 'none', md: 'initial' }}
           />
         </Box>
       ) : (
-        <Icon
-          onClick={() => setIsEaster(true)}
-          cursor="pointer"
-          fill={iconColour}
-          strokeLinecap="round"
-          strokeWidth={3}
-          display={{ base: 'none', md: 'initial' }}
-          mt={{ base: '100px', md: '120px', lg: '100px' }}
-          as={newWaving[currWave]}
-          boxSize={{ base: 200, md: 330, lg: 400 }}
-          position="relative"
-          right={{ base: '100px', md: '0px' }}
-        />
+        <Box>
+          <Image
+            borderRadius="25%"
+            // w="400px"
+            w="250px"
+            onClick={() => setIsEaster(true)}
+            src={colorMode === 'dark' ? './night-thin.gif' : './day-thin.gif'}
+            _hover={{
+              cursor: 'pointer',
+            }}
+            mt={{ base: '130px', md: '120px', lg: '120px' }}
+            display={{ base: 'none', md: 'initial' }}
+          />
+        </Box>
       )}
     </Flex>
   );

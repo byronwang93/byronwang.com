@@ -102,12 +102,12 @@ const NewAbout = ({ id }) => {
         flexWrap="wrap"
         height="auto"
         minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
-        width={{ base: '340px', md: '460px', lg: '500px' }}
+        width={{ base: '350px', md: '400px', lg: '400px' }}
         fontWeight="700"
       >
-        <Text fontSize={{ base: '27px', md: '30px' }}>Howdy! I'm</Text>
-        <Text fontSize={{ base: '44px', md: '50px' }}>Byron Wang</Text>
-        <Text fontSize={{ base: '27px', md: '30px' }}>
+        <Text fontSize="38px">Howdy! I'm</Text>
+        <Text fontSize="55px">Byron Wang</Text>
+        <Text fontSize={{ base: '30px', md: '34px' }}>
           <Typist
             className="typist"
             onTypingDone={handleChange}

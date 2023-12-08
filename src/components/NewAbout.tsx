@@ -36,10 +36,10 @@ const NewAbout = ({ id }) => {
   const { colorMode } = useColorMode();
 
   const descriptions = [
-    'A life science student turned programmer.',
+    'A software developer.',
     'A caffeine enthusiast.',
     'A wannabe bowler.',
-    'A (self-proclaimed) cool guy.',
+    'A cartoonist.',
   ];
   const [index, setIndex] = useState(0);
   const handleChange = () => {

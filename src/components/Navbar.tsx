@@ -18,11 +18,10 @@ import { BiMenuAltRight } from 'react-icons/bi';
 import { MoonIcon, SunIcon } from '../assets/icons';
 
 const navItems = [
-  { text: 'About', ref: '#intro' },
-  { text: 'Experience', ref: '#experience' },
-  { text: 'Projects', ref: '#projects' },
+  { text: 'about', ref: '#intro' },
+  { text: 'experience', ref: '#experience' },
+  { text: 'projects', ref: '#projects' },
   { text: 'Fun', ref: '#fun' },
-  { text: 'Contact Me', ref: '#contact-me' },
 ];
 
 const Navbar = () => {
@@ -38,6 +37,7 @@ const Navbar = () => {
       as="section"
       pb="12px"
       pr="20px"
+      fontWeight="semibold"
     >
       <Flex
         pl="22px"
@@ -52,7 +52,7 @@ const Navbar = () => {
             fontSize="20px"
             textDecoration="none !important"
           >
-            Byron Wang
+            bw
           </Link>
           {isDesktop ? (
             navItems.map((item, index) => {

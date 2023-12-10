@@ -10,11 +10,12 @@ import Intro from '../components/Intro';
 import MovingArrow from '../components/MovingArrow';
 import Navbar from '../components/Navbar';
 import NewAbout from '../components/NewAbout';
+import NewNavbar from '../components/NewNavbar';
 
 export default function Home() {
   return (
     <Layout>
-      <Navbar />
+      <NewNavbar />
       <Flex
         direction="column"
         height="100%"

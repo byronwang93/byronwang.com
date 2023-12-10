@@ -83,77 +83,105 @@ const NewAbout = ({ id }) => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [colorMode]);
 
   return (
-    <Flex
+    <Box
       ref={targetRef}
       className="fade-in"
-      id={id}
-      flex={1}
-      pt="20px"
-      flexDirection="row"
     >
       <Flex
-        pt={{ base: '200px', md: '230px' }}
-        pl={{ base: '5px', md: '30px' }}
-        // pb="280px"
-        flexDirection="column"
-        flexWrap="wrap"
-        height="auto"
-        minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
-        width={{ base: '350px', md: '400px', lg: '400px' }}
-        fontWeight="700"
+        backgroundImage={{
+          base: 'none',
+          md: `url('${
+            colorMode === 'dark'
+              ? './night-background.gif'
+              : './day-background.gif'
+          }')`,
+        }}
+        backgroundSize="105%"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        alignContent="center"
+        id={id}
+        flex={1}
+        px="60px"
+        py="100px"
+        flexDirection={{ base: 'column', md: 'row' }}
       >
-        <Text fontSize="38px">Howdy! I'm</Text>
-        <Text fontSize="55px">Byron Wang</Text>
-        <Text fontSize={{ base: '30px', md: '34px' }}>
-          <Typist
-            className="typist"
-            onTypingDone={handleChange}
-            stdTypingDelay={25}
-            key={index}
-          >
-            {descriptions[index]}
-            <Typist.Backspace
-              count={descriptions[index].length - 2}
-              delay={2000}
-            />
-          </Typist>
-        </Text>
-      </Flex>
+        <Flex
+          justifyContent="center"
+          pl={{ base: '5px', md: '30px' }}
+          flexDirection="column"
+          flexWrap="wrap"
+          height="auto"
+          // minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
+          width={{ base: '350px', md: '400px', lg: '400px' }}
+          fontWeight="700"
+        >
+          <Text fontSize="38px">Howdy! I'm</Text>
+          <Text fontSize="55px">Byron Wang</Text>
+          <Text fontSize={{ base: '30px', md: '34px' }}>
+            <Typist
+              className="typist"
+              onTypingDone={handleChange}
+              stdTypingDelay={25}
+              key={index}
+            >
+              {descriptions[index]}
+              <Typist.Backspace
+                count={descriptions[index].length - 2}
+                delay={2000}
+              />
+            </Typist>
+          </Text>
+        </Flex>
 
-      {isEaster ? (
-        <Box>
-          <Image
-            borderRadius="25%"
-            w="400px"
-            onClick={() => setIsEaster(false)}
-            src="./EasterEggGif.gif"
-            _hover={{
-              cursor: 'pointer',
-            }}
-            mt={{ base: '130px', md: '120px', lg: '120px' }}
-            display={{ base: 'none', md: 'initial' }}
-          />
+        <Box
+          alignSelf="center"
+          backgroundImage={{
+            base: `url('${
+              colorMode === 'dark'
+                ? './night-background.gif'
+                : './day-background.gif'
+            }')`,
+            md: 'none',
+          }}
+          px={{ base: '30px', md: '0px' }}
+          py={{ base: '30px', md: '0px' }}
+          backgroundSize="235%"
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          alignContent="center"
+        >
+          {isEaster ? (
+            <Image
+              borderRadius="25%"
+              w={{ base: '220px', md: '250px' }}
+              onClick={() => setIsEaster(false)}
+              src="./EasterEggGif.gif"
+              _hover={{
+                cursor: 'pointer',
+              }}
+              // mt={{ base: '130px', md: '120px', lg: '120px' }}
+              //   display={{ base: 'none', md: 'initial' }}
+            />
+          ) : (
+            <Image
+              borderRadius="25%"
+              // w="400px"
+              w={{ base: '220px', md: '250px' }}
+              onClick={() => setIsEaster(true)}
+              src={colorMode === 'dark' ? './night-thin.gif' : './day-thin.gif'}
+              _hover={{
+                cursor: 'pointer',
+              }}
+              //   display={{ base: 'none', md: 'initial' }}
+            />
+          )}
         </Box>
-      ) : (
-        <Box>
-          <Image
-            borderRadius="25%"
-            // w="400px"
-            w="250px"
-            onClick={() => setIsEaster(true)}
-            src={colorMode === 'dark' ? './night-thin.gif' : './day-thin.gif'}
-            _hover={{
-              cursor: 'pointer',
-            }}
-            mt={{ base: '130px', md: '120px', lg: '120px' }}
-            display={{ base: 'none', md: 'initial' }}
-          />
-        </Box>
-      )}
-    </Flex>
+      </Flex>
+    </Box>
   );
 };
 

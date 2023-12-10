@@ -105,8 +105,8 @@ const NewAbout = ({ id }) => {
         alignContent="center"
         id={id}
         flex={1}
-        px="60px"
-        py="100px"
+        px={{ base: '0px', md: '60px' }}
+        py={{ base: '40px', md: '100px' }}
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex
@@ -116,7 +116,7 @@ const NewAbout = ({ id }) => {
           flexWrap="wrap"
           height="auto"
           // minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
-          width={{ base: '350px', md: '400px', lg: '400px' }}
+          width={{ base: '330px', md: '400px', lg: '400px' }}
           fontWeight="700"
         >
           <Text fontSize="38px">Howdy! I'm</Text>
@@ -139,6 +139,8 @@ const NewAbout = ({ id }) => {
 
         <Box
           alignSelf="center"
+          mt={{ base: '35px', md: '0px' }}
+          //   bgColor="green.100"
           backgroundImage={{
             base: `url('${
               colorMode === 'dark'

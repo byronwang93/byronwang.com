@@ -1,7 +1,5 @@
 import {
   Flex,
-  HStack,
-  Icon,
   Text,
   useColorModeValue,
   useColorMode,
@@ -9,28 +7,10 @@ import {
   Image,
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
-import {
-  Wave1,
-  Wave2,
-  Waving1Image,
-  Waving2Image,
-  LightModeDramatic,
-  DarkModeDramatic,
-  Star1,
-  Star2,
-  FirstQuestionMark,
-  SecondQuestionMark,
-} from '../assets/icons';
 import Typist from 'react-typist';
 import { useRef } from 'react';
 
 const NewAbout = ({ id }) => {
-  const iconColour = useColorModeValue('light.primary', 'dark.primary');
-
-  const newWaving = [Waving1Image, Waving2Image];
-  const waving = [Wave1, Wave2];
-  const stars = [Star1, Star2];
-  const questionMark = [FirstQuestionMark, SecondQuestionMark];
   const [currWave, setCurrWave] = useState(0);
   const [isEaster, setIsEaster] = useState(false);
   const { colorMode } = useColorMode();
@@ -115,7 +95,6 @@ const NewAbout = ({ id }) => {
           flexDirection="column"
           flexWrap="wrap"
           height="auto"
-          // minHeight={{ base: '70vh', md: '72vh', lg: '84vh' }}
           width={{ base: '330px', md: '400px', lg: '400px' }}
           fontWeight="700"
         >
@@ -140,7 +119,6 @@ const NewAbout = ({ id }) => {
         <Box
           alignSelf="center"
           mt={{ base: '35px', md: '0px' }}
-          //   bgColor="green.100"
           backgroundImage={{
             base: `url('${
               colorMode === 'dark'
@@ -165,8 +143,6 @@ const NewAbout = ({ id }) => {
               _hover={{
                 cursor: 'pointer',
               }}
-              // mt={{ base: '130px', md: '120px', lg: '120px' }}
-              //   display={{ base: 'none', md: 'initial' }}
             />
           ) : (
             <Image

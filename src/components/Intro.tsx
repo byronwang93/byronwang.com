@@ -5,15 +5,37 @@ import {
   Text,
   Link,
   useColorModeValue,
+  VStack,
+  HStack,
+  Icon,
 } from '@chakra-ui/react';
 import React, { useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
+import { RiLinkedinBoxFill } from 'react-icons/ri';
+import {
+  AiOutlineGithub,
+  AiOutlineYoutube,
+  AiOutlineMail,
+} from 'react-icons/ai';
 
 const Intro = ({ id }) => {
   const standoutText = useColorModeValue(
     'light.standoutText',
     'dark.standoutText'
   );
+
+  const socialIcons = [
+    { icon: AiOutlineGithub, link: 'https://github.com/byronwang93' },
+    {
+      icon: RiLinkedinBoxFill,
+      link: 'https://www.linkedin.com/in/byronwang93/',
+    },
+    { icon: AiOutlineMail },
+    {
+      icon: AiOutlineYoutube,
+      link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
+    },
+  ];
 
   const targetRef = useRef(null);
 
@@ -40,6 +62,7 @@ const Intro = ({ id }) => {
 
   return (
     <Flex
+      // fontWeight="600"
       ref={targetRef}
       className="fade-in"
       id={id}
@@ -50,33 +73,56 @@ const Intro = ({ id }) => {
       flexDirection="column"
       height="auto"
       justifyContent="center"
-      width={{ base: '360px', md: '700px', lg: '950px' }}
+      width={{ base: '330px', md: '600px', lg: '800px' }}
     >
       <HeaderText text="About Me" />
       <Flex
-        pt="20px"
         justifyContent="center"
-        alignItems={{ base: 'center', md: 'normal' }}
         flexDirection={{ base: 'column', md: 'row' }}
       >
-        <Box boxSize={340}>
+        <VStack
+          pr={{ base: '0px', almostSm: '30px' }}
+          pl={{ base: '0px', almostSm: '50px' }}
+          pt={{ base: '0px', md: '50px', lg: '10px' }}
+        >
           <Image
-            pr={{ md: '40px' }}
+            // pr={{ md: '40px' }}
+            pb="10px"
             borderRadius="full"
             src={`../../round-coffee-picture.png`}
             alt="profile"
+            width={{ base: '250px', md: '350px' }}
           />
-        </Box>
-        <Box
-          pt={{ base: '30px', md: '0' }}
-          pl="20px"
-          fontSize="20px"
-          width={{ md: '50%' }}
+          <HStack spacing="20px">
+            {socialIcons.map((item, index) => {
+              return (
+                <Icon
+                  key={index}
+                  boxSize={10}
+                  as={item.icon}
+                  cursor="pointer"
+                  onClick={() => {
+                    if (!item.link) {
+                      window.open('mailto:byronwang93@gmail.com');
+                    } else {
+                      window.open(item.link);
+                    }
+                  }}
+                />
+              );
+            })}
+          </HStack>
+        </VStack>
+        <VStack
+          pl={{ base: '0px', almostSm: '20px' }}
+          alignItems="baseline"
+          fontSize="16px"
+          spacing="20px"
+          pt={{ base: '20px', md: '0px' }}
         >
+          <Text fontWeight="bold">Hi there!</Text>
           <Text>
-            Hey, I’m Byron, and welcome to my website (version 2)! I’m an
-            incoming 5th year studying a combined major of Computer Science and
-            Microbiology & Immunology @{' '}
+            I'm Byron, and welcome to my website! I'm a 5th year @{' '}
             <Link
               isExternal
               href="https://www.ubc.ca/"
@@ -84,8 +130,9 @@ const Intro = ({ id }) => {
             >
               UBC
             </Link>{' '}
-            with a passion for tech. If you spot me outside of the coding booth,
-            you’ll likely see me in a meeting (currently a member of{' '}
+            studying Computer Science and Microbiology & Immunology. If you spot
+            me outside class, you’ll likely see me in a meeting (currently a
+            member of{' '}
             <Link
               isExternal
               href="https://nwplus.io/"
@@ -93,28 +140,18 @@ const Intro = ({ id }) => {
             >
               nwPlus
             </Link>
-            ), playing ping pong, or sipping a coffee.
+            ), bowling, or sipping a coffee.
           </Text>
-          <br />
           <Text>
-            I’ll be using this webpage as a personal portfolio on life updates,
-            projects, and a canvas for all the random thoughts that my brain
-            cycles through, so feel free to poke around!
+            I'll be using this website as a random canvas for life updates,
+            projects, and any random thoughts so feel free to poke around!
           </Text>
-          <br />
           <Text>
-            I really appreciate your time and I’m always down to meet
-            like-minded individuals so if want to contact me, shoot me an email
-            through my{' '}
-            <Link
-              href="#contact-me"
-              color={standoutText}
-            >
-              contact form
-            </Link>{' '}
-            or through my socials (linked in the footer)! :’)
+            If you like what you see and want to chat, my socials are underneath
+            my profile picture and in the footer so reach out! Down to coffee
+            chat anytime :')
           </Text>
-        </Box>
+        </VStack>
       </Flex>
     </Flex>
   );

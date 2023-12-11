@@ -20,7 +20,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: ['Montserrat:300,400,600,700', 'Roboto:400,700'], // Specify the fonts and weights you want to use
+          families: ['Montserrat:300,400,500,600,700', 'Roboto:400,700'], // Specify the fonts and weights you want to use
         },
       },
     },

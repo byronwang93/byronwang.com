@@ -7,10 +7,6 @@ interface TagProps {
 
 const Tag = ({ content }: TagProps) => {
   const tagColour = useColorModeValue('light.tagColour', 'dark.tagColour');
-  const hoverColour = useColorModeValue(
-    'light.hoverColour',
-    'dark.hoverColour'
-  );
   const textColour = useColorModeValue(
     'light.tagTextColour',
     'dark.tagTextColour'
@@ -19,7 +15,6 @@ const Tag = ({ content }: TagProps) => {
   return (
     <Box
       backgroundColor={tagColour}
-      _hover={{ backgroundColor: hoverColour }}
       m="3px 5px 3px 5px"
       color={textColour}
       borderRadius="4px"

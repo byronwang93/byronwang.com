@@ -9,6 +9,7 @@ const HeaderText: FC<HeaderProps> = (props): JSX.Element => {
   return (
     <Flex
       flexDirection="row"
+      justifyContent="center"
       alignSelf="center"
       mb="20px"
     >

@@ -95,7 +95,7 @@ const NewAbout = ({ id }) => {
           flexDirection="column"
           flexWrap="wrap"
           height="auto"
-          width={{ base: '330px', md: '400px', lg: '400px' }}
+          width={{ base: '330px', md: '410px', lg: '410px' }}
           fontWeight="700"
         >
           <Text fontSize="38px">Howdy! I'm</Text>

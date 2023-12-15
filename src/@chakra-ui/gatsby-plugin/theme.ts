@@ -24,6 +24,7 @@ const theme = {
             hoverColour: '#ff5970',
             initialButtonColour: '#ffa0ad',
             tagTextColour: 'white',
+            secondaryTextColour: '#4D4D4D',
             formBoxColour: 'white'
         },
         dark: {
@@ -34,6 +35,7 @@ const theme = {
             hoverColour: '#03c0c1',
             initialButtonColour: '#81e6d9',
             tagTextColour: 'black',
+            secondaryTextColour: '#D7D7D7',
             formBoxColour: '#19212D'
         }
         

@@ -56,7 +56,7 @@ const experiences = [
     tags: ['TypeScript', 'React', 'Next.js', 'Web Development'],
     logo: './experiences/apryse-logo.png',
     photos: ['./experiences/pdftron-picture.png'],
-    captions: ['last day at the office!'],
+    captions: ['Last day at the office!'],
   },
   {
     title: 'Undergraduate Teaching Assistant @ UBC',

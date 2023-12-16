@@ -8,7 +8,6 @@ import {
   Flex,
   Image,
   Text,
-  useColorMode,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
@@ -56,8 +55,8 @@ const experiences = [
     ],
     tags: ['TypeScript', 'React', 'Next.js', 'Web Development'],
     logo: './experiences/apryse-logo.png',
-    photos: [],
-    captions: [],
+    photos: ['./experiences/pdftron-picture.png'],
+    captions: ['last day at the office!'],
   },
   {
     title: 'Undergraduate Teaching Assistant @ UBC',

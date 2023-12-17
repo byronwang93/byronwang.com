@@ -6,14 +6,18 @@ import {
   AccordionPanel,
   Box,
   Flex,
+  HStack,
+  Icon,
   Image,
   Text,
+  useColorMode,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+import { Github, PersonalWebsite, Youtube } from '../assets/icons';
 import HeaderText from './HeaderText';
 import ProjectCard from './ProjectCard';
 import Tag from './Tag';
@@ -52,7 +56,7 @@ const sideProjects = [
   },
   {
     title: 'RiseOrRegret',
-    subtitle: 'An alarm clock that works',
+    subtitle: 'An alarm clock that actually wakes you up',
     titlePicture: '👹',
     githubLink: 'https://github.com/byronwang93/RiseOrRegret',
     deployLink: 'https://devpost.com/software/rise-or-regret',
@@ -149,8 +153,14 @@ const mainProjects = [
       'Awarded best use of Google Cloud award',
     ],
     tags: ['OpenAI', 'Google-Cloud', 'Next.js', 'TypeScript', 'Spline'],
-    photos: [],
-    captions: [],
+    photos: [
+      './projects/google-cloud-winners.png',
+      './projects/hour-1-dubhacks.png',
+    ],
+    captions: [
+      'Google cloud award!',
+      "The start of a long and sleepless day :')",
+    ],
   },
   // {
   //   title: 'Schedule Me',
@@ -212,6 +222,8 @@ const Projects = ({ id }) => {
     'dark.secondaryTextColour'
   );
 
+  const { colorMode } = useColorMode();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -253,12 +265,12 @@ const Projects = ({ id }) => {
             title,
             subtitle,
             titlePicture,
-            githubLink,
             winner,
             location,
             description,
             tags,
           } = project;
+          const githubLink = project?.githubLink;
           const deployLink = project?.deployLink;
           const youtubeLink = project?.youtubeLink;
           const photos = project?.photos;
@@ -287,7 +299,6 @@ const Projects = ({ id }) => {
                     />
                     <VStack
                       alignItems="start"
-                      // bgColor="gold"
                       textAlign="left"
                     >
                       <Text>
@@ -348,6 +359,44 @@ const Projects = ({ id }) => {
                       );
                     })}
                   </Flex>
+                  <HStack>
+                    {githubLink && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={Github}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(githubLink);
+                        }}
+                      />
+                    )}
+                    {deployLink && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={PersonalWebsite}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(deployLink);
+                        }}
+                      />
+                    )}
+                    {youtubeLink && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={Youtube}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(youtubeLink);
+                        }}
+                      />
+                    )}
+                  </HStack>
                   {photos && (
                     <Flex
                       flexDirection="row"
@@ -356,11 +405,15 @@ const Projects = ({ id }) => {
                     >
                       {photos.map((photo, id) => {
                         return (
-                          <VStack key={id}>
+                          <VStack
+                            key={id}
+                            mx="5px"
+                          >
                             <Image
+                              borderRadius="5px"
                               w="250px"
                               src={photo}
-                              alt="work-photo"
+                              alt="project-photo"
                             />
                             <Text
                               color={secondaryTextColour}
@@ -378,6 +431,181 @@ const Projects = ({ id }) => {
             </AccordionItem>
           );
         })}
+
+        {/* more projects here */}
+        <VStack mt="20px">
+          <HeaderText text="More Projects" />
+          {sideProjects.map((project, id) => {
+            const {
+              title,
+              subtitle,
+              titlePicture,
+              winner,
+              location,
+              description,
+              tags,
+            } = project;
+            const githubLink = project?.githubLink;
+            const deployLink = project?.deployLink;
+            const youtubeLink = project?.youtubeLink;
+            const photos = project?.photos;
+            const captions = project?.captions;
+            return (
+              <AccordionItem
+                w="100%"
+                key={id}
+              >
+                <Text>
+                  <AccordionButton>
+                    <Box
+                      as="span"
+                      flex="1"
+                      alignItems="center"
+                      display="flex"
+                      flexDir="row"
+                      fontWeight="bold"
+                      fontSize={{ base: '18px', md: '20px', lg: '20px' }}
+                      px="10px"
+                    >
+                      <Text
+                        mr="20px"
+                        fontSize="40px"
+                      >
+                        {titlePicture}
+                      </Text>
+                      <VStack
+                        alignItems="start"
+                        textAlign="left"
+                      >
+                        <Text>
+                          {title}
+                          {winner && '🏅'}
+                        </Text>
+                        <Text
+                          color={secondaryTextColour}
+                          fontSize={{ base: '15px', md: '17px', lg: '17px' }}
+                        >
+                          {subtitle}
+                        </Text>
+                      </VStack>
+                    </Box>
+                    <AccordionIcon mr="20px" />
+                  </AccordionButton>
+                </Text>
+
+                <AccordionPanel
+                  pb={4}
+                  pl="35px"
+                >
+                  <VStack alignItems="flex-start">
+                    <Text
+                      fontWeight="bold"
+                      fontSize={{ base: '20px', md: '22px', lg: '22px' }}
+                      color={secondaryTextColour}
+                    >
+                      📍 {location}
+                    </Text>
+                    <VStack
+                      spacing="10px"
+                      pl="10px"
+                      alignItems="baseline"
+                    >
+                      {description.map((desc, id) => {
+                        return (
+                          <Text
+                            fontSize={{ base: '16px', md: '16px', lg: '18px' }}
+                            key={id}
+                          >
+                            • {desc}
+                          </Text>
+                        );
+                      })}
+                    </VStack>
+                    <Flex
+                      flexDirection="row"
+                      flexWrap="wrap"
+                      py="10px"
+                    >
+                      {tags.map((tag, id) => {
+                        return (
+                          <Tag
+                            key={id}
+                            content={tag}
+                          />
+                        );
+                      })}
+                    </Flex>
+                    <HStack>
+                      {githubLink && (
+                        <Icon
+                          fill={colorMode === 'dark' ? 'white' : 'black'}
+                          stroke={colorMode === 'dark' ? 'white' : 'black'}
+                          boxSize={10}
+                          as={Github}
+                          cursor="pointer"
+                          onClick={() => {
+                            window.open(githubLink);
+                          }}
+                        />
+                      )}
+                      {deployLink && (
+                        <Icon
+                          fill={colorMode === 'dark' ? 'white' : 'black'}
+                          stroke={colorMode === 'dark' ? 'white' : 'black'}
+                          boxSize={10}
+                          as={PersonalWebsite}
+                          cursor="pointer"
+                          onClick={() => {
+                            window.open(deployLink);
+                          }}
+                        />
+                      )}
+                      {youtubeLink && (
+                        <Icon
+                          fill={colorMode === 'dark' ? 'white' : 'black'}
+                          stroke={colorMode === 'dark' ? 'white' : 'black'}
+                          boxSize={10}
+                          as={Youtube}
+                          cursor="pointer"
+                          onClick={() => {
+                            window.open(youtubeLink);
+                          }}
+                        />
+                      )}
+                    </HStack>
+                    {photos && (
+                      <Flex
+                        flexDirection="row"
+                        flexWrap="wrap"
+                        py="10px"
+                      >
+                        {photos.map((photo, id) => {
+                          return (
+                            <VStack key={id}>
+                              <Image
+                                borderRadius="5px"
+                                w="250px"
+                                src={photo}
+                                alt="project-photo"
+                                mx="5px"
+                              />
+                              <Text
+                                color={secondaryTextColour}
+                                w="250px"
+                              >
+                                {captions[id]}
+                              </Text>
+                            </VStack>
+                          );
+                        })}
+                      </Flex>
+                    )}
+                  </VStack>
+                </AccordionPanel>
+              </AccordionItem>
+            );
+          })}
+        </VStack>
       </Accordion>
     </Box>
   );

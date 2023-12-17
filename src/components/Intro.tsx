@@ -12,12 +12,6 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
-import { RiLinkedinBoxFill } from 'react-icons/ri';
-import {
-  AiOutlineGithub,
-  AiOutlineYoutube,
-  AiOutlineMail,
-} from 'react-icons/ai';
 import { Email, Github, Linkedin, Youtube } from '../assets/icons';
 
 const Intro = ({ id }) => {

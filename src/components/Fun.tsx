@@ -40,8 +40,6 @@ const Fun = ({ id }) => {
       ref={targetRef}
       flexDirection="column"
       id={id}
-      pt="20px"
-      mt="30px"
       mb="70px"
       height="auto"
       justifyContent="center"

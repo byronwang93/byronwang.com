@@ -1,7 +1,11 @@
 export { default as DarkModeDramatic } from './DarkModeDramatic';
+export { default as Email } from './Email';
 export { default as FirstQuestionMark } from './FirstQuestionMark';
+export { default as Github } from './Github';
 export { default as LightModeDramatic } from './LightModeDramatic';
+export { default as Linkedin } from './Linkedin';
 export { default as MoonIcon } from './MoonIcon';
+export { default as PersonalWebsite } from './PersonalWebsite';
 export { default as SecondQuestionMark } from './SecondQuestionMark';
 export { default as Star1 } from './Star1';
 export { default as Star2 } from './Star2';
@@ -10,3 +14,4 @@ export { default as Wave1 } from './Wave1';
 export { default as Wave2 } from './Wave2';
 export { default as Waving1Image } from './Waving1Image';
 export { default as Waving2Image } from './Waving2Image';
+export { default as Youtube } from './Youtube';

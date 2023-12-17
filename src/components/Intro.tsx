@@ -8,6 +8,7 @@ import {
   VStack,
   HStack,
   Icon,
+  useColorMode,
 } from '@chakra-ui/react';
 import React, { useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
@@ -17,6 +18,7 @@ import {
   AiOutlineYoutube,
   AiOutlineMail,
 } from 'react-icons/ai';
+import { Email, Github, Linkedin, Youtube } from '../assets/icons';
 
 const Intro = ({ id }) => {
   const standoutText = useColorModeValue(
@@ -24,18 +26,33 @@ const Intro = ({ id }) => {
     'dark.standoutText'
   );
 
+  const { colorMode } = useColorMode();
+
   const socialIcons = [
-    { icon: AiOutlineGithub, link: 'https://github.com/byronwang93' },
+    { icon: Github, link: 'https://github.com/byronwang93' },
     {
-      icon: RiLinkedinBoxFill,
+      icon: Linkedin,
       link: 'https://www.linkedin.com/in/byronwang93/',
     },
-    { icon: AiOutlineMail },
+    { icon: Email },
     {
-      icon: AiOutlineYoutube,
+      icon: Youtube,
       link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
     },
   ];
+
+  // const socialIcons = [
+  //   { icon: AiOutlineGithub, link: 'https://github.com/byronwang93' },
+  //   {
+  //     icon: RiLinkedinBoxFill,
+  //     link: 'https://www.linkedin.com/in/byronwang93/',
+  //   },
+  //   { icon: AiOutlineMail },
+  //   {
+  //     icon: AiOutlineYoutube,
+  //     link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
+  //   },
+  // ];
 
   const targetRef = useRef(null);
 
@@ -62,7 +79,6 @@ const Intro = ({ id }) => {
 
   return (
     <Flex
-      // fontWeight="600"
       ref={targetRef}
       className="fade-in"
       id={id}
@@ -86,17 +102,18 @@ const Intro = ({ id }) => {
           pt={{ base: '0px', md: '50px', lg: '10px' }}
         >
           <Image
-            // pr={{ md: '40px' }}
             pb="10px"
             borderRadius="full"
             src={`../../round-coffee-picture.png`}
             alt="profile"
-            width={{ base: '250px', md: '350px' }}
+            width={{ base: '450px', sm: '650px', md: '850px' }}
           />
-          <HStack spacing="20px">
+          <HStack spacing="15px">
             {socialIcons.map((item, index) => {
               return (
                 <Icon
+                  fill={colorMode === 'dark' ? 'white' : 'black'}
+                  stroke={colorMode === 'dark' ? 'white' : 'black'}
                   key={index}
                   boxSize={10}
                   as={item.icon}

@@ -12,6 +12,7 @@ const HeaderText: FC<HeaderProps> = (props): JSX.Element => {
       justifyContent="center"
       alignSelf="center"
       mb="20px"
+      mt={{ base: '80px', md: '110px' }}
     >
       <Text
         fontWeight="bold"

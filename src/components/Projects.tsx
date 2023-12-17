@@ -281,7 +281,7 @@ const Projects = ({ id }) => {
                       borderRadius="10px"
                       my="7px"
                       mr="30px"
-                      w="140px"
+                      w={{ base: '100px', sm: '120px' }}
                       src={titlePicture}
                       alt="project-image"
                     />
@@ -296,7 +296,7 @@ const Projects = ({ id }) => {
                       </Text>
                       <Text
                         color={secondaryTextColour}
-                        fontSize={{ base: '20px', md: '22px', lg: '22px' }}
+                        fontSize={{ base: '18px', md: '20px', lg: '20px' }}
                       >
                         {subtitle}
                       </Text>

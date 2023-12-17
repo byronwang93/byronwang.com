@@ -111,7 +111,7 @@ const Experience = ({ id }) => {
     >
       <HeaderText text="Experience" />
       <Accordion
-        defaultIndex={[0]}
+        // defaultIndex={[0]}
         allowMultiple
         w="auto"
         mx="auto"

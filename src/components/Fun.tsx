@@ -30,7 +30,7 @@ const Fun = ({ id }) => {
 
   useEffect(() => {
     if (isDesktop) setVidWidth(550);
-    else setVidWidth(340);
+    else setVidWidth(300);
   }, [isDesktop]);
 
   const videos = ['UYQfnTmqPCI', 'tHjIUg4OYU4'];
@@ -81,20 +81,6 @@ const Fun = ({ id }) => {
           spacing="20px"
           justifyContent="center"
         >
-          <Icon
-            boxSize="30px"
-            as={ArrowBackIcon}
-            _hover={{
-              cursor: 'pointer',
-            }}
-            onClick={() => {
-              if (videoIndex === 0) {
-                setVideoIndex(videos.length - 1);
-              } else {
-                setVideoIndex(videoIndex - 1);
-              }
-            }}
-          />
           <YouTube
             videoId={videos[videoIndex]}
             opts={{
@@ -102,22 +88,42 @@ const Fun = ({ id }) => {
               width: `${vidWidth}px`,
             }}
           />
-          <Icon
-            boxSize="30px"
-            as={ArrowForwardIcon}
-            _hover={{
-              cursor: 'pointer',
-            }}
-            onClick={() => {
-              if (videoIndex === videos.length - 1) {
-                setVideoIndex(0);
-              } else {
-                setVideoIndex(videoIndex + 1);
-              }
-            }}
-          />
         </HStack>
       </Box>
+      <HStack
+        pb="26px"
+        spacing="60px"
+        justifyContent="center"
+      >
+        <Icon
+          boxSize="30px"
+          as={ArrowBackIcon}
+          _hover={{
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            if (videoIndex === 0) {
+              setVideoIndex(videos.length - 1);
+            } else {
+              setVideoIndex(videoIndex - 1);
+            }
+          }}
+        />
+        <Icon
+          boxSize="30px"
+          as={ArrowForwardIcon}
+          _hover={{
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            if (videoIndex === videos.length - 1) {
+              setVideoIndex(0);
+            } else {
+              setVideoIndex(videoIndex + 1);
+            }
+          }}
+        />
+      </HStack>
       <Box
         width={{ base: '300px', md: '400px', lg: '600px' }}
         fontSize="18px"

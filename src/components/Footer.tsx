@@ -44,7 +44,7 @@ const Footer = () => {
               fill={colorMode === 'dark' ? 'white' : 'black'}
               stroke={colorMode === 'dark' ? 'white' : 'black'}
               key={index}
-              boxSize={'50px'}
+              boxSize={'35px'}
               as={item.icon}
               cursor="pointer"
               onClick={() => {
@@ -60,7 +60,7 @@ const Footer = () => {
       </HStack>
       <Text
         pt="10px"
-        fontSize="20px"
+        fontSize="15px"
         fontWeight="bold"
       >{`Byron Wang © ${date} :’)`}</Text>
     </VStack>

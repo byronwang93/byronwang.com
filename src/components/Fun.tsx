@@ -1,9 +1,20 @@
-import { Box, Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  HStack,
+  Icon,
+  Link,
+  Text,
+  useBreakpointValue,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import React from 'react';
 import HeaderText from './HeaderText';
 import YouTube from 'react-youtube';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { useState } from 'react';
+import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 
 const Fun = ({ id }) => {
   const standoutText = useColorModeValue(
@@ -12,6 +23,19 @@ const Fun = ({ id }) => {
   );
 
   const targetRef = useRef(null);
+
+  const isDesktop = useBreakpointValue({ base: false, md: true });
+
+  const [vidWidth, setVidWidth] = useState(550);
+
+  useEffect(() => {
+    if (isDesktop) setVidWidth(550);
+    else setVidWidth(340);
+  }, [isDesktop]);
+
+  const videos = ['UYQfnTmqPCI', 'tHjIUg4OYU4'];
+
+  const [videoIndex, setVideoIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,13 +77,46 @@ const Fun = ({ id }) => {
         textAlign="-webkit-center"
         pb="35px"
       >
-        <YouTube
-          videoId="UYQfnTmqPCI"
-          opts={{
-            height: '380',
-            width: '80%',
-          }}
-        />
+        <HStack
+          spacing="20px"
+          justifyContent="center"
+        >
+          <Icon
+            boxSize="30px"
+            as={ArrowBackIcon}
+            _hover={{
+              cursor: 'pointer',
+            }}
+            onClick={() => {
+              if (videoIndex === 0) {
+                setVideoIndex(videos.length - 1);
+              } else {
+                setVideoIndex(videoIndex - 1);
+              }
+            }}
+          />
+          <YouTube
+            videoId={videos[videoIndex]}
+            opts={{
+              height: '340',
+              width: `${vidWidth}px`,
+            }}
+          />
+          <Icon
+            boxSize="30px"
+            as={ArrowForwardIcon}
+            _hover={{
+              cursor: 'pointer',
+            }}
+            onClick={() => {
+              if (videoIndex === videos.length - 1) {
+                setVideoIndex(0);
+              } else {
+                setVideoIndex(videoIndex + 1);
+              }
+            }}
+          />
+        </HStack>
       </Box>
       <Box
         width={{ base: '300px', md: '400px', lg: '600px' }}

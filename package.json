@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^3.0.5",
+    "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.2.9",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",

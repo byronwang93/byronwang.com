@@ -38,6 +38,22 @@ const sideProjects = [
   //   captions: [],
   // },
   {
+    title: 'Schedule Me',
+    subtitle: 'Hackathon scheduling automater',
+    titlePicture: '📆',
+    githubLink: 'https://github.com/byronwang93/schedule-me',
+    deployLink: '',
+    youtubeLink: '',
+    winner: false,
+    location: 'Dec 2023',
+    description: [
+      'Automated the creation of organizer shifts for hackathons hosted by nwPlus (the largest hackathons in Western Canada)',
+    ],
+    tags: ['OpenAI', 'Express', 'React'],
+    photos: [],
+    captions: [],
+  },
+  {
     title: 'Pin Tracker',
     subtitle: 'Bowling stats tracker',
     titlePicture: '🎳',

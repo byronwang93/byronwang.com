@@ -19,7 +19,6 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import { Github, PersonalWebsite, Youtube } from '../assets/icons';
 import HeaderText from './HeaderText';
-import ProjectCard from './ProjectCard';
 import Tag from './Tag';
 
 const sideProjects = [

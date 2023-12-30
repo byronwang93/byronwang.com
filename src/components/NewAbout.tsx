@@ -1,11 +1,4 @@
-import {
-  Flex,
-  Text,
-  useColorModeValue,
-  useColorMode,
-  Box,
-  Image,
-} from '@chakra-ui/react';
+import { Flex, Text, useColorMode, Box, Image } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import Typist from 'react-typist';
 import { useRef } from 'react';

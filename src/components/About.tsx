@@ -14,8 +14,6 @@ import {
   Wave2,
   Waving1Image,
   Waving2Image,
-  LightModeDramatic,
-  DarkModeDramatic,
   Star1,
   Star2,
   FirstQuestionMark,

@@ -1,11 +1,5 @@
 import { VStack, Icon, HStack, Text, useColorMode } from '@chakra-ui/react';
 import React from 'react';
-import { RiLinkedinBoxFill } from 'react-icons/ri';
-import {
-  AiOutlineGithub,
-  AiOutlineYoutube,
-  AiOutlineMail,
-} from 'react-icons/ai';
 import { Email, Github, Linkedin, Youtube } from '../assets/icons';
 
 const footerIcons = [
@@ -20,16 +14,6 @@ const footerIcons = [
     link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
   },
 ];
-
-// const footerIcons = [
-//   { icon: AiOutlineGithub, link: 'https://github.com/byronwang93' },
-//   { icon: RiLinkedinBoxFill, link: 'https://www.linkedin.com/in/byronwang93/' },
-//   { icon: AiOutlineMail },
-//   {
-//     icon: AiOutlineYoutube,
-//     link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
-//   },
-// ];
 
 const Footer = () => {
   const date = new Date().getFullYear();

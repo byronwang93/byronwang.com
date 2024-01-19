@@ -161,6 +161,7 @@ const Experience = ({ id }) => {
                   <VStack
                     spacing="10px"
                     pl="10px"
+                    alignItems="baseline"
                   >
                     {description.map((desc, id) => {
                       return (

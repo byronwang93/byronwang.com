@@ -136,8 +136,8 @@ const Fun = ({ id }) => {
         <Text>
           From the theme of my website, you can probably tell I haven’t grown
           out of the doodling phase, so as of December 2022, I started a youtube
-          channel to practice animating! Looking to make more in the future so
-          keep checking back here for updates or consider checking out my
+          channel to practice animating! Looking to make more fun videos in the
+          future so keep checking back for updates or consider checking out my
           channel{' '}
           <Link
             isExternal

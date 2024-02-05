@@ -146,7 +146,7 @@ const Fun = ({ id }) => {
           >
             here
           </Link>{' '}
-          😌!
+          (or consider subscribing😌)!
         </Text>
       </Box>
     </Flex>

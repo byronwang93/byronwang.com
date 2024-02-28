@@ -45,7 +45,7 @@ const experiences = [
     ],
   },
   {
-    title: 'Web Developer Intern @ Apryse',
+    title: 'Software Developer Intern @ Apryse',
     location: 'Vancouver, BC, May 2022 - Dec 2022',
     link: 'https://www.pdftron.com/',
     description: [

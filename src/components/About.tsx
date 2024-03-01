@@ -129,7 +129,7 @@ const About = ({ id }) => {
         >
           {isEaster ? (
             <Image
-              py={{ base: '59px', md: '67px' }}
+              my={{ base: '59px', md: '67px' }}
               borderRadius="25%"
               w={{ base: '220px', md: '250px' }}
               onClick={() => setIsEaster(false)}

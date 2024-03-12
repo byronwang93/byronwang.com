@@ -11,7 +11,7 @@ const footerIcons = [
   { icon: Email },
   {
     icon: Youtube,
-    link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
+    link: 'https://www.youtube.com/@byronwang93',
   },
 ];
 

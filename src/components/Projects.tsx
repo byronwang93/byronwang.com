@@ -223,6 +223,7 @@ const mainProjects = [
     description: [
       'Developed a chrome extension to remove the hassle of repeatedly searching up the same links',
       'Utilized local storage to persist data upon refresh',
+      'Currently serving 60+ users',
     ],
     tags: ['React', 'Local Storage', 'Productivity'],
     photos: [],

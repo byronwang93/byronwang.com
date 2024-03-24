@@ -95,7 +95,8 @@ const Intro = ({ id }) => {
           <Image
             pb="10px"
             borderRadius="full"
-            src={`../../round-coffee-picture.png`}
+            // src={`../../round-coffee-picture.png`}
+            src={`../../new-transparent-image.gif`}
             alt="profile"
             width={{ base: '450px', sm: '650px', md: '850px' }}
           />

@@ -49,9 +49,8 @@ const experiences = [
     location: 'Vancouver, BC, May 2022 - Dec 2022',
     link: 'https://www.pdftron.com/',
     description: [
-      'Developed reusable and accessible UI components using TypeScript React and maintained code with production of end to end tests',
-      'Worked on integrating serverside features with our backend api to process user data which included improving user authentication',
-      'Utilizing agile scrum methodology to complete 2-week long sprints working on xodo.com with 2,000,000+ monthly users',
+      'Developed reusable and accessible UI components for xodo.com using TypeScript React and maintained code with production of end to end tests',
+      'Created API endpoints to allow for storage of PDFs in node.js for increased usability of users',
     ],
     tags: ['TypeScript', 'React', 'Next.js', 'Web Development'],
     logo: './experiences/apryse-logo.png',
@@ -201,6 +200,7 @@ const Experience = ({ id }) => {
                               w="250px"
                               src={photo}
                               alt="work-photo"
+                              borderRadius="8px"
                             />
                             <Text
                               color={secondaryTextColour}

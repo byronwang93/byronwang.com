@@ -7,6 +7,7 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
+  VStack,
 } from '@chakra-ui/react';
 import React from 'react';
 import HeaderText from './HeaderText';
@@ -90,8 +91,44 @@ const Fun = ({ id }) => {
       justifyContent="center"
       width={{ base: '330px', md: '700px', lg: '900px' }}
       alignItems="center"
+      backgroundColor="blue.100"
     >
       <HeaderText text="Fun" />
+      <Box
+        width={{ base: '300px', md: '400px', lg: '600px' }}
+        fontSize="18px"
+        pb="20px"
+      >
+        <Text pb="12px">
+          There’s more to life than just work and school so I’m a strong
+          advocate for side quests in life :). From trying out sports to new
+          hobbies, here are some of my notable accomplishments to showcase my
+          random skills (click around!)✨:
+        </Text>
+      </Box>
+      <HStack
+        bgColor="green.100"
+        spacing={isDesktop && '30px'}
+      >
+        <VStack
+          backgroundColor="#D3C6B4"
+          h="450px"
+          w="330px"
+          borderRadius="5px"
+          outline="10px solid #6C5D46"
+          mb="20px"
+        ></VStack>
+        {isDesktop && (
+          <VStack
+            backgroundColor="#D3C6B4"
+            h="400px"
+            w="300px"
+            borderRadius="5px"
+            outline="10px solid #6C5D46"
+            mb="20px"
+          ></VStack>
+        )}
+      </HStack>
       <Box
         width="100%"
         //@ts-ignore

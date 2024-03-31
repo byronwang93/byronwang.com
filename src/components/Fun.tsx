@@ -29,6 +29,8 @@ const Fun = ({ id }) => {
 
   const [vidWidth, setVidWidth] = useState(550);
 
+  const [shelfHeight, setShelfHeight] = useState(450);
+
   useEffect(() => {
     if (isDesktop) setVidWidth(550);
     else setVidWidth(300);
@@ -82,6 +84,8 @@ const Fun = ({ id }) => {
     };
   }, []);
 
+  const shelfHeights = [1, 2, 3, 4];
+
   return (
     <Flex
       className="fade-in"
@@ -114,16 +118,27 @@ const Fun = ({ id }) => {
       >
         <VStack
           backgroundColor="#D3C6B4"
-          h="450px"
+          h={`${shelfHeight}px`}
           w="330px"
           borderRadius="5px"
           outline="10px solid #6C5D46"
           mb="20px"
-        ></VStack>
+        >
+          {shelfHeights.map((height, index) => {
+            return (
+              <Box
+                key={index}
+                pt={shelfHeight / 4.5}
+                w="100%"
+                borderBottom="8px solid #6C5D46"
+              ></Box>
+            );
+          })}
+        </VStack>
         {isDesktop && (
           <VStack
             backgroundColor="#D3C6B4"
-            h="400px"
+            h={`${shelfHeight}px`}
             w="300px"
             borderRadius="5px"
             outline="10px solid #6C5D46"

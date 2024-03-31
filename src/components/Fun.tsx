@@ -46,7 +46,9 @@ const Fun = ({ id }) => {
     //   tldr: ,
     //   description: ,
     //   image: ,
-    //   video-link:
+    //   video-link: ,
+    //   caption: ,
+    //   custom: false,
     // }
     {
       icon: null,

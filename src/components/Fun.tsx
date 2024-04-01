@@ -50,7 +50,7 @@ const Fun = ({ id }) => {
     //   image: ,
     //   video-link: ,
     //   caption: ,
-    //   custom: false,
+    //   custom: false
     // }
     {
       icon: null,

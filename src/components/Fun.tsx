@@ -43,21 +43,31 @@ const Fun = ({ id }) => {
   const funEntries = [
     // template
     // {
-    //   icon: ,
-    //   date: ,
-    //   tldr: ,
-    //   description: ,
-    //   image: ,
-    //   video-link: ,
-    //   caption: ,
+    //   icon: null,
+    //   date: null,
+    //   tldr: null,
+    //   description: null,
+    //   image: null,
+    //   videoLink: null,
+    //   caption: null,
     //   custom: false
-    // }
+    // },
     {
       icon: null,
       date: 'present',
       tldr: 'random content creation ??',
       description:
         'As of December 2022 I started a YouTube channel! Still in the works but the plan is to use this to document my side quest journeys, whether it be animating progress, cool projects or life updates.',
+      image: null,
+      videoLink: null,
+      caption: null,
+      custom: false,
+    },
+    {
+      icon: null,
+      date: '2024',
+      tldr: 'competitive bowler',
+      description: 'Since ',
       image: null,
       videoLink: null,
       caption: null,
@@ -109,9 +119,9 @@ const Fun = ({ id }) => {
       >
         <Text pb="12px">
           There’s more to life than just work and school so I’m a strong
-          advocate for side quests in life :). From trying out sports to new
-          hobbies, here are some of my notable accomplishments to showcase my
-          random skills (click around!)✨:
+          advocate for side quests in life :). From trying out new sports to
+          unorthadox hobbies, here are some of my notable adventures (click
+          around!)✨:
         </Text>
       </Box>
       <HStack

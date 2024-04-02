@@ -60,6 +60,8 @@ const Fun = ({ id }) => {
         'As of December 2022 I started a YouTube channel! Still in the works but the plan is to use this to document my side quest journeys, whether it be animating progress, cool projects or life updates.',
       image: null,
       videoLink: null,
+      caption: null,
+      custom: false,
     },
   ];
 

@@ -46,6 +46,7 @@ const Fun = ({ id }) => {
     //   icon: null,
     //   date: null,
     //   tldr: null,
+    //   notable: null,
     //   description: null,
     //   image: null,
     //   videoLink: null,
@@ -66,8 +67,35 @@ const Fun = ({ id }) => {
     {
       icon: null,
       date: '2024',
-      tldr: 'competitive bowler',
-      description: 'Since ',
+      tldr: '2-handed competitive bowler',
+      notable: '229 PB',
+      description:
+        'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
+      image: null,
+      videoLink: null,
+      caption: null,
+      custom: false,
+    },
+    {
+      icon: null,
+      date: '2023',
+      tldr: 'competitive runner',
+      notable: '40:37 10km PB',
+      description:
+        'After running track and cross country in high school, I thought I would be done the sport forever, but last year my friend bet that he could beat me in a 10km race so of course I took him up on that >:)!',
+      image: null,
+      videoLink: null,
+      caption:
+        'It was moments like this which remind me why I quit running in the first place LOL',
+      custom: false,
+    },
+    {
+      icon: null,
+      date: '2019',
+      tldr: 'competitive swimmer',
+      notable: '58.65 100m Backstroke (SCM)',
+      description:
+        'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',
       image: null,
       videoLink: null,
       caption: null,

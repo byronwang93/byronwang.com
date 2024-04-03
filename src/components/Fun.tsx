@@ -103,11 +103,11 @@ const Fun = ({ id }) => {
     },
     {
       icon: null,
-      date: '2019',
-      tldr: 'competitive swimmer',
-      notable: '58.65 100m Backstroke (SCM)',
+      date: '2023',
+      tldr: 'hackathon organizer',
+      notable: 'HackCamp director @ nwPlus',
       description:
-        'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',
+        "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
       image: null,
       videoLink: null,
       caption: null,

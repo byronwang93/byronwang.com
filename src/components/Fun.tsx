@@ -62,7 +62,7 @@ const Fun = ({ id }) => {
       image: null,
       videoLink: null,
       caption: null,
-      custom: false,
+      custom: true,
     },
     {
       icon: null,
@@ -87,6 +87,18 @@ const Fun = ({ id }) => {
       videoLink: null,
       caption:
         'It was moments like this which remind me why I quit running in the first place LOL',
+      custom: false,
+    },
+    {
+      icon: null,
+      date: '2019',
+      tldr: 'competitive swimmer',
+      notable: '58.65 100m Backstroke (SCM)',
+      description:
+        'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',
+      image: null,
+      videoLink: null,
+      caption: null,
       custom: false,
     },
     {

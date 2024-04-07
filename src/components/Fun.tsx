@@ -253,7 +253,7 @@ const Fun = ({ id }) => {
             alignSelf="baseline"
             // backgroundColor="#D3C611"
             maxH={`${shelfHeight}px`}
-            w="350px"
+            w={{ base: '350px', lg: '450px' }}
             spacing="3px"
             // borderRadius="2px"
             // outline="10px solid #6C5D46"
@@ -296,10 +296,11 @@ const Fun = ({ id }) => {
                 {factDetails.notable}
               </Text>
             )}
-            <Text pt="7px">{factDetails.description}</Text>
+            <Text py="7px">{factDetails.description}</Text>
             {factDetails?.videoLink && (
               <VStack
-                spacing="20px"
+                spacing="4px"
+                alignItems="baseline"
                 // justifyContent="center"
               >
                 <YouTube
@@ -310,7 +311,12 @@ const Fun = ({ id }) => {
                   }}
                 />
                 {factDetails?.caption && (
-                  <Text color={secondaryTextColour}>{factDetails.caption}</Text>
+                  <Text
+                    pl="7px"
+                    color={secondaryTextColour}
+                  >
+                    {factDetails.caption}
+                  </Text>
                 )}
               </VStack>
             )}

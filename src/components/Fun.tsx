@@ -226,7 +226,8 @@ const Fun = ({ id }) => {
       </Box>
       <HStack
         // bgColor="green.500"
-        spacing={isDesktop && '30px'}
+        pt="10px"
+        spacing={isDesktop && '40px'}
       >
         <VStack
           backgroundColor="#D3C6B4"
@@ -250,10 +251,11 @@ const Fun = ({ id }) => {
         {isDesktop && (
           <VStack
             overflowY="auto"
+            // overflowY="scroll"
             alignSelf="baseline"
             // backgroundColor="#D3C611"
             maxH={`${shelfHeight}px`}
-            w={{ base: '350px', lg: '450px' }}
+            w={{ base: '350px', lg: '430px' }}
             spacing="3px"
             // borderRadius="2px"
             // outline="10px solid #6C5D46"
@@ -267,7 +269,10 @@ const Fun = ({ id }) => {
               boxSize={'35px'}
               as={factDetails.icon}
             />
-            <Text className="date">
+            <Text
+              pt="5px"
+              className="date"
+            >
               <Box
                 as="span"
                 fontWeight="bold"
@@ -299,6 +304,7 @@ const Fun = ({ id }) => {
             <Text py="7px">{factDetails.description}</Text>
             {factDetails?.videoLink && (
               <VStack
+                // alignSelf={{ base: 'baseline', lg: 'center' }}
                 spacing="4px"
                 alignItems="baseline"
                 // justifyContent="center"
@@ -323,7 +329,7 @@ const Fun = ({ id }) => {
           </VStack>
         )}
       </HStack>
-      <Box
+      {/* <Box
         width="100%"
         //@ts-ignore
         textAlign="-webkit-center"
@@ -341,8 +347,8 @@ const Fun = ({ id }) => {
             }}
           />
         </HStack>
-      </Box>
-      <HStack
+      </Box> */}
+      {/* <HStack
         pb="26px"
         spacing="60px"
         justifyContent="center"
@@ -400,7 +406,7 @@ const Fun = ({ id }) => {
           </Link>{' '}
           (or consider subscribing 👉 👈)!
         </Text>
-      </Box>
+      </Box> */}
     </Flex>
   );
 };

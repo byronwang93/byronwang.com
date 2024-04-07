@@ -3,6 +3,7 @@ import {
   Flex,
   HStack,
   Icon,
+  Image,
   Link,
   Text,
   useBreakpointValue,
@@ -47,6 +48,21 @@ const Fun = ({ id }) => {
 
   const [videoIndex, setVideoIndex] = useState(0);
   const [factIndex, setFactIndex] = useState(0);
+
+  // rows
+  const [rows, setRows] = useState([]);
+  useEffect(() => {
+    let res = [[], [], [], []];
+    for (let i = 0; i < funEntries.length; i++) {
+      let curr = funEntries[i];
+      let row = Math.floor(i / 4);
+      res[row].push(curr);
+    }
+    console.log(rows, ' is the rows');
+    setRows(res);
+  }, []);
+
+  // fact details
   const [factDetails, setFactDetails] = useState({
     icon: null,
     date: null,
@@ -118,9 +134,9 @@ const Fun = ({ id }) => {
       notable: '229 PB',
       description:
         'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
-      image: null,
+      image: './side-quests/bowling-dubhacks.JPG',
       videoLink: null,
-      caption: null,
+      caption: 'Me finding out some US colleges have their own bowling alleys',
       custom: false,
     },
     {
@@ -168,8 +184,7 @@ const Fun = ({ id }) => {
       description:
         'A lot of people have a gamer phase and mine was Mario Kart 8 😮‍💨. Having multiple top 10 in Canada times, my proudest feat was achieving 8th in the world in Donut Plains 3. High school me needed to touch some grass...',
       image: null,
-      videoLink:
-        'https://www.youtube.com/watch?v=43py_UtGUdw&ab_channel=Alan%26Byron',
+      videoLink: '43py_UtGUdw',
       caption: 'Video of my DP3 run :)',
       custom: false,
     },
@@ -235,8 +250,46 @@ const Fun = ({ id }) => {
           w="320px"
           borderRadius="2px"
           outline="10px solid #6C5D46"
-          mb="20px"
+          mb="15px"
         >
+          {rows.map((row, index) => {
+            return (
+              <HStack
+                position="absolute"
+                key={index}
+                alignSelf="baseline"
+                pt={`${index * 110}px`}
+                // zIndex="10"
+                w="inherit"
+                spacing={row.length == 4 ? 'auto' : '13.328px'}
+                px="20px"
+              >
+                {row.map((item, index) => {
+                  return (
+                    <Icon
+                      zIndex="10"
+                      mt="40px"
+                      cursor="pointer"
+                      key={index}
+                      alignSelf="baseline"
+                      fill={colorMode === 'dark' ? 'white' : 'black'}
+                      stroke={colorMode === 'dark' ? 'white' : 'black'}
+                      boxSize={'60px'}
+                      _hover={{
+                        transform: 'scale(1.17)', // Adjust scale value as needed for desired effect
+                      }}
+                      onClick={() => {
+                        console.log(item, ' is the clicked item');
+                        setFactDetails(item);
+                      }}
+                      transition="transform 0.2s ease-in-out"
+                      as={item.icon}
+                    />
+                  );
+                })}
+              </HStack>
+            );
+          })}
           {shelfHeights.map((height, index) => {
             return (
               <Box
@@ -302,6 +355,32 @@ const Fun = ({ id }) => {
               </Text>
             )}
             <Text py="7px">{factDetails.description}</Text>
+            {factDetails?.image && (
+              <VStack
+                // alignSelf={{ base: 'baseline', lg: 'center' }}
+                spacing="4px"
+                alignItems="baseline"
+                // justifyContent="center"
+              >
+                <Image
+                  borderRadius="5px"
+                  my="7px"
+                  mr="30px"
+                  w={{ base: '260px', lg: '300px' }}
+                  src={factDetails.image}
+                  alt="project-image"
+                />
+                {factDetails?.caption && (
+                  <Text
+                    pl="7px"
+                    w={{ base: '260px', lg: '300px' }}
+                    color={secondaryTextColour}
+                  >
+                    {factDetails.caption}
+                  </Text>
+                )}
+              </VStack>
+            )}
             {factDetails?.videoLink && (
               <VStack
                 // alignSelf={{ base: 'baseline', lg: 'center' }}

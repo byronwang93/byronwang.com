@@ -72,6 +72,7 @@ const Fun = ({ id }) => {
     image: null,
     videoLink: null,
     caption: null,
+    videoCaption: null,
     custom: null,
   });
 
@@ -85,6 +86,7 @@ const Fun = ({ id }) => {
       image,
       videoLink,
       caption,
+      videoCaption,
       custom,
     } = funEntries[factIndex];
     console.log(icon, ' is the icon');
@@ -98,6 +100,7 @@ const Fun = ({ id }) => {
       image: image,
       videoLink: videoLink,
       caption: caption,
+      videoCaption: videoCaption,
       custom: custom,
     });
   }, [factIndex]);
@@ -110,9 +113,10 @@ const Fun = ({ id }) => {
     //   tldr: null,
     //   notable: null,
     //   description: null,
-    //   image: null,
-    //   videoLink: null,
-    //   caption: null,
+    //   image: [],
+    //   videoLink: [],
+    //   caption: [],
+    //   videoCaption: [],
     //   custom: false
     // },
     {
@@ -123,8 +127,9 @@ const Fun = ({ id }) => {
       description:
         'As of December 2022 I started a YouTube channel! Still in the works but the plan is to use this to document my side quest journeys, whether it be animating progress, cool projects or life updates.',
       image: null,
-      videoLink: 'UYQfnTmqPCI',
-      caption: 'first video!',
+      videoLink: ['UYQfnTmqPCI'],
+      caption: null,
+      videoCaption: ['first video!'],
       custom: true,
     },
     {
@@ -134,9 +139,12 @@ const Fun = ({ id }) => {
       notable: '229 PB',
       description:
         'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
-      image: './side-quests/bowling-dubhacks.JPG',
+      image: ['./side-quests/bowling-dubhacks.JPG'],
       videoLink: null,
-      caption: 'Me finding out some US colleges have their own bowling alleys',
+      videoCaption: null,
+      caption: [
+        'Me finding out some US colleges have their own bowling alleys',
+      ],
       custom: false,
     },
     {
@@ -146,10 +154,11 @@ const Fun = ({ id }) => {
       notable: '40:37 10km PB',
       description:
         'After running track and cross country in high school, I thought I would be done the sport forever, but last year my friend bet that he could beat me in a 10km race so of course I took him up on that >:)!',
-      image: null,
+      image: ['./side-quests/sun-run.jpeg'],
       videoLink: null,
-      caption:
-        'It was moments like this which remind me why I quit running in the first place LOL',
+      caption: [
+        'It was moments like this which remind me why I quit running in the first place',
+      ],
       custom: false,
     },
     {
@@ -159,9 +168,11 @@ const Fun = ({ id }) => {
       notable: '58.65 100m Backstroke (SCM)',
       description:
         'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',
-      image: null,
+      image: ['./side-quests/swimming.JPG'],
       videoLink: null,
-      caption: null,
+      caption: [
+        'Travelled all the way to Alberta for 50m backstroke but it was worth every penny :)',
+      ],
       custom: false,
     },
     {
@@ -171,9 +182,12 @@ const Fun = ({ id }) => {
       notable: null,
       description:
         "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
-      image: null,
+      image: ['./side-quests/hackcamp1.jpg', './side-quests/hackcamp2.jpg'],
       videoLink: null,
-      caption: null,
+      caption: [
+        "can you tell who's who? (I should've mentioned but have a twin brother)",
+        'the dream team behind HackCamp 2023 🤝',
+      ],
       custom: false,
     },
     {
@@ -184,8 +198,9 @@ const Fun = ({ id }) => {
       description:
         'A lot of people have a gamer phase and mine was Mario Kart 8 😮‍💨. Having multiple top 10 in Canada times, my proudest feat was achieving 8th in the world in Donut Plains 3. High school me needed to touch some grass...',
       image: null,
-      videoLink: '43py_UtGUdw',
-      caption: 'Video of my DP3 run :)',
+      videoLink: ['43py_UtGUdw'],
+      caption: null,
+      videoCaption: ['Video of my DP3 run 🏎'],
       custom: false,
     },
   ];
@@ -355,56 +370,65 @@ const Fun = ({ id }) => {
               </Text>
             )}
             <Text py="7px">{factDetails.description}</Text>
-            {factDetails?.image && (
-              <VStack
-                // alignSelf={{ base: 'baseline', lg: 'center' }}
-                spacing="4px"
-                alignItems="baseline"
-                // justifyContent="center"
-              >
-                <Image
-                  borderRadius="5px"
-                  my="7px"
-                  mr="30px"
-                  w={{ base: '260px', lg: '300px' }}
-                  src={factDetails.image}
-                  alt="project-image"
-                />
-                {factDetails?.caption && (
-                  <Text
-                    pl="7px"
-                    w={{ base: '260px', lg: '300px' }}
-                    color={secondaryTextColour}
+            {factDetails?.image &&
+              factDetails?.image.map((image, index) => {
+                return (
+                  <VStack
+                    key={index}
+                    spacing="4px"
+                    alignItems="baseline"
+                    pb="7px"
                   >
-                    {factDetails.caption}
-                  </Text>
-                )}
-              </VStack>
-            )}
-            {factDetails?.videoLink && (
-              <VStack
-                // alignSelf={{ base: 'baseline', lg: 'center' }}
-                spacing="4px"
-                alignItems="baseline"
-                // justifyContent="center"
-              >
-                <YouTube
-                  videoId={factDetails.videoLink}
-                  opts={{
-                    height: '240',
-                    width: '100%',
-                  }}
-                />
-                {factDetails?.caption && (
-                  <Text
-                    pl="7px"
-                    color={secondaryTextColour}
+                    <Image
+                      borderRadius="5px"
+                      my="7px"
+                      mr="30px"
+                      // maxH="200px"
+                      w={{ base: '260px', lg: '300px' }}
+                      src={image}
+                      alt="project-image"
+                    />
+                    {factDetails?.caption && (
+                      <Text
+                        pl="7px"
+                        w={{ base: '260px', lg: '300px' }}
+                        color={secondaryTextColour}
+                      >
+                        {factDetails.caption[index]}
+                      </Text>
+                    )}
+                  </VStack>
+                );
+              })}
+            {factDetails?.videoLink &&
+              factDetails.videoLink.map((video, index) => {
+                return (
+                  <VStack
+                    key={index}
+                    // alignSelf={{ base: 'baseline', lg: 'center' }}
+                    spacing="4px"
+                    alignItems="baseline"
+                    pb="7px"
+                    // justifyContent="center"
                   >
-                    {factDetails.caption}
-                  </Text>
-                )}
-              </VStack>
-            )}
+                    <YouTube
+                      videoId={video}
+                      opts={{
+                        height: '240',
+                        width: '100%',
+                      }}
+                    />
+                    {factDetails?.videoCaption && (
+                      <Text
+                        pl="7px"
+                        color={secondaryTextColour}
+                      >
+                        {factDetails.videoCaption[index]}
+                      </Text>
+                    )}
+                  </VStack>
+                );
+              })}
           </VStack>
         )}
       </HStack>

@@ -24,6 +24,10 @@ const Fun = ({ id }) => {
     'light.standoutText',
     'dark.standoutText'
   );
+  const secondaryTextColour = useColorModeValue(
+    'light.secondaryTextColour',
+    'dark.secondaryTextColour'
+  );
 
   const targetRef = useRef(null);
 
@@ -103,8 +107,8 @@ const Fun = ({ id }) => {
       description:
         'As of December 2022 I started a YouTube channel! Still in the works but the plan is to use this to document my side quest journeys, whether it be animating progress, cool projects or life updates.',
       image: null,
-      videoLink: null,
-      caption: null,
+      videoLink: 'UYQfnTmqPCI',
+      caption: 'first video!',
       custom: true,
     },
     {
@@ -209,7 +213,7 @@ const Fun = ({ id }) => {
     >
       <HeaderText text="Fun" />
       <Box
-        width={{ base: '300px', md: '400px', lg: '600px' }}
+        width={{ base: '330px', md: '550px', lg: '610px' }}
         fontSize="18px"
         pb="20px"
       >
@@ -221,7 +225,7 @@ const Fun = ({ id }) => {
         </Text>
       </Box>
       <HStack
-        bgColor="green.500"
+        // bgColor="green.500"
         spacing={isDesktop && '30px'}
       >
         <VStack
@@ -249,7 +253,8 @@ const Fun = ({ id }) => {
             alignSelf="baseline"
             // backgroundColor="#D3C611"
             maxH={`${shelfHeight}px`}
-            w="300px"
+            w="350px"
+            spacing="3px"
             // borderRadius="2px"
             // outline="10px solid #6C5D46"
             mb="20px"
@@ -291,7 +296,24 @@ const Fun = ({ id }) => {
                 {factDetails.notable}
               </Text>
             )}
-            <Text fontSize="16px">{factDetails.description}</Text>
+            <Text pt="7px">{factDetails.description}</Text>
+            {factDetails?.videoLink && (
+              <VStack
+                spacing="20px"
+                // justifyContent="center"
+              >
+                <YouTube
+                  videoId={factDetails.videoLink}
+                  opts={{
+                    height: '240',
+                    width: '100%',
+                  }}
+                />
+                {factDetails?.caption && (
+                  <Text color={secondaryTextColour}>{factDetails.caption}</Text>
+                )}
+              </VStack>
+            )}
           </VStack>
         )}
       </HStack>

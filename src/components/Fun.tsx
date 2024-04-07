@@ -6,6 +6,7 @@ import {
   Link,
   Text,
   useBreakpointValue,
+  useColorMode,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
@@ -16,6 +17,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
+import { Email, Github, Linkedin, Youtube } from '../assets/icons';
 
 const Fun = ({ id }) => {
   const standoutText = useColorModeValue(
@@ -37,8 +39,48 @@ const Fun = ({ id }) => {
   }, [isDesktop]);
 
   const videos = ['UYQfnTmqPCI', 'tHjIUg4OYU4'];
+  const { colorMode } = useColorMode();
 
   const [videoIndex, setVideoIndex] = useState(0);
+  const [factIndex, setFactIndex] = useState(0);
+  const [factDetails, setFactDetails] = useState({
+    icon: null,
+    date: null,
+    tldr: null,
+    notable: null,
+    description: null,
+    image: null,
+    videoLink: null,
+    caption: null,
+    custom: null,
+  });
+
+  useEffect(() => {
+    let {
+      icon,
+      date,
+      tldr,
+      notable,
+      description,
+      image,
+      videoLink,
+      caption,
+      custom,
+    } = funEntries[factIndex];
+    console.log(icon, ' is the icon');
+
+    setFactDetails({
+      icon: icon,
+      date: date,
+      tldr: tldr,
+      notable: notable,
+      description: description,
+      image: image,
+      videoLink: videoLink,
+      caption: caption,
+      custom: custom,
+    });
+  }, [factIndex]);
 
   const funEntries = [
     // template
@@ -54,7 +96,7 @@ const Fun = ({ id }) => {
     //   custom: false
     // },
     {
-      icon: null,
+      icon: Github,
       date: 'present',
       tldr: 'random content creation ??',
       notable: null,
@@ -66,7 +108,7 @@ const Fun = ({ id }) => {
       custom: true,
     },
     {
-      icon: null,
+      icon: Github,
       date: '2024',
       tldr: '2-handed competitive bowler',
       notable: '229 PB',
@@ -78,7 +120,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: null,
+      icon: Github,
       date: '2023',
       tldr: 'competitive runner',
       notable: '40:37 10km PB',
@@ -91,7 +133,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: null,
+      icon: Github,
       date: '2019',
       tldr: 'competitive swimmer',
       notable: '58.65 100m Backstroke (SCM)',
@@ -103,7 +145,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: null,
+      icon: Github,
       date: '2023',
       tldr: 'HackCamp director @ nwPlus - hackathon organizer',
       notable: null,
@@ -115,14 +157,16 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: null,
+      icon: Github,
       date: '2017',
-      tldr: 'Mario Kart extraordinaire',
-      notable: 'HackCamp director @ nwPlus',
-      description: 'Storm the wall is historically known',
+      tldr: 'former Mario Kart tryhard',
+      notable: '8th worldwide on Donut Plains 3',
+      description:
+        'A lot of people have a gamer phase and mine was Mario Kart 8 😮‍💨. Having multiple top 10 in Canada times, my proudest feat was achieving 8th in the world in Donut Plains 3. High school me needed to touch some grass...',
       image: null,
-      videoLink: null,
-      caption: null,
+      videoLink:
+        'https://www.youtube.com/watch?v=43py_UtGUdw&ab_channel=Alan%26Byron',
+      caption: 'Video of my DP3 run :)',
       custom: false,
     },
   ];
@@ -161,7 +205,7 @@ const Fun = ({ id }) => {
       justifyContent="center"
       width={{ base: '330px', md: '700px', lg: '900px' }}
       alignItems="center"
-      backgroundColor="blue.100"
+      // backgroundColor="blue.100"
     >
       <HeaderText text="Fun" />
       <Box
@@ -177,14 +221,14 @@ const Fun = ({ id }) => {
         </Text>
       </Box>
       <HStack
-        bgColor="green.100"
+        bgColor="green.500"
         spacing={isDesktop && '30px'}
       >
         <VStack
           backgroundColor="#D3C6B4"
           h={`${shelfHeight}px`}
-          w="330px"
-          borderRadius="5px"
+          w="320px"
+          borderRadius="2px"
           outline="10px solid #6C5D46"
           mb="20px"
         >
@@ -201,13 +245,54 @@ const Fun = ({ id }) => {
         </VStack>
         {isDesktop && (
           <VStack
-            backgroundColor="#D3C6B4"
-            h={`${shelfHeight}px`}
+            overflowY="auto"
+            alignSelf="baseline"
+            // backgroundColor="#D3C611"
+            maxH={`${shelfHeight}px`}
             w="300px"
-            borderRadius="5px"
-            outline="10px solid #6C5D46"
+            // borderRadius="2px"
+            // outline="10px solid #6C5D46"
             mb="20px"
-          ></VStack>
+            alignItems="baseline"
+          >
+            <Icon
+              alignSelf="baseline"
+              fill={colorMode === 'dark' ? 'white' : 'black'}
+              stroke={colorMode === 'dark' ? 'white' : 'black'}
+              boxSize={'35px'}
+              as={factDetails.icon}
+            />
+            <Text className="date">
+              <Box
+                as="span"
+                fontWeight="bold"
+              >
+                Date:
+              </Box>{' '}
+              {factDetails.date}
+            </Text>
+            <Text className="tldr">
+              <Box
+                as="span"
+                fontWeight="bold"
+              >
+                tldr:
+              </Box>{' '}
+              {factDetails.tldr}
+            </Text>
+            {factDetails?.notable && (
+              <Text className="notable">
+                <Box
+                  as="span"
+                  fontWeight="bold"
+                >
+                  Anything notable:
+                </Box>{' '}
+                {factDetails.notable}
+              </Text>
+            )}
+            <Text fontSize="16px">{factDetails.description}</Text>
+          </VStack>
         )}
       </HStack>
       <Box

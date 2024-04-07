@@ -57,6 +57,7 @@ const Fun = ({ id }) => {
       icon: null,
       date: 'present',
       tldr: 'random content creation ??',
+      notable: null,
       description:
         'As of December 2022 I started a YouTube channel! Still in the works but the plan is to use this to document my side quest journeys, whether it be animating progress, cool projects or life updates.',
       image: null,
@@ -104,10 +105,21 @@ const Fun = ({ id }) => {
     {
       icon: null,
       date: '2023',
-      tldr: 'hackathon organizer',
-      notable: 'HackCamp director @ nwPlus',
+      tldr: 'HackCamp director @ nwPlus - hackathon organizer',
+      notable: null,
       description:
         "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
+      image: null,
+      videoLink: null,
+      caption: null,
+      custom: false,
+    },
+    {
+      icon: null,
+      date: '2017',
+      tldr: 'Mario Kart extraordinaire',
+      notable: 'HackCamp director @ nwPlus',
+      description: 'Storm the wall is historically known',
       image: null,
       videoLink: null,
       caption: null,

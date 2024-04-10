@@ -22,3 +22,4 @@ export { default as YoutubeNew } from './YoutubeNew';
 export { default as Swimming } from './Swimming';
 export { default as Running } from './Running';
 export { default as Oculus } from './Oculus';
+export { default as Drawing } from './Drawing';

@@ -185,7 +185,7 @@ const Fun = ({ id }) => {
       image: ['./side-quests/hackcamp1.jpg', './side-quests/hackcamp2.jpg'],
       videoLink: null,
       caption: [
-        "can you tell who's who? (I should've mentioned but have a twin brother)",
+        "can you tell who's who? (I should've mentioned this but have a twin brother 🧍‍♂️🧍‍♂️)",
         'the dream team behind HackCamp 2023 🤝',
       ],
       custom: false,
@@ -197,10 +197,12 @@ const Fun = ({ id }) => {
       notable: '8th worldwide on Donut Plains 3',
       description:
         'A lot of people have a gamer phase and mine was Mario Kart 8 😮‍💨. Having multiple top 10 in Canada times, my proudest feat was achieving 8th in the world in Donut Plains 3. High school me needed to touch some grass...',
-      image: null,
-      videoLink: ['43py_UtGUdw'],
-      caption: null,
-      videoCaption: ['Video of my DP3 run 🏎'],
+      image: ['./side-quests/mario-kart-tournament.jpg'],
+      videoLink: null,
+      caption: [
+        "If there's a local Mario Kart tournament, chances are you'll see me and my brother there 😌",
+      ],
+      videoCaption: null,
       custom: false,
     },
   ];

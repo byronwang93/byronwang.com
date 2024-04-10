@@ -334,7 +334,7 @@ const Fun = ({ id }) => {
             return (
               <Box
                 key={index}
-                pt={shelfHeight / 4.5}
+                pt={shelfHeight / 4.6}
                 w="100%"
                 borderBottom="8px solid #6C5D46"
               ></Box>

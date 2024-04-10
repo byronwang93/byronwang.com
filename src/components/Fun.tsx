@@ -4,7 +4,6 @@ import {
   HStack,
   Icon,
   Image,
-  Link,
   Text,
   useBreakpointValue,
   useColorMode,
@@ -18,7 +17,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import { Email, Github, Linkedin, Youtube } from '../assets/icons';
+import { Email, Github, MushroomLogo, Youtube } from '../assets/icons';
 
 const Fun = ({ id }) => {
   const standoutText = useColorModeValue(
@@ -215,7 +214,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: Github,
+      icon: MushroomLogo,
       date: '2015-2017',
       tldr: 'former Mario Kart tryhard',
       notable: '8th worldwide on Donut Plains 3',

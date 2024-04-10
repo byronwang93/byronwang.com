@@ -325,8 +325,6 @@ const Fun = ({ id }) => {
                       cursor="pointer"
                       key={index}
                       alignSelf="baseline"
-                      // fill={colorMode === 'dark' ? 'white' : 'black'}
-                      // stroke={colorMode === 'dark' ? 'white' : 'black'}
                       boxSize={'60px'}
                       _hover={{
                         transform: 'scale(1.17)', // Adjust scale value as needed for desired effect
@@ -354,26 +352,19 @@ const Fun = ({ id }) => {
             );
           })}
         </VStack>
-        {/* {isDesktop && ( */}
         <VStack
           ml={isDesktop && '25px'}
           mt={!isDesktop && '25px'}
           overflowY="auto"
-          // overflowY="scroll"
           alignSelf="baseline"
-          // backgroundColor="#D3C611"
           maxH={`${shelfHeight}px`}
           w={{ base: '350px', lg: '430px' }}
           spacing="3px"
-          // borderRadius="2px"
-          // outline="10px solid #6C5D46"
           mb="20px"
           alignItems="baseline"
         >
           <Icon
             alignSelf="baseline"
-            // fill={colorMode === 'dark' ? 'white' : 'black'}
-            // stroke={colorMode === 'dark' ? 'white' : 'black'}
             boxSize={'60px'}
             as={factDetails.icon}
           />
@@ -431,7 +422,6 @@ const Fun = ({ id }) => {
                     borderRadius="5px"
                     my="7px"
                     mr="30px"
-                    // maxH="200px"
                     w={{ base: '260px', lg: '300px' }}
                     src={image}
                     alt="project-image"
@@ -453,11 +443,9 @@ const Fun = ({ id }) => {
               return (
                 <VStack
                   key={index}
-                  // alignSelf={{ base: 'baseline', lg: 'center' }}
                   spacing="4px"
                   alignItems="baseline"
                   pb="7px"
-                  // justifyContent="center"
                 >
                   <YouTube
                     videoId={video}
@@ -478,86 +466,7 @@ const Fun = ({ id }) => {
               );
             })}
         </VStack>
-        {/* )} */}
       </Box>
-      {/* <Box
-        width="100%"
-        //@ts-ignore
-        textAlign="-webkit-center"
-        pb="35px"
-      >
-        <HStack
-          spacing="20px"
-          justifyContent="center"
-        >
-          <YouTube
-            videoId={videos[videoIndex]}
-            opts={{
-              height: '340',
-              width: `${vidWidth}px`,
-            }}
-          />
-        </HStack>
-      </Box> */}
-      {/* <HStack
-        pb="26px"
-        spacing="60px"
-        justifyContent="center"
-      >
-        <Icon
-          boxSize="30px"
-          as={ArrowBackIcon}
-          _hover={{
-            cursor: 'pointer',
-          }}
-          onClick={() => {
-            if (videoIndex === 0) {
-              setVideoIndex(videos.length - 1);
-            } else {
-              setVideoIndex(videoIndex - 1);
-            }
-          }}
-        />
-        <Icon
-          boxSize="30px"
-          as={ArrowForwardIcon}
-          _hover={{
-            cursor: 'pointer',
-          }}
-          onClick={() => {
-            if (videoIndex === videos.length - 1) {
-              setVideoIndex(0);
-            } else {
-              setVideoIndex(videoIndex + 1);
-            }
-          }}
-        />
-      </HStack>
-      <Box
-        width={{ base: '300px', md: '400px', lg: '600px' }}
-        fontSize="18px"
-      >
-        <Text pb="12px">
-          Ever since I was a child, I’ve always had a passion for drawing,
-          spending countless hours drawing comics with my brother and creating
-          our own (admittingly simple) worlds.
-        </Text>
-        <Text>
-          From the theme of my website, you can probably tell I haven’t grown
-          out of the doodling phase, so as of December 2022, I started a youtube
-          channel to practice animating! Looking to make more fun videos in the
-          future so keep checking back for updates or consider checking out my
-          channel{' '}
-          <Link
-            isExternal
-            href="https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA"
-            color={standoutText}
-          >
-            here
-          </Link>{' '}
-          (or consider subscribing 👉 👈)!
-        </Text>
-      </Box> */}
     </Flex>
   );
 };

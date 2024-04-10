@@ -4,7 +4,6 @@ import {
   HStack,
   Icon,
   Image,
-  Spacer,
   Text,
   useBreakpointValue,
   useColorMode,
@@ -17,9 +16,7 @@ import YouTube from 'react-youtube';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import {
-  Github,
   MushroomLogo,
   NwplusNew,
   Bowling,
@@ -275,7 +272,6 @@ const Fun = ({ id }) => {
       justifyContent="center"
       width={{ base: '330px', md: '700px', lg: '900px' }}
       alignItems="center"
-      // backgroundColor="blue.100"
     >
       <HeaderText text="Fun" />
       <Box
@@ -293,9 +289,7 @@ const Fun = ({ id }) => {
       <Box
         display="flex"
         flexDirection={isDesktop ? 'row' : 'column'}
-        // bgColor="green.500"
         pt="10px"
-        // spacing={isDesktop && '40px'}
       >
         <VStack
           backgroundColor="#D3C6B4"
@@ -305,6 +299,7 @@ const Fun = ({ id }) => {
           outline="10px solid #6C5D46"
           mb="15px"
           mr={isDesktop && '25px'}
+          alignSelf="center"
         >
           {rows.map((row, index) => {
             return (

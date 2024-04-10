@@ -121,7 +121,7 @@ const Fun = ({ id }) => {
     // },
     {
       icon: Github,
-      date: 'present',
+      date: '2022-present',
       tldr: 'random content creation ??',
       notable: null,
       description:
@@ -134,7 +134,20 @@ const Fun = ({ id }) => {
     },
     {
       icon: Github,
-      date: '2024',
+      date: '2024-present',
+      tldr: 'VR experimentalist',
+      notable: null,
+      description:
+        'In January of 2024, I bought an Oculus Quest 2 with the sole purpose of creating projects for it. Some fun projects hopefully TDB 👀',
+      image: ['./side-quests/vr.JPG'],
+      videoLink: null,
+      caption: ['Does anyone actually look good wearing one of these things??'],
+      videoCaption: null,
+      custom: true,
+    },
+    {
+      icon: Github,
+      date: '2023-present',
       tldr: '2-handed competitive bowler',
       notable: '229 PB',
       description:
@@ -163,7 +176,18 @@ const Fun = ({ id }) => {
     },
     {
       icon: Github,
-      date: '2019',
+      date: '2015-2019',
+      tldr: 'wannabe cartoonist',
+      description:
+        "Ever since I was a child, I've had a passion for drawing, where I spent countless hours making comics with my brother and creating our own (admittingly simple) worlds. From the theme of my website, you can probably tell I never grew out of that phase, and it's something I still do to this day!",
+      image: ['./side-quests/young-artist.jpg'],
+      videoLink: null,
+      caption: ["Van Gogh was lucky we weren't drawing in the same era 😎 /s"],
+      custom: false,
+    },
+    {
+      icon: Github,
+      date: '2015-2019',
       tldr: 'competitive swimmer',
       notable: '58.65 100m Backstroke (SCM)',
       description:
@@ -177,7 +201,7 @@ const Fun = ({ id }) => {
     },
     {
       icon: Github,
-      date: '2023',
+      date: '2023-2024',
       tldr: 'HackCamp director @ nwPlus - hackathon organizer',
       notable: null,
       description:
@@ -192,7 +216,7 @@ const Fun = ({ id }) => {
     },
     {
       icon: Github,
-      date: '2017',
+      date: '2015-2017',
       tldr: 'former Mario Kart tryhard',
       notable: '8th worldwide on Donut Plains 3',
       description:
@@ -276,7 +300,6 @@ const Fun = ({ id }) => {
                 key={index}
                 alignSelf="baseline"
                 pt={`${index * 110}px`}
-                // zIndex="10"
                 w="inherit"
                 spacing={row.length == 4 ? 'auto' : '13.328px'}
                 px="20px"
@@ -342,6 +365,7 @@ const Fun = ({ id }) => {
             <Text
               pt="5px"
               className="date"
+              fontSize="18px"
             >
               <Box
                 as="span"
@@ -351,7 +375,10 @@ const Fun = ({ id }) => {
               </Box>{' '}
               {factDetails.date}
             </Text>
-            <Text className="tldr">
+            <Text
+              className="tldr"
+              fontSize="18px"
+            >
               <Box
                 as="span"
                 fontWeight="bold"
@@ -361,7 +388,10 @@ const Fun = ({ id }) => {
               {factDetails.tldr}
             </Text>
             {factDetails?.notable && (
-              <Text className="notable">
+              <Text
+                className="notable"
+                fontSize="18px"
+              >
                 <Box
                   as="span"
                   fontWeight="bold"
@@ -379,7 +409,8 @@ const Fun = ({ id }) => {
                     key={index}
                     spacing="4px"
                     alignItems="baseline"
-                    pb="7px"
+                    pb="10px"
+                    pt="3px"
                   >
                     <Image
                       borderRadius="5px"

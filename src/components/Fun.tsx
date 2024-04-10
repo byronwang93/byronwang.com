@@ -219,7 +219,7 @@ const Fun = ({ id }) => {
       image: ['./side-quests/hackcamp1.jpg', './side-quests/hackcamp2.jpg'],
       videoLink: null,
       caption: [
-        "can you tell who's who? (I should've mentioned this but have a twin brother 🧍‍♂️🧍‍♂️)",
+        "can you tell who's who? (I should've mentioned this but I have a twin brother 🧍‍♂️🧍‍♂️)",
         'the dream team behind HackCamp 2023 🤝',
       ],
       custom: false,

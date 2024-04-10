@@ -17,7 +17,16 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import { Email, Github, MushroomLogo, Youtube } from '../assets/icons';
+import {
+  Github,
+  MushroomLogo,
+  NwplusNew,
+  Bowling,
+  YoutubeNew,
+  Swimming,
+  Running,
+  Oculus,
+} from '../assets/icons';
 
 const Fun = ({ id }) => {
   const standoutText = useColorModeValue(
@@ -119,7 +128,7 @@ const Fun = ({ id }) => {
     //   custom: false
     // },
     {
-      icon: Github,
+      icon: YoutubeNew,
       date: '2022-present',
       tldr: 'random content creation ??',
       notable: null,
@@ -132,7 +141,7 @@ const Fun = ({ id }) => {
       custom: true,
     },
     {
-      icon: Github,
+      icon: Oculus,
       date: '2024-present',
       tldr: 'VR experimentalist',
       notable: null,
@@ -145,7 +154,7 @@ const Fun = ({ id }) => {
       custom: true,
     },
     {
-      icon: Github,
+      icon: Bowling,
       date: '2023-present',
       tldr: '2-handed competitive bowler',
       notable: '229 PB',
@@ -160,7 +169,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: Github,
+      icon: Running,
       date: '2023',
       tldr: 'competitive runner',
       notable: '40:37 10km PB',
@@ -185,7 +194,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: Github,
+      icon: Swimming,
       date: '2015-2019',
       tldr: 'competitive swimmer',
       notable: '58.65 100m Backstroke (SCM)',
@@ -199,7 +208,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: Github,
+      icon: NwplusNew,
       date: '2023-2024',
       tldr: 'HackCamp director @ nwPlus - hackathon organizer',
       notable: null,
@@ -311,8 +320,8 @@ const Fun = ({ id }) => {
                       cursor="pointer"
                       key={index}
                       alignSelf="baseline"
-                      fill={colorMode === 'dark' ? 'white' : 'black'}
-                      stroke={colorMode === 'dark' ? 'white' : 'black'}
+                      // fill={colorMode === 'dark' ? 'white' : 'black'}
+                      // stroke={colorMode === 'dark' ? 'white' : 'black'}
                       boxSize={'60px'}
                       _hover={{
                         transform: 'scale(1.17)', // Adjust scale value as needed for desired effect
@@ -356,9 +365,9 @@ const Fun = ({ id }) => {
           >
             <Icon
               alignSelf="baseline"
-              fill={colorMode === 'dark' ? 'white' : 'black'}
-              stroke={colorMode === 'dark' ? 'white' : 'black'}
-              boxSize={'35px'}
+              // fill={colorMode === 'dark' ? 'white' : 'black'}
+              // stroke={colorMode === 'dark' ? 'white' : 'black'}
+              boxSize={'60px'}
               as={factDetails.icon}
             />
             <Text

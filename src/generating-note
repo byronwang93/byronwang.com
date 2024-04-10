@@ -3,3 +3,6 @@ npm run deploy
 
 this autogenerates svg icons:
 npx @svgr/cli src/assets/images --out-dir src/assets/icons --icon --typescript
+
+this autgenerates a specific icon:
+npx @svgr/cli src/assets/images/specific-image.svg --out-dir src/assets/icons --icon --typescript

@@ -4,6 +4,7 @@ import {
   HStack,
   Icon,
   Image,
+  Spacer,
   Text,
   useBreakpointValue,
   useColorMode,
@@ -26,6 +27,7 @@ import {
   Swimming,
   Running,
   Oculus,
+  Drawing,
 } from '../assets/icons';
 
 const Fun = ({ id }) => {
@@ -183,7 +185,7 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
-      icon: Github,
+      icon: Drawing,
       date: '2015-2019',
       tldr: 'wannabe cartoonist',
       description:
@@ -288,10 +290,12 @@ const Fun = ({ id }) => {
           around!)✨:
         </Text>
       </Box>
-      <HStack
+      <Box
+        display="flex"
+        flexDirection={isDesktop ? 'row' : 'column'}
         // bgColor="green.500"
         pt="10px"
-        spacing={isDesktop && '40px'}
+        // spacing={isDesktop && '40px'}
       >
         <VStack
           backgroundColor="#D3C6B4"
@@ -300,6 +304,7 @@ const Fun = ({ id }) => {
           borderRadius="2px"
           outline="10px solid #6C5D46"
           mb="15px"
+          mr={isDesktop && '25px'}
         >
           {rows.map((row, index) => {
             return (
@@ -349,130 +354,132 @@ const Fun = ({ id }) => {
             );
           })}
         </VStack>
-        {isDesktop && (
-          <VStack
-            overflowY="auto"
-            // overflowY="scroll"
+        {/* {isDesktop && ( */}
+        <VStack
+          ml={isDesktop && '25px'}
+          mt={!isDesktop && '25px'}
+          overflowY="auto"
+          // overflowY="scroll"
+          alignSelf="baseline"
+          // backgroundColor="#D3C611"
+          maxH={`${shelfHeight}px`}
+          w={{ base: '350px', lg: '430px' }}
+          spacing="3px"
+          // borderRadius="2px"
+          // outline="10px solid #6C5D46"
+          mb="20px"
+          alignItems="baseline"
+        >
+          <Icon
             alignSelf="baseline"
-            // backgroundColor="#D3C611"
-            maxH={`${shelfHeight}px`}
-            w={{ base: '350px', lg: '430px' }}
-            spacing="3px"
-            // borderRadius="2px"
-            // outline="10px solid #6C5D46"
-            mb="20px"
-            alignItems="baseline"
+            // fill={colorMode === 'dark' ? 'white' : 'black'}
+            // stroke={colorMode === 'dark' ? 'white' : 'black'}
+            boxSize={'60px'}
+            as={factDetails.icon}
+          />
+          <Text
+            pt="5px"
+            className="date"
+            fontSize="18px"
           >
-            <Icon
-              alignSelf="baseline"
-              // fill={colorMode === 'dark' ? 'white' : 'black'}
-              // stroke={colorMode === 'dark' ? 'white' : 'black'}
-              boxSize={'60px'}
-              as={factDetails.icon}
-            />
+            <Box
+              as="span"
+              fontWeight="bold"
+            >
+              Date:
+            </Box>{' '}
+            {factDetails.date}
+          </Text>
+          <Text
+            className="tldr"
+            fontSize="18px"
+          >
+            <Box
+              as="span"
+              fontWeight="bold"
+            >
+              tldr:
+            </Box>{' '}
+            {factDetails.tldr}
+          </Text>
+          {factDetails?.notable && (
             <Text
-              pt="5px"
-              className="date"
+              className="notable"
               fontSize="18px"
             >
               <Box
                 as="span"
                 fontWeight="bold"
               >
-                Date:
+                Anything notable:
               </Box>{' '}
-              {factDetails.date}
+              {factDetails.notable}
             </Text>
-            <Text
-              className="tldr"
-              fontSize="18px"
-            >
-              <Box
-                as="span"
-                fontWeight="bold"
-              >
-                tldr:
-              </Box>{' '}
-              {factDetails.tldr}
-            </Text>
-            {factDetails?.notable && (
-              <Text
-                className="notable"
-                fontSize="18px"
-              >
-                <Box
-                  as="span"
-                  fontWeight="bold"
+          )}
+          <Text py="7px">{factDetails.description}</Text>
+          {factDetails?.image &&
+            factDetails?.image.map((image, index) => {
+              return (
+                <VStack
+                  key={index}
+                  spacing="4px"
+                  alignItems="baseline"
+                  pb="10px"
+                  pt="3px"
                 >
-                  Anything notable:
-                </Box>{' '}
-                {factDetails.notable}
-              </Text>
-            )}
-            <Text py="7px">{factDetails.description}</Text>
-            {factDetails?.image &&
-              factDetails?.image.map((image, index) => {
-                return (
-                  <VStack
-                    key={index}
-                    spacing="4px"
-                    alignItems="baseline"
-                    pb="10px"
-                    pt="3px"
-                  >
-                    <Image
-                      borderRadius="5px"
-                      my="7px"
-                      mr="30px"
-                      // maxH="200px"
+                  <Image
+                    borderRadius="5px"
+                    my="7px"
+                    mr="30px"
+                    // maxH="200px"
+                    w={{ base: '260px', lg: '300px' }}
+                    src={image}
+                    alt="project-image"
+                  />
+                  {factDetails?.caption && (
+                    <Text
+                      pl="7px"
                       w={{ base: '260px', lg: '300px' }}
-                      src={image}
-                      alt="project-image"
-                    />
-                    {factDetails?.caption && (
-                      <Text
-                        pl="7px"
-                        w={{ base: '260px', lg: '300px' }}
-                        color={secondaryTextColour}
-                      >
-                        {factDetails.caption[index]}
-                      </Text>
-                    )}
-                  </VStack>
-                );
-              })}
-            {factDetails?.videoLink &&
-              factDetails.videoLink.map((video, index) => {
-                return (
-                  <VStack
-                    key={index}
-                    // alignSelf={{ base: 'baseline', lg: 'center' }}
-                    spacing="4px"
-                    alignItems="baseline"
-                    pb="7px"
-                    // justifyContent="center"
-                  >
-                    <YouTube
-                      videoId={video}
-                      opts={{
-                        height: '240',
-                        width: '100%',
-                      }}
-                    />
-                    {factDetails?.videoCaption && (
-                      <Text
-                        pl="7px"
-                        color={secondaryTextColour}
-                      >
-                        {factDetails.videoCaption[index]}
-                      </Text>
-                    )}
-                  </VStack>
-                );
-              })}
-          </VStack>
-        )}
-      </HStack>
+                      color={secondaryTextColour}
+                    >
+                      {factDetails.caption[index]}
+                    </Text>
+                  )}
+                </VStack>
+              );
+            })}
+          {factDetails?.videoLink &&
+            factDetails.videoLink.map((video, index) => {
+              return (
+                <VStack
+                  key={index}
+                  // alignSelf={{ base: 'baseline', lg: 'center' }}
+                  spacing="4px"
+                  alignItems="baseline"
+                  pb="7px"
+                  // justifyContent="center"
+                >
+                  <YouTube
+                    videoId={video}
+                    opts={{
+                      height: '240',
+                      width: '100%',
+                    }}
+                  />
+                  {factDetails?.videoCaption && (
+                    <Text
+                      pl="7px"
+                      color={secondaryTextColour}
+                    >
+                      {factDetails.videoCaption[index]}
+                    </Text>
+                  )}
+                </VStack>
+              );
+            })}
+        </VStack>
+        {/* )} */}
+      </Box>
       {/* <Box
         width="100%"
         //@ts-ignore

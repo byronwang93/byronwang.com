@@ -5,6 +5,7 @@ export { default as Github } from './Github';
 export { default as LightModeDramatic } from './LightModeDramatic';
 export { default as Linkedin } from './Linkedin';
 export { default as MoonIcon } from './MoonIcon';
+export { default as MushroomLogo } from './MushroomLogo';
 export { default as PersonalWebsite } from './PersonalWebsite';
 export { default as SecondQuestionMark } from './SecondQuestionMark';
 export { default as Star1 } from './Star1';

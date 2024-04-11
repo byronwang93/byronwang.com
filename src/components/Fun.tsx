@@ -168,6 +168,21 @@ const Fun = ({ id }) => {
       custom: false,
     },
     {
+      icon: NwplusNew,
+      date: '2023-2024',
+      tldr: 'HackCamp director @ nwPlus - hackathon organizer',
+      notable: null,
+      description:
+        "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
+      image: ['./side-quests/hackcamp1.jpg', './side-quests/hackcamp2.jpg'],
+      videoLink: null,
+      caption: [
+        "can you tell who's who? (I should've mentioned this but I have a twin brother 🧍‍♂️🧍‍♂️)",
+        'the dream team behind HackCamp 2023 🤝',
+      ],
+      custom: false,
+    },
+    {
       icon: Running,
       date: '2023',
       tldr: 'competitive runner',
@@ -203,21 +218,6 @@ const Fun = ({ id }) => {
       videoLink: null,
       caption: [
         'Travelled all the way to Alberta for 50m backstroke but it was worth every penny :)',
-      ],
-      custom: false,
-    },
-    {
-      icon: NwplusNew,
-      date: '2023-2024',
-      tldr: 'HackCamp director @ nwPlus - hackathon organizer',
-      notable: null,
-      description:
-        "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
-      image: ['./side-quests/hackcamp1.jpg', './side-quests/hackcamp2.jpg'],
-      videoLink: null,
-      caption: [
-        "can you tell who's who? (I should've mentioned this but I have a twin brother 🧍‍♂️🧍‍♂️)",
-        'the dream team behind HackCamp 2023 🤝',
       ],
       custom: false,
     },

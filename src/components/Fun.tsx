@@ -95,7 +95,6 @@ const Fun = ({ id }) => {
       videoCaption,
       custom,
     } = funEntries[factIndex];
-    console.log(icon, ' is the icon');
 
     setFactDetails({
       icon: icon,

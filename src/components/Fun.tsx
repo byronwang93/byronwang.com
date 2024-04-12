@@ -50,7 +50,6 @@ const Fun = ({ id }) => {
     else setVidWidth(300);
   }, [isDesktop]);
 
-  const videos = ['UYQfnTmqPCI', 'tHjIUg4OYU4'];
   const { colorMode } = useColorMode();
 
   const [videoIndex, setVideoIndex] = useState(0);

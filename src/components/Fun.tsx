@@ -314,7 +314,7 @@ const Fun = ({ id }) => {
                   return (
                     <Icon
                       zIndex="10"
-                      mt="40px"
+                      mt="33px"
                       cursor="pointer"
                       key={index}
                       alignSelf="baseline"

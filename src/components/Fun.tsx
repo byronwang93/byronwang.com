@@ -6,7 +6,6 @@ import {
   Image,
   Text,
   useBreakpointValue,
-  useColorMode,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
@@ -50,9 +49,6 @@ const Fun = ({ id }) => {
     else setVidWidth(300);
   }, [isDesktop]);
 
-  const { colorMode } = useColorMode();
-
-  const [videoIndex, setVideoIndex] = useState(0);
   const [factIndex, setFactIndex] = useState(0);
 
   // rows

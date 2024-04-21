@@ -8,6 +8,7 @@ import {
   HStack,
   Icon,
   useColorMode,
+  Box,
 } from '@chakra-ui/react';
 import React, { useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
@@ -94,12 +95,24 @@ const Intro = ({ id }) => {
         >
           <Image
             mb="10px"
-            borderRadius="40px"
-            // src={`../../round-coffee-picture.png`}
+            borderRadius="20px"
             src={`../../cropped-luigi.png`}
             alt="profile"
             width={{ base: '450px', sm: '650px', md: '850px' }}
           />
+          <Box
+            boxSize="40px"
+            borderRadius="4px"
+            position="relative"
+            bgColor={`rgba(217, 217, 217, ${colorMode === 'dark' ? 0.7 : 0.9})`}
+            alignContent="center"
+            textAlign="center"
+            fontSize="23px"
+            left="90px"
+            top="-50px"
+          >
+            🤝
+          </Box>
           <HStack spacing="15px">
             {socialIcons.map((item, index) => {
               return (

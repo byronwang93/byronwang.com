@@ -9,6 +9,7 @@ import {
   Icon,
   useColorMode,
   Box,
+  Tooltip,
 } from '@chakra-ui/react';
 import React, { useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
@@ -100,7 +101,69 @@ const Intro = ({ id }) => {
             alt="profile"
             width={{ base: '450px', sm: '650px', md: '850px' }}
           />
-          <Box
+          <Tooltip
+            label={
+              <Box
+                // bgColor="#d6d6d6"
+                bgColor={`rgba(217, 217, 217, ${
+                  colorMode === 'dark' ? 0.8 : 0.9
+                })`}
+                textAlign="left"
+                fontSize="18px"
+                p="15px"
+                borderRadius="5px"
+              >
+                <Text color="#949494">Quote of the day (?):</Text>
+                <Text
+                  color="black"
+                  py="4px"
+                >
+                  "Someone find me my coffee"
+                </Text>
+                <Text
+                  fontSize="15px"
+                  color="#949494"
+                >
+                  April 22, 2024
+                </Text>
+              </Box>
+            }
+            borderRadius="4px"
+            position="relative"
+            bgColor={`rgba(217, 217, 217, ${colorMode === 'dark' ? 0.7 : 0.9})`}
+            alignContent="center"
+            textAlign="center"
+            fontSize="23px"
+            right="80px"
+            top="0px"
+            _hover={{
+              cursor: 'pointer',
+            }}
+            p={0}
+            m={0}
+          >
+            <Box
+              boxSize="40px"
+              borderRadius="4px"
+              position="relative"
+              bgColor={`rgba(217, 217, 217, ${
+                colorMode === 'dark' ? 0.7 : 0.9
+              })`}
+              alignContent="center"
+              textAlign="center"
+              fontSize="23px"
+              left={{ base: '110px', md: '90px', lg: '105px' }}
+              top="-50px"
+              p={0}
+              m={0}
+              // _hover={{
+              //   cursor: 'pointer',
+              // }}
+            >
+              🤝
+            </Box>
+          </Tooltip>
+          {/* <Box
             boxSize="40px"
             borderRadius="4px"
             position="relative"
@@ -110,10 +173,24 @@ const Intro = ({ id }) => {
             fontSize="23px"
             left="90px"
             top="-50px"
+            _hover={{
+              cursor: 'pointer',
+            }}
           >
             🤝
-          </Box>
-          <HStack spacing="15px">
+          </Box> */}
+          {/* <Box
+            bgColor="pink.100"
+            visibility="hidden"
+            _hover={{ visibility: 'visible' }}
+          >
+            hello this is byron
+          </Box> */}
+          <HStack
+            position="relative"
+            bottom={{ base: '30px', md: '20px', lg: '30px' }}
+            spacing="15px"
+          >
             {socialIcons.map((item, index) => {
               return (
                 <Icon

@@ -108,8 +108,9 @@ const Intro = ({ id }) => {
                 bgColor={`rgba(217, 217, 217, ${
                   colorMode === 'dark' ? 0.8 : 0.9
                 })`}
+                maxWidth="400px"
                 textAlign="left"
-                fontSize="18px"
+                fontSize="16px"
                 p="15px"
                 borderRadius="5px"
               >
@@ -118,10 +119,10 @@ const Intro = ({ id }) => {
                   color="black"
                   py="4px"
                 >
-                  "Someone find me my coffee"
+                  "Someone find me my coffee ..."
                 </Text>
                 <Text
-                  fontSize="15px"
+                  fontSize="13px"
                   color="#949494"
                 >
                   April 22, 2024
@@ -134,8 +135,8 @@ const Intro = ({ id }) => {
             alignContent="center"
             textAlign="center"
             fontSize="23px"
-            right="80px"
-            top="0px"
+            right="107px"
+            top="-2px"
             _hover={{
               cursor: 'pointer',
             }}

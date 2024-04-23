@@ -104,7 +104,6 @@ const Intro = ({ id }) => {
           <Tooltip
             label={
               <Box
-                // bgColor="#d6d6d6"
                 bgColor={`rgba(217, 217, 217, ${
                   colorMode === 'dark' ? 0.8 : 0.9
                 })`}
@@ -157,36 +156,10 @@ const Intro = ({ id }) => {
               top="-50px"
               p={0}
               m={0}
-              // _hover={{
-              //   cursor: 'pointer',
-              // }}
             >
               🤝
             </Box>
           </Tooltip>
-          {/* <Box
-            boxSize="40px"
-            borderRadius="4px"
-            position="relative"
-            bgColor={`rgba(217, 217, 217, ${colorMode === 'dark' ? 0.7 : 0.9})`}
-            alignContent="center"
-            textAlign="center"
-            fontSize="23px"
-            left="90px"
-            top="-50px"
-            _hover={{
-              cursor: 'pointer',
-            }}
-          >
-            🤝
-          </Box> */}
-          {/* <Box
-            bgColor="pink.100"
-            visibility="hidden"
-            _hover={{ visibility: 'visible' }}
-          >
-            hello this is byron
-          </Box> */}
           <HStack
             position="relative"
             bottom={{ base: '30px', md: '20px', lg: '30px' }}

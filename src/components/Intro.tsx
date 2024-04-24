@@ -50,6 +50,9 @@ const Intro = ({ id }) => {
   // ];
 
   const targetRef = useRef(null);
+  const emoji = '☕️';
+  const quoteOfDay = 'Someone find me my coffee ...';
+  const quoteDate = 'April 22, 2024';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -118,13 +121,13 @@ const Intro = ({ id }) => {
                   color="black"
                   py="4px"
                 >
-                  "Someone find me my coffee ..."
+                  {quoteOfDay}
                 </Text>
                 <Text
                   fontSize="13px"
                   color="#949494"
                 >
-                  April 22, 2024
+                  {quoteDate}
                 </Text>
               </Box>
             }
@@ -157,7 +160,7 @@ const Intro = ({ id }) => {
               p={0}
               m={0}
             >
-              🤝
+              {emoji}
             </Box>
           </Tooltip>
           <HStack

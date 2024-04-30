@@ -50,9 +50,9 @@ const Intro = ({ id }) => {
   // ];
 
   const targetRef = useRef(null);
-  const emoji = '☕️';
-  const quoteOfDay = 'Someone find me my coffee ...';
-  const quoteDate = 'April 22, 2024';
+  const emoji = '🙂';
+  const quoteOfDay = 'FREEDOM AT LAST';
+  const quoteDate = 'April 29, 2024';
 
   useEffect(() => {
     const observer = new IntersectionObserver(

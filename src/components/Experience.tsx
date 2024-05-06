@@ -29,6 +29,20 @@ const experiences = [
   //   captions: [],
   // },
   {
+    title: 'Fullstack Developer @ TheCreativeSolution',
+    location: 'Vancouver, BC, May 2024 - Present',
+    link: 'https://www.paybyphone.com/',
+    description: [
+      'Contributed to the implementation of core features for m2.paybyphone.com by enhancing the website`s user interface and working with serverside endpoints to elevate functionality',
+      'Spearheaded the migration of our CI/CD system from TeamCity to GitLab CI/CD, resulting in improved efficiency',
+      'Implemented a flexible Docker image by introducing support for multiple Node.js versions to accommodate diverse project requirements',
+    ],
+    tags: ['JavaScript', 'React', 'Docker', 'Dev-ops'],
+    logo: './experiences/TCS_logo.jpeg',
+    photos: [],
+    captions: [],
+  },
+  {
     title: 'Software Developer Intern @ PayByPhone',
     location: 'Vancouver, BC, May 2023 - Dec 2023',
     link: 'https://www.paybyphone.com/',
@@ -134,6 +148,7 @@ const Experience = ({ id }) => {
                     px="10px"
                   >
                     <Image
+                      borderRadius="5px"
                       mr="30px"
                       w="80px"
                       src={logo}

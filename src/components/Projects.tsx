@@ -37,6 +37,25 @@ const sideProjects = [
   //   captions: [],
   // },
   {
+    title: 'Linkt',
+    subtitle: 'Link manager chrome extension',
+    titlePicture: './projects/linkt-picture.png',
+    githubLink: 'https://github.com/byronwang93/Linkt',
+    deployLink:
+      'https://chrome.google.com/webstore/detail/linkt/fjhmcdeacfacahfiiimnkmccnocidjpn/related',
+    youtubeLink: '',
+    winner: false,
+    location: 'July 2023',
+    description: [
+      'Developed a chrome extension to remove the hassle of repeatedly searching up the same links',
+      'Utilized local storage to persist data upon refresh',
+      'Currently serving 60+ users',
+    ],
+    tags: ['React', 'Local Storage', 'Productivity'],
+    photos: [],
+    captions: [],
+  },
+  {
     title: 'Schedule Me',
     subtitle: 'Hackathon scheduling automater',
     titlePicture: '📆',
@@ -242,25 +261,6 @@ const mainProjects = [
       'Awarded runner up for food sustainability prize',
     ],
     tags: ['GPT-3.5', 'React', 'Firebase', 'Express.js'],
-    photos: [],
-    captions: [],
-  },
-  {
-    title: 'Linkt',
-    subtitle: 'Link manager chrome extension',
-    titlePicture: './projects/linkt-picture.png',
-    githubLink: 'https://github.com/byronwang93/Linkt',
-    deployLink:
-      'https://chrome.google.com/webstore/detail/linkt/fjhmcdeacfacahfiiimnkmccnocidjpn/related',
-    youtubeLink: '',
-    winner: false,
-    location: 'July 2023',
-    description: [
-      'Developed a chrome extension to remove the hassle of repeatedly searching up the same links',
-      'Utilized local storage to persist data upon refresh',
-      'Currently serving 60+ users',
-    ],
-    tags: ['React', 'Local Storage', 'Productivity'],
     photos: [],
     captions: [],
   },
@@ -518,12 +518,21 @@ const Projects = ({ id }) => {
                       fontSize={{ base: '18px', md: '20px', lg: '20px' }}
                       px="10px"
                     >
-                      <Text
-                        mr="20px"
-                        fontSize="40px"
-                      >
-                        {titlePicture}
-                      </Text>
+                      {titlePicture.length < 3 ? (
+                        <Text
+                          mr="20px"
+                          fontSize="40px"
+                        >
+                          {titlePicture}
+                        </Text>
+                      ) : (
+                        <Image
+                          mr="20px"
+                          src={titlePicture}
+                          alt="icon"
+                          w="40px"
+                        />
+                      )}
                       <VStack
                         alignItems="start"
                         textAlign="left"

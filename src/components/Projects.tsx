@@ -154,6 +154,27 @@ const mainProjects = [
   //   captions: [],
   // },
   {
+    title: 'Recall Rehearsal',
+    subtitle: 'an immersive, Feynman approach towards studying',
+    titlePicture: './projects/recall-rehearsal-picture.png',
+    githubLink: 'https://github.com/RecallRehearsal',
+    deployLink: 'https://www.dialog.courses/',
+    youtubeLink: '',
+    winner: true,
+    location: 'May 2024, Stormhacks 2024',
+    description: [
+      'Created a language learning tool that mocks any real world scenario, capable of hearing and responding with over 6 languages',
+      "Utilized OpenAI's whisper API to convert text-to-speech, which is processed by GPT-3.5-turbo. The response is then fed to Google API's text-to-speech sythesis, which is read out to the user",
+      'Awarded best use of Google Cloud award',
+    ],
+    tags: ['OpenAI', 'Google-Cloud', 'Next.js', 'TypeScript', 'Spline'],
+    photos: ['./projects/stormhacks1.JPG', './projects/stormhacks2.JPG'],
+    captions: [
+      '1st place in the AI stream + 3rd place overall!',
+      'My brother and I also pull off 1st place in their super smash tournament :P',
+    ],
+  },
+  {
     title: 'Dialog',
     subtitle: 'Language learning speaking aid',
     titlePicture: './projects/dialog-picture.jpg',

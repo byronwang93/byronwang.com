@@ -139,8 +139,8 @@ const Fun = ({ id }) => {
       tldr: 'VR experimentalist',
       notable: null,
       description:
-        'In January of 2024, I bought an Oculus Quest 2 with the sole purpose of creating projects for it. Some fun projects hopefully TDB 👀',
-      image: ['./side-quests/vr.JPG'],
+        'In January of 2024, I bought an Oculus Quest 2 with the sole purpose of creating projects for it. Most recently I used it to create Recall Rehearsal at Stormhacks 2024 (more info in projects). Hopefully more fun updates in the future! o.o',
+      image: ['./side-quests/wearing-vr.JPG'],
       videoLink: null,
       caption: ['Does anyone actually look good wearing one of these things??'],
       videoCaption: null,

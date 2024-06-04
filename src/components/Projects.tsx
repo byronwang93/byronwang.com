@@ -178,7 +178,8 @@ const mainProjects = [
     titlePicture: './projects/recall-rehearsal-picture.png',
     githubLink: 'https://github.com/RecallRehearsal',
     deployLink: 'https://recall-rehearsal.vercel.app/',
-    youtubeLink: '',
+    youtubeLink:
+      'https://www.youtube.com/watch?v=JYFQEud57zg&t=5s&ab_channel=ByronWang',
     winner: true,
     location: 'May 2024, Stormhacks 2024',
     description: [

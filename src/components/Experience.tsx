@@ -29,11 +29,13 @@ const experiences = [
   //   captions: [],
   // },
   {
-    title: 'Fullstack Developer @ TheCreativeSolution',
+    title: 'Fullstack Developer @ The Creative Solution',
     location: 'Vancouver, BC, May 2024 - Present',
     link: 'https://www.thecreativesolution.ca/',
-    description: ['more info soon 👀'],
-    tags: [],
+    description: [
+      'Development lead of Stupaid, a startup connecting small businesses with students who want to get their foot into the door',
+    ],
+    tags: ['React', 'Firebase'],
     logo: './experiences/TCS_logo.jpeg',
     photos: [],
     captions: [],

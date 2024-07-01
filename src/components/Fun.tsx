@@ -24,6 +24,7 @@ import {
   Running,
   Oculus,
   Drawing,
+  Chess,
 } from '../assets/icons';
 
 const Fun = ({ id }) => {
@@ -227,6 +228,19 @@ const Fun = ({ id }) => {
       caption: [
         "If there's a local Mario Kart tournament, chances are you'll see me and my brother there 😌",
       ],
+      videoCaption: null,
+      custom: false,
+    },
+    {
+      icon: Chess,
+      date: '2024-present',
+      tldr: 'aspiring chess scrub',
+      notable: null,
+      description:
+        "2 years after watching the Queen's Gambit, I randomly found myself binge watching GothamChess on YouTube. Standly proudly with an elo under 600, I've played my share of tough opponents (and lost everytime), but hopefully this is my villain origin story >:)",
+      image: [],
+      videoLink: null,
+      caption: [],
       videoCaption: null,
       custom: false,
     },

@@ -193,7 +193,7 @@ const Fun = ({ id }) => {
     },
     {
       icon: Drawing,
-      date: '2015-2019',
+      date: '2006-present',
       tldr: 'wannabe cartoonist',
       description:
         "Ever since I was a child, I've had a passion for drawing, where I spent countless hours making comics with my brother and creating our own (admittingly simple) worlds. From the theme of my website, you can probably tell I never grew out of that phase, and it's something I still do to this day!",
@@ -235,9 +235,9 @@ const Fun = ({ id }) => {
       icon: Chess,
       date: '2024-present',
       tldr: 'aspiring chess scrub',
-      notable: null,
+      notable: 'rapid rating of 600',
       description:
-        "2 years after watching the Queen's Gambit, I randomly found myself binge watching GothamChess on YouTube. Standly proudly with an elo under 600, I've played my share of tough opponents (and lost everytime), but hopefully this is my villain origin story >:)",
+        "2 years after watching the Queen's Gambit, I randomly found myself binge watching GothamChess on YouTube. Standly proudly with a meme elo, I've played my share of tough opponents (and lost everytime), but hopefully this is my villain origin story >:)",
       image: [],
       videoLink: null,
       caption: [],

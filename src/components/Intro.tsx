@@ -225,7 +225,7 @@ const Intro = ({ id }) => {
           <Text>
             If you like what you see and want to chat, my socials are underneath
             my profile picture and in the footer so reach out! Down to coffee
-            chat anytime :')
+            chat anytime :') (or play a game of chess hehe)
           </Text>
         </VStack>
       </Flex>

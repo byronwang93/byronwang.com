@@ -35,7 +35,7 @@ const experiences = [
     description: [
       'Development lead of Stupaid, a startup connecting small businesses with students who want to get their foot into the door',
     ],
-    tags: ['React', 'Firebase', 'Express'],
+    tags: ['React', 'Firebase', 'Express', 'Socket.io'],
     logo: './experiences/TCS_logo.jpeg',
     photos: [],
     captions: [],

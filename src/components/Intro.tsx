@@ -51,8 +51,8 @@ const Intro = ({ id }) => {
 
   const targetRef = useRef(null);
   const emoji = '☕️';
-  const quoteOfDay = 'Maybe this is the year I get into coffee making ...';
-  const quoteDate = 'May 25, 2024';
+  const quoteOfDay = 'You might call it unemployment, I call it a gambit';
+  const quoteDate = 'July 13, 2024';
 
   useEffect(() => {
     const observer = new IntersectionObserver(

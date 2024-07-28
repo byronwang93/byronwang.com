@@ -235,7 +235,7 @@ const Fun = ({ id }) => {
       icon: Chess,
       date: '2024-present',
       tldr: 'aspiring chess scrub',
-      notable: 'rapid rating of 600',
+      notable: 'rapid rating of 650',
       description:
         "2 years after watching the Queen's Gambit, I randomly found myself binge watching GothamChess on YouTube. Standly proudly with a meme elo, I've played my share of tough opponents (and lost everytime), but hopefully this is my villain origin story ...",
       image: [],

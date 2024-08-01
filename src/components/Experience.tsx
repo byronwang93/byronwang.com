@@ -29,6 +29,16 @@ const experiences = [
   //   captions: [],
   // },
   {
+    title: 'Incoming Software Developer Intern @ Tesla',
+    location: 'Fremont, California, Sept 2024',
+    link: 'https://www.tesla.com/',
+    description: ['Factory team, more details tbd 👀'],
+    tags: ['React'],
+    logo: './experiences/tesla-logo.png',
+    photos: [],
+    captions: [],
+  },
+  {
     title: 'Fullstack Developer @ The Creative Solution',
     location: 'Vancouver, BC, May 2024 - Present',
     link: 'https://www.thecreativesolution.ca/',

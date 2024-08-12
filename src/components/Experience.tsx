@@ -44,6 +44,8 @@ const experiences = [
     link: 'https://www.thecreativesolution.ca/',
     description: [
       'Development lead of Stupaid, a startup connecting small businesses with students who want to get their foot into the door',
+      'Implemented a full-stack application with a responsive UI using JavaScript React for the frontend and Express for the backend, enabling real-time chat with Socket.io',
+      'Integrated Firebase for user authentication and data storage, conditionally rendering user data on the frontend based on queries',
     ],
     tags: ['React', 'Firebase', 'Express', 'Socket.io'],
     logo: './experiences/TCS_logo.jpeg',

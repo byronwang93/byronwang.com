@@ -40,7 +40,7 @@ const experiences = [
   },
   {
     title: 'Fullstack Developer @ The Creative Solution',
-    location: 'Vancouver, BC, May 2024 - Present',
+    location: 'Vancouver, BC, May 2024 - Aug 2024',
     link: 'https://www.thecreativesolution.ca/',
     description: [
       'Development lead of Stupaid, a startup connecting small businesses with students who want to get their foot into the door',

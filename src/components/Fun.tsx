@@ -238,9 +238,9 @@ const Fun = ({ id }) => {
       notable: 'rapid rating of 650',
       description:
         "2 years after watching the Queen's Gambit, I randomly found myself binge watching GothamChess on YouTube. Standly proudly with a meme elo, I've played my share of tough opponents (and lost everytime), but hopefully this is my villain origin story ...",
-      image: [],
+      image: ['./side-quests/chess.jpg'],
       videoLink: null,
-      caption: [],
+      caption: ['The face of a man who just blundered'],
       videoCaption: null,
       custom: false,
     },

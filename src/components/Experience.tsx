@@ -29,11 +29,11 @@ const experiences = [
   //   captions: [],
   // },
   {
-    title: 'Incoming Software Developer Intern @ Tesla',
+    title: 'Software Engineer Intern @ Tesla',
     location: 'Fremont, California, Sept 2024',
     link: 'https://www.tesla.com/',
     description: ['Factory team, more details tbd 👀'],
-    tags: ['React'],
+    tags: ['React', 'Angular'],
     logo: './experiences/tesla-logo.png',
     photos: [],
     captions: [],
@@ -53,7 +53,7 @@ const experiences = [
     captions: [],
   },
   {
-    title: 'Software Developer Intern @ PayByPhone',
+    title: 'Software Engineer Intern @ PayByPhone',
     location: 'Vancouver, BC, May 2023 - Dec 2023',
     link: 'https://www.paybyphone.com/',
     description: [
@@ -69,7 +69,7 @@ const experiences = [
     ],
   },
   {
-    title: 'Software Developer Intern @ Apryse',
+    title: 'Software Engineer Intern @ Apryse',
     location: 'Vancouver, BC, May 2022 - Dec 2022',
     link: 'https://www.pdftron.com/',
     description: [

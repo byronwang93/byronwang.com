@@ -151,7 +151,7 @@ const Fun = ({ id }) => {
       icon: Bowling,
       date: '2023-present',
       tldr: '2-handed competitive bowler',
-      notable: '229 PB',
+      notable: '242 PB',
       description:
         'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
       image: ['./side-quests/bowling-dubhacks.JPG'],

@@ -45,7 +45,9 @@ const experiences = [
     title: 'Software Engineer Intern @ Tesla',
     location: 'Fremont, California, Sept 2024 - Dec 2024',
     link: 'https://www.tesla.com/',
-    description: [''],
+    description: ["Developed interactive dashboards using TypeScript React to optimize part management and recycling workflows within the factory's operations",
+      "Initiated the introduction of React into the Angular codebase, building essential components to accelerate the transition to a modern frontend architecture"
+    ],
     tags: ['React', 'Angular'],
     logo: './experiences/tesla-logo.png',
     photos: [],

@@ -6,8 +6,10 @@ import {
   AccordionPanel,
   Box,
   Flex,
+  Icon,
   Image,
   Text,
+  useColorMode,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
@@ -16,6 +18,7 @@ import HeaderText from './HeaderText';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import Tag from './Tag';
+import { PersonalWebsite } from '../assets/icons';
 
 const experiences = [
   // {
@@ -24,15 +27,25 @@ const experiences = [
   //   link: '',
   //   description: [],
   //   tags: [],
-  //   logo: [],
+  //   logo: '',
   //   photos: [],
   //   captions: [],
   // },
   {
+    title: 'Incoming Software Engineer @ Remitly',
+    location: 'Vancouver, BC, June 2025',
+    link: 'https://www.remitly.com/',
+    description: ['Global network team'],
+    tags: ['Golang'],
+    logo: './experiences/remitly-logo.png',
+    photos: [],
+    captions: [],
+  },
+  {
     title: 'Software Engineer Intern @ Tesla',
-    location: 'Fremont, California, Sept 2024',
+    location: 'Fremont, California, Sept 2024 - Dec 2024',
     link: 'https://www.tesla.com/',
-    description: ['Factory team, more details tbd 👀'],
+    description: [''],
     tags: ['React', 'Angular'],
     logo: './experiences/tesla-logo.png',
     photos: [],
@@ -123,6 +136,8 @@ const Experience = ({ id }) => {
     };
   }, []);
 
+  const { colorMode } = useColorMode();
+
   return (
     <Box
       ref={targetRef}
@@ -212,6 +227,18 @@ const Experience = ({ id }) => {
                       );
                     })}
                   </Flex>
+                  {link && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={PersonalWebsite}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(link);
+                        }}
+                      />
+                    )}
                   {photos && (
                     <Flex
                       flexDirection="row"

@@ -55,14 +55,6 @@ module.exports = {
         isUsingColorMode: true,
       },
     },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `iou2rab9impa`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_API_KEY,
-      },
-    },
     `gatsby-plugin-image`,
   ],
   pathPrefix: '/byronwang.com',

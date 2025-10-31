@@ -173,6 +173,23 @@ const mainProjects = [
   //   captions: [],
   // },
   {
+    title: 'mkmii',
+    subtitle: 'Mario Kart World time trial tracker',
+    titlePicture: './projects/mkmii-logo.JPEG',
+    githubLink: '',
+    deployLink:'https://www.mkmii.com/', 
+    youtubeLink: '',
+    winner: false,
+    location: 'Sept 2025',
+    description: [
+      "A personal time trial tracker for Mario Kart World",
+	  "Allows users to view their best times and progression in a list or a driveable map view"
+    ],
+    tags: ['React', 'React Three Fiber', 'Supabase'],
+    photos: [],
+    captions: [],
+  },
+  {
     title: 'SpectaCare',
     subtitle: 'AR assistance for doctors, one snap at a time.',
     titlePicture: './projects/calhacks.jpg',

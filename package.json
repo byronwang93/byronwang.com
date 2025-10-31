@@ -27,7 +27,6 @@
     "gatsby-plugin-image": "^2.23.1",
     "gatsby-plugin-styled-components": "^5.24.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-contentful": "^7.22.0",
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -40,6 +39,7 @@
   },
   "devDependencies": {
     "@types/react-typist": "^2.0.3",
+    "eslint": "^8.57.1",
     "gh-pages": "^4.0.0",
     "prettier": "^2.7.1"
   },

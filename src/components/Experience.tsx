@@ -13,14 +13,27 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
-import { useRef } from 'react';
-import { useEffect } from 'react';
 import Tag from './Tag';
 import { PersonalWebsite } from '../assets/icons';
 
-const experiences = [
+interface ExperienceProps {
+  id: string;
+}
+
+interface ExperienceItem {
+  title: string;
+  location: string;
+  link: string;
+  description: string[];
+  tags: string[];
+  logo: string;
+  photos?: string[];
+  captions?: string[];
+}
+
+const experiences: ExperienceItem[] = [
   // {
   //   title: '',
   //   location: '',
@@ -45,8 +58,9 @@ const experiences = [
     title: 'Software Engineer Intern @ Tesla',
     location: 'Fremont, California, Sept 2024 - Dec 2024',
     link: 'https://www.tesla.com/',
-    description: ["Developed interactive dashboards using TypeScript React to optimize part management and recycling workflows within the factory's operations",
-      "Initiated the introduction of React into the Angular codebase, building essential components to accelerate the transition to a modern frontend architecture"
+    description: [
+      "Developed interactive dashboards using TypeScript React to optimize part management and recycling workflows within the factory's operations",
+      'Initiated the introduction of React into the Angular codebase, building essential components to accelerate the transition to a modern frontend architecture',
     ],
     tags: ['React', 'Angular'],
     logo: './experiences/tesla-logo.png',
@@ -110,8 +124,8 @@ const experiences = [
   },
 ];
 
-const Experience = ({ id }) => {
-  const targetRef = useRef(null);
+const Experience: FC<ExperienceProps> = ({ id }) => {
+  const targetRef = useRef<HTMLDivElement>(null);
   const secondaryTextColour = useColorModeValue(
     'light.secondaryTextColour',
     'dark.secondaryTextColour'
@@ -131,7 +145,9 @@ const Experience = ({ id }) => {
       { threshold: 0.2 }
     );
 
-    observer.observe(targetRef.current);
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -180,6 +196,7 @@ const Experience = ({ id }) => {
                       w="80px"
                       src={logo}
                       alt="company-logo"
+                      loading="lazy"
                     />
                     <Text>{title}</Text>
                   </Box>
@@ -230,17 +247,17 @@ const Experience = ({ id }) => {
                     })}
                   </Flex>
                   {link && (
-                      <Icon
-                        fill={colorMode === 'dark' ? 'white' : 'black'}
-                        stroke={colorMode === 'dark' ? 'white' : 'black'}
-                        boxSize={10}
-                        as={PersonalWebsite}
-                        cursor="pointer"
-                        onClick={() => {
-                          window.open(link);
-                        }}
-                      />
-                    )}
+                    <Icon
+                      fill={colorMode === 'dark' ? 'white' : 'black'}
+                      stroke={colorMode === 'dark' ? 'white' : 'black'}
+                      boxSize={10}
+                      as={PersonalWebsite}
+                      cursor="pointer"
+                      onClick={() => {
+                        window.open(link);
+                      }}
+                    />
+                  )}
                   {photos && (
                     <Flex
                       flexDirection="row"
@@ -255,12 +272,13 @@ const Experience = ({ id }) => {
                               src={photo}
                               alt="work-photo"
                               borderRadius="8px"
+                              loading="lazy"
                             />
                             <Text
                               color={secondaryTextColour}
                               w="250px"
                             >
-                              {captions[id]}
+                              {captions?.[id] || ''}
                             </Text>
                           </VStack>
                         );

@@ -9,12 +9,9 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import HeaderText from './HeaderText';
 import YouTube from 'react-youtube';
-import { useRef } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import {
   MushroomLogo,
   NwplusNew,
@@ -27,7 +24,24 @@ import {
   Chess,
 } from '../assets/icons';
 
-const Fun = ({ id }) => {
+interface FunProps {
+  id: string;
+}
+
+interface FunEntry {
+  icon: React.ComponentType;
+  date: string;
+  tldr: string;
+  notable?: string;
+  description: string;
+  image?: string[] | null;
+  videoLink?: string[] | null;
+  caption?: string[] | null;
+  videoCaption?: string[] | null;
+  custom: boolean;
+}
+
+const Fun: FC<FunProps> = ({ id }) => {
   const standoutText = useColorModeValue(
     'light.standoutText',
     'dark.standoutText'
@@ -37,7 +51,7 @@ const Fun = ({ id }) => {
     'dark.secondaryTextColour'
   );
 
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   const isDesktop = useBreakpointValue({ base: false, md: true });
 
@@ -61,7 +75,6 @@ const Fun = ({ id }) => {
       let row = Math.floor(i / 4);
       res[row].push(curr);
     }
-    console.log(rows, ' is the rows');
     setRows(res);
   }, []);
 
@@ -107,7 +120,7 @@ const Fun = ({ id }) => {
     });
   }, [factIndex]);
 
-  const funEntries = [
+  const funEntries: FunEntry[] = [
     // template
     // {
     //   icon: null,
@@ -260,7 +273,9 @@ const Fun = ({ id }) => {
       { threshold: 0.1 }
     );
 
-    observer.observe(targetRef.current);
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -333,7 +348,6 @@ const Fun = ({ id }) => {
                         transform: 'scale(1.17)', // Adjust scale value as needed for desired effect
                       }}
                       onClick={() => {
-                        console.log(item, ' is the clicked item');
                         setFactDetails(item);
                       }}
                       transition="transform 0.2s ease-in-out"
@@ -428,6 +442,7 @@ const Fun = ({ id }) => {
                     w={{ base: '260px', lg: '300px' }}
                     src={image}
                     alt="project-image"
+                    loading="lazy"
                   />
                   {factDetails?.caption && (
                     <Text

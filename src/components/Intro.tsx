@@ -11,11 +11,15 @@ import {
   Box,
   Tooltip,
 } from '@chakra-ui/react';
-import React, { useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
 import { Email, Github, Linkedin, Youtube } from '../assets/icons';
 
-const Intro = ({ id }) => {
+interface IntroProps {
+  id: string;
+}
+
+const Intro: FC<IntroProps> = ({ id }) => {
   const standoutText = useColorModeValue(
     'light.standoutText',
     'dark.standoutText'
@@ -49,7 +53,7 @@ const Intro = ({ id }) => {
   //   },
   // ];
 
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
   const emoji = '☕️';
   const quoteOfDay = 'You might call it unemployment, I call it a gambit';
   const quoteDate = 'July 13, 2024';
@@ -68,7 +72,9 @@ const Intro = ({ id }) => {
       { threshold: 0.2 }
     );
 
-    observer.observe(targetRef.current);
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -103,6 +109,7 @@ const Intro = ({ id }) => {
             src={`../../cropped-luigi.png`}
             alt="profile"
             width={{ base: '450px', sm: '650px', md: '850px' }}
+            loading="eager"
           />
           <Tooltip
             label={

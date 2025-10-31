@@ -14,14 +14,31 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { Github, PersonalWebsite, Youtube } from '../assets/icons';
 import HeaderText from './HeaderText';
 import Tag from './Tag';
 
-const sideProjects = [
+interface ProjectsProps {
+  id: string;
+}
+
+interface Project {
+  title: string;
+  subtitle: string;
+  titlePicture: string;
+  githubLink: string;
+  deployLink: string;
+  youtubeLink: string;
+  winner: boolean;
+  location: string;
+  description: string[];
+  tags: string[];
+  photos: string[];
+  captions: string[];
+}
+
+const sideProjects: Project[] = [
   // {
   //   title: "",
   //   subtitle: "",
@@ -157,7 +174,7 @@ const sideProjects = [
   },
 ];
 
-const mainProjects = [
+const mainProjects: Project[] = [
   // {
   //   title: "",
   //   subtitle: "",
@@ -177,13 +194,13 @@ const mainProjects = [
     subtitle: 'Mario Kart World time trial tracker',
     titlePicture: './projects/mkmii-logo.JPEG',
     githubLink: '',
-    deployLink:'https://www.mkmii.com/', 
+    deployLink: 'https://www.mkmii.com/',
     youtubeLink: '',
     winner: false,
     location: 'Sept 2025',
     description: [
-      "A personal time trial tracker for Mario Kart World",
-	  "Allows users to view their best times and progression in a list or a driveable map view"
+      'A personal time trial tracker for Mario Kart World',
+      'Allows users to view their best times and progression in a list or a driveable map view',
     ],
     tags: ['React', 'React Three Fiber', 'Supabase'],
     photos: [],
@@ -301,8 +318,8 @@ const mainProjects = [
   },
 ];
 
-const Projects = ({ id }) => {
-  const targetRef = useRef(null);
+const Projects: FC<ProjectsProps> = ({ id }) => {
+  const targetRef = useRef<HTMLDivElement>(null);
   const secondaryTextColour = useColorModeValue(
     'light.secondaryTextColour',
     'dark.secondaryTextColour'
@@ -324,7 +341,9 @@ const Projects = ({ id }) => {
       { threshold: 0.1 }
     );
 
-    observer.observe(targetRef.current);
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -382,6 +401,7 @@ const Projects = ({ id }) => {
                       w={{ base: '100px', sm: '120px' }}
                       src={titlePicture}
                       alt="project-image"
+                      loading="lazy"
                     />
                     <VStack
                       alignItems="start"
@@ -500,6 +520,7 @@ const Projects = ({ id }) => {
                               w="250px"
                               src={photo}
                               alt="project-photo"
+                              loading="lazy"
                             />
                             <Text
                               color={secondaryTextColour}
@@ -566,6 +587,7 @@ const Projects = ({ id }) => {
                           src={titlePicture}
                           alt="icon"
                           w="40px"
+                          loading="lazy"
                         />
                       )}
                       <VStack
@@ -683,6 +705,7 @@ const Projects = ({ id }) => {
                                 src={photo}
                                 alt="project-photo"
                                 mx="5px"
+                                loading="lazy"
                               />
                               <Text
                                 color={secondaryTextColour}

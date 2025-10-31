@@ -1,9 +1,12 @@
 import { Flex, Text, useColorMode, Box, Image } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import Typist from 'react-typist';
-import { useRef } from 'react';
 
-const About = ({ id }) => {
+interface AboutProps {
+  id: string;
+}
+
+const About: FC<AboutProps> = ({ id }) => {
   const [currWave, setCurrWave] = useState(0);
   const [isEaster, setIsEaster] = useState(false);
   const { colorMode } = useColorMode();
@@ -35,7 +38,7 @@ const About = ({ id }) => {
     return () => clearInterval(intervalId);
   }, [currWave]);
 
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,7 +54,9 @@ const About = ({ id }) => {
       { threshold: 0.2 }
     );
 
-    observer.observe(targetRef.current);
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -134,6 +139,8 @@ const About = ({ id }) => {
               w={{ base: '220px', md: '250px' }}
               onClick={() => setIsEaster(false)}
               src="./EasterEggGif.gif"
+              alt="easter egg animation"
+              loading="lazy"
               _hover={{
                 cursor: 'pointer',
               }}
@@ -141,10 +148,11 @@ const About = ({ id }) => {
           ) : (
             <Image
               borderRadius="25%"
-              // w="400px"
               w={{ base: '220px', md: '250px' }}
               onClick={() => setIsEaster(true)}
               src={colorMode === 'dark' ? './night-thin.gif' : './day-thin.gif'}
+              alt="animated avatar"
+              loading="eager"
               _hover={{
                 cursor: 'pointer',
               }}

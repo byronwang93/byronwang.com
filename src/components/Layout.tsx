@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { FC, ReactNode, useState, useEffect, useRef } from 'react';
 import Footer from '../components/Footer';
 import { Box, ChakraProvider, VStack } from '@chakra-ui/react';
 import theme from '../@chakra-ui/gatsby-plugin/theme';
@@ -6,10 +6,14 @@ import 'normalize.css';
 import './layout.css';
 import LoadingScreen from './LoadingScreen';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {

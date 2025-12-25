@@ -16,12 +16,10 @@ import {
   MushroomLogo,
   NwplusNew,
   Bowling,
-  YoutubeNew,
   Swimming,
   Running,
   Oculus,
   Drawing,
-  Chess,
 } from '../assets/icons';
 
 interface FunProps {
@@ -67,57 +65,22 @@ const Fun: FC<FunProps> = ({ id }) => {
   const [factIndex, setFactIndex] = useState(0);
 
   // rows
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState<FunEntry[][]>([]);
   useEffect(() => {
-    let res = [[], [], [], []];
+    const res: FunEntry[][] = [[], [], [], []];
     for (let i = 0; i < funEntries.length; i++) {
-      let curr = funEntries[i];
-      let row = Math.floor(i / 4);
+      const curr = funEntries[i];
+      const row = Math.floor(i / 4);
       res[row].push(curr);
     }
     setRows(res);
   }, []);
 
   // fact details
-  const [factDetails, setFactDetails] = useState({
-    icon: null,
-    date: null,
-    tldr: null,
-    notable: null,
-    description: null,
-    image: null,
-    videoLink: null,
-    caption: null,
-    videoCaption: null,
-    custom: null,
-  });
+  const [factDetails, setFactDetails] = useState<FunEntry | null>(null);
 
   useEffect(() => {
-    let {
-      icon,
-      date,
-      tldr,
-      notable,
-      description,
-      image,
-      videoLink,
-      caption,
-      videoCaption,
-      custom,
-    } = funEntries[factIndex];
-
-    setFactDetails({
-      icon: icon,
-      date: date,
-      tldr: tldr,
-      notable: notable,
-      description: description,
-      image: image,
-      videoLink: videoLink,
-      caption: caption,
-      videoCaption: videoCaption,
-      custom: custom,
-    });
+    setFactDetails(funEntries[factIndex]);
   }, [factIndex]);
 
   const funEntries: FunEntry[] = [
@@ -134,24 +97,39 @@ const Fun: FC<FunProps> = ({ id }) => {
     //   videoCaption: [],
     //   custom: false
     // },
-    {
-      icon: YoutubeNew,
-      date: '2022-present',
-      tldr: 'random content creation ??',
-      notable: null,
-      description:
-        'As of December 2022 I started a YouTube channel! Still in the works but the plan is to use this to document my side quest journeys, whether it be animating progress, cool projects or life updates.',
-      image: null,
-      videoLink: ['UYQfnTmqPCI'],
-      caption: null,
-      videoCaption: ['first video!'],
-      custom: true,
-    },
+
+    // CLIMBING
+    // {
+    //   icon: null,
+    //   date: null,
+    //   tldr: null,
+    //   notable: null,
+    //   description: null,
+    //   image: [],
+    //   videoLink: [],
+    //   caption: [],
+    //   videoCaption: [],
+    //   custom: false,
+    // },
+
+    // VOLLEYBALL
+    // {
+    //   icon: null,
+    //   date: null,
+    //   tldr: null,
+    //   notable: null,
+    //   description: null,
+    //   image: [],
+    //   videoLink: [],
+    //   caption: [],
+    //   videoCaption: [],
+    //   custom: false,
+    // },
+
     {
       icon: Oculus,
       date: '2024-present',
       tldr: 'VR experimentalist',
-      notable: null,
       description:
         'In January of 2024, I bought an Oculus Quest 2 with the sole purpose of creating projects for it. Most recently I used it to create Recall Rehearsal at Stormhacks 2024 (more info in projects). Hopefully more fun updates in the future! o.o',
       image: ['./side-quests/wearing-vr.JPG'],
@@ -179,7 +157,6 @@ const Fun: FC<FunProps> = ({ id }) => {
       icon: NwplusNew,
       date: '2023-2024',
       tldr: 'HackCamp director @ nwPlus - hackathon organizer',
-      notable: null,
       description:
         "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
       image: ['./side-quests/hackcamp1.jpg', './side-quests/hackcamp2.jpg'],
@@ -244,19 +221,6 @@ const Fun: FC<FunProps> = ({ id }) => {
       videoCaption: null,
       custom: false,
     },
-    // {
-    //   icon: Chess,
-    //   date: '2024-present',
-    //   tldr: 'aspiring chess scrub',
-    //   notable: 'rapid rating of 650',
-    //   description:
-    //     "2 years after watching the Queen's Gambit, I randomly found myself binge watching GothamChess on YouTube. Standly proudly with a meme elo, I've played my share of tough opponents (and lost everytime), but hopefully this is my villain origin story ...",
-    //   image: ['./side-quests/chess.jpg'],
-    //   videoLink: null,
-    //   caption: ['The face of a man who just blundered'],
-    //   videoCaption: null,
-    //   custom: false,
-    // },
   ];
 
   useEffect(() => {
@@ -321,7 +285,7 @@ const Fun: FC<FunProps> = ({ id }) => {
           borderRadius="2px"
           outline="10px solid #6C5D46"
           mb="15px"
-          mr={isDesktop && '25px'}
+          mr={isDesktop ? '25px' : undefined}
           alignSelf="center"
         >
           {rows.map((row, index) => {
@@ -370,8 +334,8 @@ const Fun: FC<FunProps> = ({ id }) => {
           })}
         </VStack>
         <VStack
-          ml={isDesktop && '25px'}
-          mt={!isDesktop && '25px'}
+          ml={isDesktop ? '25px' : undefined}
+          mt={!isDesktop ? '25px' : undefined}
           overflowY="auto"
           alignSelf="baseline"
           maxH={`${shelfHeight}px`}
@@ -380,51 +344,55 @@ const Fun: FC<FunProps> = ({ id }) => {
           mb="20px"
           alignItems="baseline"
         >
-          <Icon
-            alignSelf="baseline"
-            boxSize={'60px'}
-            as={factDetails.icon}
-          />
-          <Text
-            pt="5px"
-            className="date"
-            fontSize="18px"
-          >
-            <Box
-              as="span"
-              fontWeight="bold"
-            >
-              Date:
-            </Box>{' '}
-            {factDetails.date}
-          </Text>
-          <Text
-            className="tldr"
-            fontSize="18px"
-          >
-            <Box
-              as="span"
-              fontWeight="bold"
-            >
-              tldr:
-            </Box>{' '}
-            {factDetails.tldr}
-          </Text>
-          {factDetails?.notable && (
-            <Text
-              className="notable"
-              fontSize="18px"
-            >
-              <Box
-                as="span"
-                fontWeight="bold"
+          {factDetails && (
+            <>
+              <Icon
+                alignSelf="baseline"
+                boxSize={'60px'}
+                as={factDetails.icon}
+              />
+              <Text
+                pt="5px"
+                className="date"
+                fontSize="18px"
               >
-                Anything notable:
-              </Box>{' '}
-              {factDetails.notable}
-            </Text>
+                <Box
+                  as="span"
+                  fontWeight="bold"
+                >
+                  Date:
+                </Box>{' '}
+                {factDetails.date}
+              </Text>
+              <Text
+                className="tldr"
+                fontSize="18px"
+              >
+                <Box
+                  as="span"
+                  fontWeight="bold"
+                >
+                  tldr:
+                </Box>{' '}
+                {factDetails.tldr}
+              </Text>
+              {factDetails.notable && (
+                <Text
+                  className="notable"
+                  fontSize="18px"
+                >
+                  <Box
+                    as="span"
+                    fontWeight="bold"
+                  >
+                    Anything notable:
+                  </Box>{' '}
+                  {factDetails.notable}
+                </Text>
+              )}
+              <Text py="7px">{factDetails.description}</Text>
+            </>
           )}
-          <Text py="7px">{factDetails.description}</Text>
           {factDetails?.image &&
             factDetails?.image.map((image, index) => {
               return (

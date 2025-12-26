@@ -14,10 +14,11 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC } from 'react';
 import { Github, PersonalWebsite, Youtube } from '../assets/icons';
 import HeaderText from './HeaderText';
 import Tag from './Tag';
+import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
 
 interface ProjectsProps {
   id: string;
@@ -319,36 +320,13 @@ const mainProjects: Project[] = [
 ];
 
 const Projects: FC<ProjectsProps> = ({ id }) => {
-  const targetRef = useRef<HTMLDivElement>(null);
+  const targetRef = useFadeInOnScroll<HTMLDivElement>({ threshold: 0.1 });
   const secondaryTextColour = useColorModeValue(
     'light.secondaryTextColour',
     'dark.secondaryTextColour'
   );
 
   const { colorMode } = useColorMode();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   return (
     <Box

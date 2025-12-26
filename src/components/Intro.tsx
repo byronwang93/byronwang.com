@@ -9,9 +9,10 @@ import {
   Icon,
   useColorMode,
 } from '@chakra-ui/react';
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC } from 'react';
 import HeaderText from './HeaderText';
 import { Email, Github, Linkedin, Youtube } from '../assets/icons';
+import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
 
 interface IntroProps {
   id: string;
@@ -51,30 +52,7 @@ const Intro: FC<IntroProps> = ({ id }) => {
   //   },
   // ];
 
-  const targetRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const targetRef = useFadeInOnScroll<HTMLDivElement>();
 
   return (
     <Flex

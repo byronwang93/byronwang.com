@@ -13,10 +13,11 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC } from 'react';
 import HeaderText from './HeaderText';
 import Tag from './Tag';
 import { PersonalWebsite } from '../assets/icons';
+import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
 
 interface ExperienceProps {
   id: string;
@@ -125,34 +126,11 @@ const experiences: ExperienceItem[] = [
 ];
 
 const Experience: FC<ExperienceProps> = ({ id }) => {
-  const targetRef = useRef<HTMLDivElement>(null);
+  const targetRef = useFadeInOnScroll<HTMLDivElement>();
   const secondaryTextColour = useColorModeValue(
     'light.secondaryTextColour',
     'dark.secondaryTextColour'
   );
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   const { colorMode } = useColorMode();
 

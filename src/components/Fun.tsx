@@ -9,9 +9,10 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import HeaderText from './HeaderText';
 import YouTube from 'react-youtube';
+import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
 import {
   MushroomLogo,
   NwplusNew,
@@ -49,7 +50,7 @@ const Fun: FC<FunProps> = ({ id }) => {
     'dark.secondaryTextColour'
   );
 
-  const targetRef = useRef<HTMLDivElement>(null);
+  const targetRef = useFadeInOnScroll<HTMLDivElement>({ threshold: 0.1 });
 
   const isDesktop = useBreakpointValue({ base: false, md: true });
 
@@ -222,29 +223,6 @@ const Fun: FC<FunProps> = ({ id }) => {
       custom: false,
     },
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   const shelfHeights = [1, 2, 3, 4];
 

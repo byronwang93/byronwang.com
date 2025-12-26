@@ -1,6 +1,7 @@
 import { Flex, Text, useColorMode, Box, Image } from '@chakra-ui/react';
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Typist from 'react-typist';
+import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
 
 interface AboutProps {
   id: string;
@@ -38,30 +39,7 @@ const About: FC<AboutProps> = ({ id }) => {
     return () => clearInterval(intervalId);
   }, [currWave]);
 
-  const targetRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [colorMode]);
+  const targetRef = useFadeInOnScroll<HTMLDivElement>();
 
   return (
     <Box

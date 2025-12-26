@@ -142,7 +142,7 @@ const Fun: FC<FunProps> = ({ id }) => {
     {
       icon: Bowling,
       date: '2023-present',
-      tldr: '2-handed competitive bowler',
+      tldr: '2-handed bowler',
       notable: '242 PB',
       description:
         'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
@@ -171,7 +171,7 @@ const Fun: FC<FunProps> = ({ id }) => {
     {
       icon: Running,
       date: '2023',
-      tldr: 'competitive runner',
+      tldr: 'runner',
       notable: '40:37 10km PB',
       description:
         'After running track and cross country in high school, I thought I would be done the sport forever, but last year my friend bet that he could beat me in a 10km race so of course I took him up on that >:)!',
@@ -196,7 +196,7 @@ const Fun: FC<FunProps> = ({ id }) => {
     {
       icon: Swimming,
       date: '2015-2019',
-      tldr: 'competitive swimmer',
+      tldr: 'swimmer',
       notable: '58.65 100m Backstroke (SCM)',
       description:
         'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',

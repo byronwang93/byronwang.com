@@ -11,51 +11,66 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [minTimePassed, setMinTimePassed] = useState(false);
+  const [contentReady, setContentReady] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
 
   const targetRef = useRef<HTMLDivElement>(null);
 
+  // Minimum display time of 2 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      setMinTimePassed(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
-      // Check if there is a hash in the URL (e.g., #my-div) and scroll to the target
+  // Detect when page content has loaded
+  useEffect(() => {
+    const handleLoad = () => setContentReady(true);
+
+    if (document.readyState === 'complete') {
+      setContentReady(true);
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+
+  // Hide loading when both conditions met
+  useEffect(() => {
+    if (minTimePassed && contentReady) {
+      setShowLoading(false);
+      // Handle hash navigation
       if (window.location.hash) {
         const targetElement = document.querySelector(window.location.hash);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        targetElement?.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 3000); // Adjust the delay (in milliseconds) as desired
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+    }
+  }, [minTimePassed, contentReady]);
 
   return (
     <ChakraProvider theme={theme}>
-      {isLoading ? (
-        <LoadingScreen />
-      ) : (
-        <VStack
-          display="flex"
-          w="100%"
-          minHeight="100vh"
-          ref={targetRef}
+      {showLoading && <LoadingScreen />}
+      <VStack
+        display="flex"
+        w="100%"
+        minHeight="100vh"
+        ref={targetRef}
+        opacity={showLoading ? 0 : 1}
+        transition="opacity 0.5s ease-in-out"
+      >
+        {children}
+        <Box
+          pt="35px"
+          position="relative"
+          left="0"
+          bottom="20px"
+          right="0"
         >
-          {children}
-          <Box
-            pt="35px"
-            position="relative"
-            left="0"
-            bottom="20px"
-            right="0"
-          >
-            <Footer />
-          </Box>
-        </VStack>
-      )}
+          <Footer />
+        </Box>
+      </VStack>
     </ChakraProvider>
   );
 };

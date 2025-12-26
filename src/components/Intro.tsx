@@ -8,8 +8,6 @@ import {
   HStack,
   Icon,
   useColorMode,
-  Box,
-  Tooltip,
 } from '@chakra-ui/react';
 import React, { FC, useRef, useEffect } from 'react';
 import HeaderText from './HeaderText';
@@ -54,9 +52,6 @@ const Intro: FC<IntroProps> = ({ id }) => {
   // ];
 
   const targetRef = useRef<HTMLDivElement>(null);
-  const emoji = '☕️';
-  const quoteOfDay = 'You might call it unemployment, I call it a gambit';
-  const quoteDate = 'July 13, 2024';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,85 +91,23 @@ const Intro: FC<IntroProps> = ({ id }) => {
       <HeaderText text="About Me" />
       <Flex
         justifyContent="center"
-        flexDirection={{ base: 'column', md: 'row' }}
+        flexDirection={{ base: 'column', lg: 'row' }}
       >
         <VStack
-          pr={{ base: '0px', almostSm: '30px' }}
-          pl={{ base: '0px', almostSm: '50px' }}
           pt={{ base: '0px', md: '50px', lg: '10px' }}
+          alignItems="center"
+          justifyContent="center"
         >
           <Image
             mb="10px"
             borderRadius="20px"
-            src={`../../cropped-luigi.png`}
+            src={`../../pfp-cropped.JPEG`}
             alt="profile"
-            width={{ base: '450px', sm: '650px', md: '850px' }}
+            width={{ base: '100%', md: '280px', lg: '350px' }}
+            maxWidth="100%"
             loading="eager"
           />
-          <Tooltip
-            label={
-              <Box
-                bgColor={`rgba(217, 217, 217, ${
-                  colorMode === 'dark' ? 0.8 : 0.9
-                })`}
-                maxWidth="400px"
-                textAlign="left"
-                fontSize="16px"
-                p="15px"
-                borderRadius="5px"
-              >
-                <Text color="#949494">Quote of the day (?):</Text>
-                <Text
-                  color="black"
-                  py="4px"
-                >
-                  {quoteOfDay}
-                </Text>
-                <Text
-                  fontSize="13px"
-                  color="#949494"
-                >
-                  {quoteDate}
-                </Text>
-              </Box>
-            }
-            borderRadius="4px"
-            position="relative"
-            bgColor={`rgba(217, 217, 217, ${colorMode === 'dark' ? 0.7 : 0.9})`}
-            alignContent="center"
-            textAlign="center"
-            fontSize="23px"
-            right="107px"
-            top="-2px"
-            _hover={{
-              cursor: 'pointer',
-            }}
-            p={0}
-            m={0}
-          >
-            <Box
-              boxSize="40px"
-              borderRadius="4px"
-              position="relative"
-              bgColor={`rgba(217, 217, 217, ${
-                colorMode === 'dark' ? 0.7 : 0.9
-              })`}
-              alignContent="center"
-              textAlign="center"
-              fontSize="23px"
-              left={{ base: '110px', md: '90px', lg: '105px' }}
-              top="-50px"
-              p={0}
-              m={0}
-            >
-              {emoji}
-            </Box>
-          </Tooltip>
-          <HStack
-            position="relative"
-            bottom={{ base: '30px', md: '20px', lg: '30px' }}
-            spacing="15px"
-          >
+          <HStack spacing="15px">
             {socialIcons.map((item, index) => {
               return (
                 <Icon
@@ -197,11 +130,12 @@ const Intro: FC<IntroProps> = ({ id }) => {
           </HStack>
         </VStack>
         <VStack
-          pl={{ base: '0px', almostSm: '20px' }}
+          pl={{ base: '0px', md: '30px' }}
           alignItems="baseline"
           fontSize="16px"
           spacing="20px"
           pt={{ base: '20px', md: '0px' }}
+          maxW={{ base: '100%', lg: '420px' }}
         >
           <Text fontWeight="bold">Hi there!</Text>
           <Text>

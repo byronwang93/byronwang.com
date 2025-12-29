@@ -5,13 +5,10 @@ import {
   Link,
   useColorModeValue,
   VStack,
-  HStack,
-  Icon,
-  useColorMode,
 } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import HeaderText from './HeaderText';
-import { Email, Github, Linkedin, Youtube } from '../assets/icons';
+import SocialIcons from './SocialIcons';
 import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
 
 interface IntroProps {
@@ -23,34 +20,6 @@ const Intro: FC<IntroProps> = ({ id }) => {
     'light.standoutText',
     'dark.standoutText'
   );
-
-  const { colorMode } = useColorMode();
-
-  const socialIcons = [
-    { icon: Github, link: 'https://github.com/byronwang93' },
-    {
-      icon: Linkedin,
-      link: 'https://www.linkedin.com/in/byronwang93/',
-    },
-    { icon: Email },
-    {
-      icon: Youtube,
-      link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
-    },
-  ];
-
-  // const socialIcons = [
-  //   { icon: AiOutlineGithub, link: 'https://github.com/byronwang93' },
-  //   {
-  //     icon: RiLinkedinBoxFill,
-  //     link: 'https://www.linkedin.com/in/byronwang93/',
-  //   },
-  //   { icon: AiOutlineMail },
-  //   {
-  //     icon: AiOutlineYoutube,
-  //     link: 'https://www.youtube.com/channel/UCtNVS3vcyncIzCj_dKQdQBA',
-  //   },
-  // ];
 
   const targetRef = useFadeInOnScroll<HTMLDivElement>();
 
@@ -85,27 +54,7 @@ const Intro: FC<IntroProps> = ({ id }) => {
             maxWidth="100%"
             loading="eager"
           />
-          <HStack spacing="15px">
-            {socialIcons.map((item, index) => {
-              return (
-                <Icon
-                  fill={colorMode === 'dark' ? 'white' : 'black'}
-                  stroke={colorMode === 'dark' ? 'white' : 'black'}
-                  key={index}
-                  boxSize={10}
-                  as={item.icon}
-                  cursor="pointer"
-                  onClick={() => {
-                    if (!item.link) {
-                      window.open('mailto:byronwang93@gmail.com');
-                    } else {
-                      window.open(item.link);
-                    }
-                  }}
-                />
-              );
-            })}
-          </HStack>
+          <SocialIcons spacing="15px" iconSize={10} />
         </VStack>
         <VStack
           pl={{ base: '0px', md: '30px' }}

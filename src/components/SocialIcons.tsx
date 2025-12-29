@@ -53,4 +53,3 @@ const SocialIcons: FC<SocialIconsProps> = ({
 };
 
 export default SocialIcons;
-

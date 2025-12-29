@@ -7,7 +7,10 @@ const Footer = () => {
 
   return (
     <VStack>
-      <SocialIcons spacing="20px" iconSize="35px" />
+      <SocialIcons
+        spacing="20px"
+        iconSize="35px"
+      />
       <Text
         pt="10px"
         fontSize="15px"

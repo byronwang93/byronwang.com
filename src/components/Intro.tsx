@@ -54,7 +54,10 @@ const Intro: FC<IntroProps> = ({ id }) => {
             maxWidth="100%"
             loading="eager"
           />
-          <SocialIcons spacing="15px" iconSize={10} />
+          <SocialIcons
+            spacing="15px"
+            iconSize={10}
+          />
         </VStack>
         <VStack
           pl={{ base: '0px', md: '30px' }}

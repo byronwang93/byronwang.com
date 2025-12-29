@@ -18,7 +18,6 @@ export { default as Waving2Image } from './Waving2Image';
 export { default as Youtube } from './Youtube';
 export { default as NwplusNew } from './NwplusNew';
 export { default as Bowling } from './Bowling';
-export { default as YoutubeNew } from './YoutubeNew';
 export { default as Swimming } from './Swimming';
 export { default as Running } from './Running';
 export { default as Oculus } from './Oculus';

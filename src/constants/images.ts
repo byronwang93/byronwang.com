@@ -38,11 +38,11 @@ export enum SideQuestImage {
 }
 
 export enum CommonImage {
-  PFP_CROPPED = './pfp-cropped.JPEG',
-  LOADING_SCREEN = './loading-screen.gif',
-  DAY_BACKGROUND = './day-background.gif',
-  NIGHT_BACKGROUND = './night-background.gif',
-  DAY_THIN = './day-thin.gif',
-  NIGHT_THIN = './night-thin.gif',
-  EASTER_EGG = './EasterEggGif.gif',
+  PFP_CROPPED = './common/pfp-cropped.JPEG',
+  LOADING_SCREEN = './common/loading-screen.gif',
+  DAY_BACKGROUND = './common/day-background.gif',
+  NIGHT_BACKGROUND = './common/night-background.gif',
+  DAY_THIN = './common/day-thin.gif',
+  NIGHT_THIN = './common/night-thin.gif',
+  EASTER_EGG = './common/easter-egg.gif',
 }

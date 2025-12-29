@@ -83,10 +83,6 @@ const Intro: FC<IntroProps> = ({ id }) => {
             doodling, bowling, or sipping a coffee.
           </Text>
           <Text>
-            I'll be using this website as a random canvas for life updates,
-            projects, and any random thoughts so feel free to poke around!
-          </Text>
-          <Text>
             If you like what you see and want to chat, my socials are underneath
             my profile picture and in the footer so reach out! Down to coffee
             chat anytime :')
@@ -98,4 +94,3 @@ const Intro: FC<IntroProps> = ({ id }) => {
 };
 
 export default Intro;
-

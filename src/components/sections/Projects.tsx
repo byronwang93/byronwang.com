@@ -1,0 +1,709 @@
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Flex,
+  HStack,
+  Icon,
+  Image,
+  Text,
+  useColorMode,
+  useColorModeValue,
+  VStack,
+} from '@chakra-ui/react';
+import React, { FC } from 'react';
+import { Github, PersonalWebsite, Youtube } from '../../assets/icons';
+import HeaderText from '../common/HeaderText';
+import Tag from '../common/Tag';
+import { useFadeInOnScroll } from '../../hooks/useFadeInOnScroll';
+import { ProjectImage } from '../../constants/images';
+
+interface ProjectsProps {
+  id: string;
+}
+
+interface Project {
+  title: string;
+  subtitle: string;
+  titlePicture: string;
+  githubLink: string;
+  deployLink: string;
+  youtubeLink: string;
+  winner: boolean;
+  location: string;
+  description: string[];
+  tags: string[];
+  photos: string[];
+  captions: string[];
+}
+
+const sideProjects: Project[] = [
+  // {
+  //   title: "",
+  //   subtitle: "",
+  //   titlePicture: "",
+  //   githubLink: "",
+  //   deployLink: "",
+  //   youtubeLink: "",
+  //   winner: false,
+  //   location: "",
+  //   description: [],
+  //   tags: [],
+  //   photos: [],
+  //   captions: [],
+  // },
+  {
+    title: 'Linkt',
+    subtitle: 'Link manager chrome extension',
+    titlePicture: ProjectImage.LINKT,
+    githubLink: 'https://github.com/byronwang93/Linkt',
+    deployLink:
+      'https://chrome.google.com/webstore/detail/linkt/fjhmcdeacfacahfiiimnkmccnocidjpn/related',
+    youtubeLink: '',
+    winner: false,
+    location: 'July 2023',
+    description: [
+      'Developed a chrome extension to remove the hassle of repeatedly searching up the same links',
+      'Utilized local storage to persist data upon refresh',
+      'Currently serving 60+ users',
+    ],
+    tags: ['React', 'Local Storage', 'Productivity'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'Schedule Me',
+    subtitle: 'Hackathon scheduling automater',
+    titlePicture: '📆',
+    githubLink: 'https://github.com/byronwang93/schedule-me',
+    deployLink: '',
+    youtubeLink: '',
+    winner: false,
+    location: 'Dec 2023',
+    description: [
+      'Automated the creation of organizer shifts for hackathons hosted by nwPlus (the largest hackathons in Western Canada)',
+    ],
+    tags: ['OpenAI', 'Express', 'React'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'Pin Tracker',
+    subtitle: 'Bowling stats tracker',
+    titlePicture: '🎳',
+    githubLink: 'https://github.com/byronwang93/pin-tracker',
+    deployLink: 'https://byronwang93.github.io/pin-tracker/',
+    youtubeLink: '',
+    winner: false,
+    location: 'Sept 2023',
+    description: [
+      'Tracks bowling stats unique to individuals including averages, personal bests, throwing form, and charts to visualize progression',
+      'Implemented a leaderboard system for some friendly competition between friends',
+    ],
+    tags: ['Firebase', 'React', 'Figma'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'RiseOrRegret',
+    subtitle: 'An alarm clock that actually wakes you up',
+    titlePicture: '👹',
+    githubLink: 'https://github.com/byronwang93/RiseOrRegret',
+    deployLink: 'https://devpost.com/software/rise-or-regret',
+    youtubeLink: '',
+    winner: false,
+    location: 'July 2023',
+    description: [
+      'A practical alarm clock that incentivizes you to actually wake up',
+      'If you fail to turn off your alarm in time, the app sends a risky text to someone in your contacts >:)',
+      'Created for StormHacks 2023',
+    ],
+    tags: ['React Native', 'Twilio', 'Express.js'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'Portfolio Website',
+    subtitle: 'Where my thoughts run wild',
+    titlePicture: '😌',
+    githubLink: 'https://github.com/byronwang93/byronwang.com',
+    deployLink: 'https://www.byronwang.com/',
+    youtubeLink: '',
+    winner: false,
+    location: 'Jan 2024',
+    description: [
+      "The site you're currently looking at! Rendition 3 of my portfolio website, this is to showcase the progression of my frontend skills",
+    ],
+    tags: ['TypeScript', 'React', 'Gatsby', 'CSS'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'Recreation Centre Database Maintainer',
+    subtitle: 'CPSC 304 project',
+    titlePicture: '⛸',
+    githubLink: 'https://github.com/yeojunh/304-Chimps',
+    deployLink: '',
+    youtubeLink: '',
+    winner: false,
+    location: 'April 2022',
+    description: [
+      'Utilized SQL and PHP to model a recreation centre that facilitates additions, deletes and updates of the application using entities and relationships',
+    ],
+    tags: ['PHP', 'SQL', 'Relational Databases'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'Personal Workout Generator',
+    subtitle: 'Making workout routines easier',
+    titlePicture: '💪',
+    githubLink: 'https://github.com/byronwang93/Workout-Generator-Java',
+    deployLink: '',
+    youtubeLink: '',
+    winner: false,
+    location: 'Aug 2021',
+    description: [
+      'Developed a workout generator, allowing users to input unique exercises and generates a random workout based off of user inputs and preferences',
+      'User inputs saved and loaded by converting data to JSON files',
+    ],
+    tags: ['Java', 'JSON'],
+    photos: [],
+    captions: [],
+  },
+];
+
+const mainProjects: Project[] = [
+  // {
+  //   title: "",
+  //   subtitle: "",
+  //   titlePicture: "",
+  //   githubLink: "",
+  //   deployLink: "",
+  //   youtubeLink: "",
+  //   winner: false,
+  //   location: "",
+  //   description: [],
+  //   tags: [],
+  //   photos: [],
+  //   captions: [],
+  // },
+  {
+    title: 'mkmii',
+    subtitle: 'Mario Kart World time trial tracker',
+    titlePicture: ProjectImage.MKMII_LOGO,
+    githubLink: '',
+    deployLink: 'https://www.mkmii.com/',
+    youtubeLink: '',
+    winner: false,
+    location: 'Sept 2025',
+    description: [
+      'A personal time trial tracker for Mario Kart World',
+      'Allows users to view their best times and progression in a list or a driveable map view',
+    ],
+    tags: ['React', 'React Three Fiber', 'Supabase'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'SpectaCare',
+    subtitle: 'AR assistance for doctors, one snap at a time.',
+    titlePicture: ProjectImage.CALHACKS,
+    githubLink: '',
+    deployLink:
+      'https://devpost.com/software/spectacare?ref_content=user-portfolio&ref_feature=in_progress',
+    youtubeLink: '',
+    winner: false,
+    location: 'Oct 2024, CalHacks 2024',
+    description: [
+      "An AR application using Snap's Lens Studio and their Spectacles, designed to assist doctors during consultations by providing real-time diagnoses, scribing, and suggested follow-up questions directly in their field of view",
+    ],
+    tags: ['Lens Studio', 'Snap AR Spectacles', 'Python', 'React'],
+    photos: [],
+    captions: [],
+  },
+  {
+    title: 'Recall Rehearsal',
+    subtitle: 'An immersive, Feynman approach towards studying',
+    titlePicture: ProjectImage.RECALL_REHEARSAL,
+    githubLink: 'https://github.com/RecallRehearsal',
+    deployLink: 'https://recall-rehearsal.vercel.app/',
+    youtubeLink:
+      'https://www.youtube.com/watch?v=JYFQEud57zg&t=5s&ab_channel=ByronWang',
+    winner: true,
+    location: 'May 2024, Stormhacks 2024',
+    description: [
+      'A VR application that helps individuals study for exams using a Feynman technique',
+      'A user uploads their class notes to our frontend, which trains our RAG model using this information',
+      'From there, the user puts on the VR headset and is asked questions by our mascots, designed to cover all the main learning objectives',
+      'Awarded 1st place in the AI stream + 3rd place overall',
+    ],
+    tags: [
+      'Figma',
+      'React',
+      'React Three Fiber',
+      'Blender',
+      'Spline',
+      'Python',
+      'Fast API',
+      'ngrok',
+      'LangChain',
+      'OpenAI',
+      'Unity',
+      'C#',
+    ],
+    photos: [ProjectImage.STORMHACKS_1, ProjectImage.STORMHACKS_2],
+    captions: [
+      "If you're wondering why I don't have a mouse too, they only had 3 in stock :')",
+      'My brother and I also pull off 1st place in their super smash tournament :P',
+    ],
+  },
+  {
+    title: 'Dialog',
+    subtitle: 'Language learning speaking aid',
+    titlePicture: ProjectImage.DIALOG,
+    githubLink: 'https://github.com/naijwu/dubhacks2023',
+    deployLink: 'https://www.dialog.courses/',
+    youtubeLink: '',
+    winner: true,
+    location: 'Oct 2023, DubHacks 2023',
+    description: [
+      'Created a language learning tool that mocks any real world scenario, capable of hearing and responding with over 6 languages',
+      "Utilized OpenAI's whisper API to convert text-to-speech, which is processed by GPT-3.5-turbo. The response is then fed to Google API's text-to-speech sythesis, which is read out to the user",
+      'Awarded best use of Google Cloud award',
+    ],
+    tags: ['OpenAI', 'Google-Cloud', 'Next.js', 'TypeScript', 'Spline'],
+    photos: [ProjectImage.GOOGLE_CLOUD_WINNERS, ProjectImage.HOUR_1_DUBHACKS],
+    captions: [
+      'Google cloud award!',
+      "The start of a long and sleepless day :')",
+    ],
+  },
+  // {
+  //   title: 'Schedule Me',
+  //   subtitle: '',
+  //   titlePicture: '',
+  //   githubLink: '',
+  //   deployLink: '',
+  //   youtubeLink: '',
+  //   winner: false,
+  //   location: '',
+  //   description: [],
+  //   tags: [],
+  //   photos: [],
+  //   captions: [],
+  // },
+  {
+    title: 'Chew Chew',
+    subtitle: 'Making food more accessible for students',
+    titlePicture: ProjectImage.CHEW_CHEW,
+    githubLink: 'https://github.com/orgs/HelthGoUp/repositories',
+    deployLink: 'https://devpost.com/software/chew-chew',
+    youtubeLink:
+      'https://www.youtube.com/watch?v=lZVBrbcwgFo&ab_channel=ByronWang',
+    winner: true,
+    location: 'June 2023, WaffleHacks 2023',
+    description: [
+      "Utilized GPT-3.5 to generate recipes given a user's available ingredients to target student food insecurity",
+      'Created a forum page for students to share and be notified of extra food being handed out using firebase firestore',
+      'Awarded runner up for food sustainability prize',
+    ],
+    tags: ['GPT-3.5', 'React', 'Firebase', 'Express.js'],
+    photos: [],
+    captions: [],
+  },
+];
+
+const Projects: FC<ProjectsProps> = ({ id }) => {
+  const targetRef = useFadeInOnScroll<HTMLDivElement>({ threshold: 0.1 });
+  const secondaryTextColour = useColorModeValue(
+    'light.secondaryTextColour',
+    'dark.secondaryTextColour'
+  );
+
+  const { colorMode } = useColorMode();
+
+  return (
+    <Box
+      ref={targetRef}
+      id={id}
+      className="fade-in"
+      flexDirection="column"
+      alignItems="center"
+      width={{ base: '340px', sm: '470px', md: '700px', lg: '800px' }}
+    >
+      <HeaderText text="Projects" />
+      <Accordion
+        allowMultiple
+        w="auto"
+        mx="auto"
+      >
+        {mainProjects.map((project, id) => {
+          const {
+            title,
+            subtitle,
+            titlePicture,
+            winner,
+            location,
+            description,
+            tags,
+          } = project;
+          const githubLink = project?.githubLink;
+          const deployLink = project?.deployLink;
+          const youtubeLink = project?.youtubeLink;
+          const photos = project?.photos;
+          const captions = project?.captions;
+          return (
+            <AccordionItem key={id}>
+              <Text>
+                <AccordionButton>
+                  <Box
+                    as="span"
+                    flex="1"
+                    alignItems="center"
+                    display="flex"
+                    flexDir="row"
+                    fontWeight="bold"
+                    fontSize={{ base: '22px', md: '24px', lg: '24px' }}
+                    px="10px"
+                  >
+                    <Image
+                      borderRadius="10px"
+                      my="7px"
+                      mr="30px"
+                      w={{ base: '100px', sm: '120px' }}
+                      src={titlePicture}
+                      alt="project-image"
+                      loading="lazy"
+                    />
+                    <VStack
+                      alignItems="start"
+                      textAlign="left"
+                    >
+                      <Text>
+                        {title}
+                        {winner && '🏅'}
+                      </Text>
+                      <Text
+                        color={secondaryTextColour}
+                        fontSize={{ base: '18px', md: '20px', lg: '20px' }}
+                      >
+                        {subtitle}
+                      </Text>
+                    </VStack>
+                  </Box>
+                  <AccordionIcon mr="20px" />
+                </AccordionButton>
+              </Text>
+
+              <AccordionPanel
+                pb={4}
+                pl="35px"
+              >
+                <VStack alignItems="flex-start">
+                  <Text
+                    fontWeight="bold"
+                    fontSize={{ base: '20px', md: '22px', lg: '22px' }}
+                    color={secondaryTextColour}
+                  >
+                    📍 {location}
+                  </Text>
+                  <VStack
+                    spacing="10px"
+                    pl="10px"
+                    alignItems="baseline"
+                  >
+                    {description.map((desc, id) => {
+                      return (
+                        <Text
+                          fontSize={{ base: '16px', md: '16px', lg: '18px' }}
+                          key={id}
+                        >
+                          • {desc}
+                        </Text>
+                      );
+                    })}
+                  </VStack>
+                  <Flex
+                    flexDirection="row"
+                    flexWrap="wrap"
+                    py="10px"
+                  >
+                    {tags.map((tag, id) => {
+                      return (
+                        <Tag
+                          key={id}
+                          content={tag}
+                        />
+                      );
+                    })}
+                  </Flex>
+                  <HStack>
+                    {githubLink && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={Github}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(githubLink);
+                        }}
+                      />
+                    )}
+                    {deployLink && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={PersonalWebsite}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(deployLink);
+                        }}
+                      />
+                    )}
+                    {youtubeLink && (
+                      <Icon
+                        fill={colorMode === 'dark' ? 'white' : 'black'}
+                        stroke={colorMode === 'dark' ? 'white' : 'black'}
+                        boxSize={10}
+                        as={Youtube}
+                        cursor="pointer"
+                        onClick={() => {
+                          window.open(youtubeLink);
+                        }}
+                      />
+                    )}
+                  </HStack>
+                  {photos && (
+                    <Flex
+                      flexDirection="row"
+                      flexWrap="wrap"
+                      py="10px"
+                    >
+                      {photos.map((photo, id) => {
+                        return (
+                          <VStack
+                            key={id}
+                            mx="5px"
+                          >
+                            <Image
+                              borderRadius="5px"
+                              w="250px"
+                              src={photo}
+                              alt="project-photo"
+                              loading="lazy"
+                            />
+                            <Text
+                              color={secondaryTextColour}
+                              w="250px"
+                            >
+                              {captions[id]}
+                            </Text>
+                          </VStack>
+                        );
+                      })}
+                    </Flex>
+                  )}
+                </VStack>
+              </AccordionPanel>
+            </AccordionItem>
+          );
+        })}
+
+        {/* more projects here */}
+        <VStack mt="20px">
+          <HeaderText text="More Projects" />
+          {sideProjects.map((project, id) => {
+            const {
+              title,
+              subtitle,
+              titlePicture,
+              winner,
+              location,
+              description,
+              tags,
+            } = project;
+            const githubLink = project?.githubLink;
+            const deployLink = project?.deployLink;
+            const youtubeLink = project?.youtubeLink;
+            const photos = project?.photos;
+            const captions = project?.captions;
+            return (
+              <AccordionItem
+                w="100%"
+                key={id}
+              >
+                <Text>
+                  <AccordionButton>
+                    <Box
+                      as="span"
+                      flex="1"
+                      alignItems="center"
+                      display="flex"
+                      flexDir="row"
+                      fontWeight="bold"
+                      fontSize={{ base: '18px', md: '20px', lg: '20px' }}
+                      px="10px"
+                    >
+                      {titlePicture.length < 3 ? (
+                        <Text
+                          mr="20px"
+                          fontSize="40px"
+                        >
+                          {titlePicture}
+                        </Text>
+                      ) : (
+                        <Image
+                          mr="20px"
+                          src={titlePicture}
+                          alt="icon"
+                          w="40px"
+                          loading="lazy"
+                        />
+                      )}
+                      <VStack
+                        alignItems="start"
+                        textAlign="left"
+                      >
+                        <Text>
+                          {title}
+                          {winner && '🏅'}
+                        </Text>
+                        <Text
+                          color={secondaryTextColour}
+                          fontSize={{ base: '15px', md: '17px', lg: '17px' }}
+                        >
+                          {subtitle}
+                        </Text>
+                      </VStack>
+                    </Box>
+                    <AccordionIcon mr="20px" />
+                  </AccordionButton>
+                </Text>
+
+                <AccordionPanel
+                  pb={4}
+                  pl="35px"
+                >
+                  <VStack alignItems="flex-start">
+                    <Text
+                      fontWeight="bold"
+                      fontSize={{ base: '20px', md: '22px', lg: '22px' }}
+                      color={secondaryTextColour}
+                    >
+                      📍 {location}
+                    </Text>
+                    <VStack
+                      spacing="10px"
+                      pl="10px"
+                      alignItems="baseline"
+                    >
+                      {description.map((desc, id) => {
+                        return (
+                          <Text
+                            fontSize={{ base: '16px', md: '16px', lg: '18px' }}
+                            key={id}
+                          >
+                            • {desc}
+                          </Text>
+                        );
+                      })}
+                    </VStack>
+                    <Flex
+                      flexDirection="row"
+                      flexWrap="wrap"
+                      py="10px"
+                    >
+                      {tags.map((tag, id) => {
+                        return (
+                          <Tag
+                            key={id}
+                            content={tag}
+                          />
+                        );
+                      })}
+                    </Flex>
+                    <HStack>
+                      {githubLink && (
+                        <Icon
+                          fill={colorMode === 'dark' ? 'white' : 'black'}
+                          stroke={colorMode === 'dark' ? 'white' : 'black'}
+                          boxSize={10}
+                          as={Github}
+                          cursor="pointer"
+                          onClick={() => {
+                            window.open(githubLink);
+                          }}
+                        />
+                      )}
+                      {deployLink && (
+                        <Icon
+                          fill={colorMode === 'dark' ? 'white' : 'black'}
+                          stroke={colorMode === 'dark' ? 'white' : 'black'}
+                          boxSize={10}
+                          as={PersonalWebsite}
+                          cursor="pointer"
+                          onClick={() => {
+                            window.open(deployLink);
+                          }}
+                        />
+                      )}
+                      {youtubeLink && (
+                        <Icon
+                          fill={colorMode === 'dark' ? 'white' : 'black'}
+                          stroke={colorMode === 'dark' ? 'white' : 'black'}
+                          boxSize={10}
+                          as={Youtube}
+                          cursor="pointer"
+                          onClick={() => {
+                            window.open(youtubeLink);
+                          }}
+                        />
+                      )}
+                    </HStack>
+                    {photos && (
+                      <Flex
+                        flexDirection="row"
+                        flexWrap="wrap"
+                        py="10px"
+                      >
+                        {photos.map((photo, id) => {
+                          return (
+                            <VStack key={id}>
+                              <Image
+                                borderRadius="5px"
+                                w="250px"
+                                src={photo}
+                                alt="project-photo"
+                                mx="5px"
+                                loading="lazy"
+                              />
+                              <Text
+                                color={secondaryTextColour}
+                                w="250px"
+                              >
+                                {captions[id]}
+                              </Text>
+                            </VStack>
+                          );
+                        })}
+                      </Flex>
+                    )}
+                  </VStack>
+                </AccordionPanel>
+              </AccordionItem>
+            );
+          })}
+        </VStack>
+      </Accordion>
+    </Box>
+  );
+};
+
+export default Projects;
+

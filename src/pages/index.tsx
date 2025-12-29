@@ -1,13 +1,13 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/common/Layout';
 import { Flex } from '@chakra-ui/react';
-import Experience from '../components/Experience';
-import Projects from '../components/Projects';
-import Fun from '../components/Fun';
-import Intro from '../components/Intro';
-import MovingArrow from '../components/MovingArrow';
-import About from '../components/About';
-import NavBar from '../components/Navbar';
+import Experience from '../components/sections/Experience';
+import Projects from '../components/sections/Projects';
+import Fun from '../components/sections/Fun';
+import Intro from '../components/sections/Intro';
+import MovingArrow from '../components/common/MovingArrow';
+import About from '../components/sections/About';
+import NavBar from '../components/common/Navbar';
 
 export default function Home() {
   return (

@@ -1,14 +1,14 @@
 import { Flex, Text, useColorMode, Box, Image } from '@chakra-ui/react';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import Typist from 'react-typist';
 import { useFadeInOnScroll } from '../../hooks/useFadeInOnScroll';
+import { CommonImage } from '../../constants/images';
 
 interface AboutProps {
   id: string;
 }
 
 const About: FC<AboutProps> = ({ id }) => {
-  const [currWave, setCurrWave] = useState(0);
   const [isEaster, setIsEaster] = useState(false);
   const { colorMode } = useColorMode();
 
@@ -27,18 +27,6 @@ const About: FC<AboutProps> = ({ id }) => {
     }
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (currWave === 0) {
-        setCurrWave(1);
-      } else {
-        setCurrWave(0);
-      }
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [currWave]);
-
   const targetRef = useFadeInOnScroll<HTMLDivElement>();
 
   return (
@@ -51,8 +39,8 @@ const About: FC<AboutProps> = ({ id }) => {
           base: 'none',
           md: `url('${
             colorMode === 'dark'
-              ? './night-background.gif'
-              : './day-background.gif'
+              ? CommonImage.NIGHT_BACKGROUND
+              : CommonImage.DAY_BACKGROUND
           }')`,
         }}
         backgroundSize="105%"
@@ -98,8 +86,8 @@ const About: FC<AboutProps> = ({ id }) => {
           backgroundImage={{
             base: `url('${
               colorMode === 'dark'
-                ? './night-background.gif'
-                : './day-background.gif'
+                ? CommonImage.NIGHT_BACKGROUND
+                : CommonImage.DAY_BACKGROUND
             }')`,
             md: 'none',
           }}
@@ -116,7 +104,7 @@ const About: FC<AboutProps> = ({ id }) => {
               borderRadius="25%"
               w={{ base: '220px', md: '250px' }}
               onClick={() => setIsEaster(false)}
-              src="./EasterEggGif.gif"
+              src={CommonImage.EASTER_EGG}
               alt="easter egg animation"
               loading="lazy"
               _hover={{
@@ -128,7 +116,11 @@ const About: FC<AboutProps> = ({ id }) => {
               borderRadius="25%"
               w={{ base: '220px', md: '250px' }}
               onClick={() => setIsEaster(true)}
-              src={colorMode === 'dark' ? './night-thin.gif' : './day-thin.gif'}
+              src={
+                colorMode === 'dark'
+                  ? CommonImage.NIGHT_THIN
+                  : CommonImage.DAY_THIN
+              }
               alt="animated avatar"
               loading="eager"
               _hover={{

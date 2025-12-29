@@ -117,7 +117,7 @@ const Intro: FC<IntroProps> = ({ id }) => {
         >
           <Text fontWeight="bold">Hi there!</Text>
           <Text>
-            I'm Byron, and welcome to my website! I'm a 5th year @{' '}
+            I'm Byron, and welcome to my website! I'm a @{' '}
             <Link
               isExternal
               href="https://www.ubc.ca/"
@@ -125,17 +125,9 @@ const Intro: FC<IntroProps> = ({ id }) => {
             >
               UBC
             </Link>{' '}
-            studying Computer Science and Microbiology & Immunology. If you spot
-            me outside class, you’ll likely see me in a meeting (currently a
-            member of{' '}
-            <Link
-              isExternal
-              href="https://nwplus.io/"
-              color={standoutText}
-            >
-              nwPlus
-            </Link>
-            ), bowling, or sipping a coffee.
+            grad with a Bachelors in Computer Science and Microbiology &
+            Immunology. If you spot me outside work, you’ll likely see me
+            doodling, bowling, or sipping a coffee.
           </Text>
           <Text>
             I'll be using this website as a random canvas for life updates,

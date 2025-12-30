@@ -79,8 +79,15 @@ const Intro: FC<IntroProps> = ({ id }) => {
               UBC
             </Link>{' '}
             grad with a Bachelors in Computer Science and Microbiology &
-            Immunology. If you spot me outside work, you'll likely see me
-            doodling, bowling, or sipping a coffee.
+            Immunology and am currently a Software Engineer at{' '}
+            <Link
+              isExternal
+              href="https://www.astronomer.io/"
+              color={standoutText}
+            >
+              Astronomer
+            </Link>
+            .
           </Text>
           <Text>
             If you like what you see and want to chat, my socials are underneath

@@ -1,6 +1,6 @@
 import { Flex, Text, useColorMode, Box, Image } from '@chakra-ui/react';
-import React, { FC, useState } from 'react';
-import Typist from 'react-typist';
+import React, { FC, useState, useEffect, useCallback } from 'react';
+import TextAnimate from '../common/TextAnimate';
 import { useFadeInOnScroll } from '../../hooks/useFadeInOnScroll';
 import { CommonImage } from '../../constants/images';
 
@@ -8,24 +8,25 @@ interface AboutProps {
   id: string;
 }
 
+const descriptions = [
+  'A software developer.',
+  'A caffeine enthusiast.',
+  'A wannabe bowler.',
+  'A cartoonist.',
+];
+
 const About: FC<AboutProps> = ({ id }) => {
   const [isEaster, setIsEaster] = useState(false);
   const { colorMode } = useColorMode();
-
-  const descriptions = [
-    'A software developer.',
-    'A caffeine enthusiast.',
-    'A wannabe bowler.',
-    'A cartoonist.',
-  ];
   const [index, setIndex] = useState(0);
-  const handleChange = () => {
-    if (index + 1 === descriptions.length) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
-  };
+
+  const handleAnimationComplete = useCallback(() => {
+    // Wait 2 seconds after animation completes, then cycle to next
+    const timer = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % descriptions.length);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const targetRef = useFadeInOnScroll<HTMLDivElement>();
 
@@ -65,18 +66,11 @@ const About: FC<AboutProps> = ({ id }) => {
           <Text fontSize="38px">Howdy! I'm</Text>
           <Text fontSize="55px">Byron Wang</Text>
           <Text fontSize={{ base: '30px', md: '34px' }}>
-            <Typist
-              className="typist"
-              onTypingDone={handleChange}
-              stdTypingDelay={25}
-              key={index}
-            >
-              {descriptions[index]}
-              <Typist.Backspace
-                count={descriptions[index].length - 2}
-                delay={2000}
-              />
-            </Typist>
+            <TextAnimate
+              text={descriptions[index]}
+              animationKey={index}
+              onAnimationComplete={handleAnimationComplete}
+            />
           </Text>
         </Flex>
 

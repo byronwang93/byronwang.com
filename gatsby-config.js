@@ -8,8 +8,11 @@ require('dotenv').config({
 });
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    siteUrl: 'https://byronwang.com',
+  },
   plugins: [
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {

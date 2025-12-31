@@ -29,4 +29,40 @@ export default function Home() {
   );
 }
 
-export const Head = () => <title>Byron Wang | Welcome!</title>;
+export const Head = () => (
+  <>
+    <title>Byron Wang | Welcome!</title>
+    <meta
+      name="description"
+      content="personal portfolio"
+    />
+    <meta
+      property="og:title"
+      content="Byron Wang :)"
+    />
+    <meta
+      property="og:description"
+      content="personal portfolio"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:url"
+      content="https://byronwang.com"
+    />
+    <meta
+      name="twitter:card"
+      content="summary"
+    />
+    <meta
+      name="twitter:title"
+      content="Byron Wang :)"
+    />
+    <meta
+      name="twitter:description"
+      content="personal portfolio"
+    />
+  </>
+);

@@ -9,7 +9,7 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import HeaderText from '../common/HeaderText';
 import YouTube from 'react-youtube';
 import { useFadeInOnScroll } from '../../hooks/useFadeInOnScroll';
@@ -180,6 +180,14 @@ const funEntries: FunEntry[] = [
 ];
 
 const shelfHeights = [1, 2, 3, 4];
+const SHELF_HEIGHT = 450;
+
+// Pre-compute rows at module level (funEntries is constant)
+const rows: FunEntry[][] = [[], [], [], []];
+for (let i = 0; i < funEntries.length; i++) {
+  const row = Math.floor(i / 4);
+  rows[row].push(funEntries[i]);
+}
 
 const Fun: FC<FunProps> = ({ id }) => {
   const secondaryTextColour = useColorModeValue(
@@ -190,20 +198,6 @@ const Fun: FC<FunProps> = ({ id }) => {
   const targetRef = useFadeInOnScroll<HTMLDivElement>({ threshold: 0.1 });
 
   const isDesktop = useBreakpointValue({ base: false, md: true });
-
-  const [shelfHeight] = useState(450);
-
-  // rows
-  const [rows, setRows] = useState<FunEntry[][]>([]);
-  useEffect(() => {
-    const res: FunEntry[][] = [[], [], [], []];
-    for (let i = 0; i < funEntries.length; i++) {
-      const curr = funEntries[i];
-      const row = Math.floor(i / 4);
-      res[row].push(curr);
-    }
-    setRows(res);
-  }, []);
 
   // fact details - initialize with first entry
   const [factDetails, setFactDetails] = useState<FunEntry | null>(
@@ -242,7 +236,7 @@ const Fun: FC<FunProps> = ({ id }) => {
       >
         <VStack
           backgroundColor="#D3C6B4"
-          h={`${shelfHeight}px`}
+          h={`${SHELF_HEIGHT}px`}
           w="320px"
           borderRadius="2px"
           outline="10px solid #6C5D46"
@@ -288,7 +282,7 @@ const Fun: FC<FunProps> = ({ id }) => {
             return (
               <Box
                 key={index}
-                pt={shelfHeight / 4.6}
+                pt={SHELF_HEIGHT / 4.6}
                 w="100%"
                 borderBottom="8px solid #6C5D46"
               ></Box>
@@ -300,7 +294,7 @@ const Fun: FC<FunProps> = ({ id }) => {
           mt={!isDesktop ? '25px' : undefined}
           overflowY="auto"
           alignSelf="baseline"
-          maxH={`${shelfHeight}px`}
+          maxH={`${SHELF_HEIGHT}px`}
           w={{ base: '350px', lg: '430px' }}
           spacing="3px"
           mb="20px"

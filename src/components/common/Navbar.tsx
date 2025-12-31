@@ -15,6 +15,9 @@ const Navbar = () => {
   return (
     <Box
       as="section"
+      position="sticky"
+      top="0"
+      zIndex="1000"
       pb="12px"
       fontWeight="bold"
     >
@@ -23,7 +26,9 @@ const Navbar = () => {
         mt="20px"
         p={{ base: '15px 15px', md: '15px 30px' }}
         borderRadius="30px"
-        bg={`rgba(0, 0, 0, ${colorMode === 'dark' ? 0.3 : 0.1})`}
+        bg={`rgba(0, 0, 0, ${colorMode === 'dark' ? 0.5 : 0.15})`}
+        backdropFilter="blur(12px)"
+        boxShadow="0 4px 30px rgba(0, 0, 0, 0.1)"
         justifyContent="center"
       >
         {navItems.map((item, index) => {
@@ -54,4 +59,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

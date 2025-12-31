@@ -66,8 +66,8 @@ const experiences: ExperienceItem[] = [
     ],
     tags: ['React', 'Angular'],
     logo: ExperienceImage.TESLA_LOGO,
-    photos: [],
-    captions: [],
+    photos: [ExperienceImage.TESLA_PICTURE],
+    captions: ['Obligatory picture of me + the factory'],
   },
   {
     title: 'Fullstack Developer @ The Creative Solution',
@@ -275,4 +275,3 @@ const Experience: FC<ExperienceProps> = ({ id }) => {
 };
 
 export default Experience;
-

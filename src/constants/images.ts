@@ -5,6 +5,7 @@
 export enum ExperienceImage {
   ASTRONOMER_LOGO = './experiences/astronomer-logo.webp',
   TESLA_LOGO = './experiences/tesla-logo.png',
+  TESLA_PICTURE = './experiences/tesla.jpg',
   TCS_LOGO = './experiences/TCS_logo.jpeg',
   PAYBYPHONE_LOGO = './experiences/paybyphone-logo.png',
   PAYBYPHONE_PICTURE = './experiences/paybyphone-picture.png',

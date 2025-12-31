@@ -41,11 +41,147 @@ interface FunEntry {
   custom: boolean;
 }
 
+const funEntries: FunEntry[] = [
+  // template
+  // {
+  //   icon: null,
+  //   date: null,
+  //   tldr: null,
+  //   notable: null,
+  //   description: null,
+  //   image: [],
+  //   videoLink: [],
+  //   caption: [],
+  //   videoCaption: [],
+  //   custom: false
+  // },
+
+  // CLIMBING
+  // {
+  //   icon: null,
+  //   date: null,
+  //   tldr: null,
+  //   notable: null,
+  //   description: null,
+  //   image: [],
+  //   videoLink: [],
+  //   caption: [],
+  //   videoCaption: [],
+  //   custom: false,
+  // },
+
+  // VOLLEYBALL
+  // {
+  //   icon: null,
+  //   date: null,
+  //   tldr: null,
+  //   notable: null,
+  //   description: null,
+  //   image: [],
+  //   videoLink: [],
+  //   caption: [],
+  //   videoCaption: [],
+  //   custom: false,
+  // },
+
+  {
+    icon: Oculus,
+    date: '2024-present',
+    tldr: 'VR experimentalist',
+    description:
+      'In January of 2024, I bought an Oculus Quest 2 with the sole purpose of creating projects for it. Most recently I used it to create Recall Rehearsal at Stormhacks 2024 (more info in projects). Hopefully more fun updates in the future! o.o',
+    image: [SideQuestImage.WEARING_VR],
+    videoLink: null,
+    caption: ['Does anyone actually look good wearing one of these things??'],
+    videoCaption: null,
+    custom: true,
+  },
+  {
+    icon: Bowling,
+    date: '2023-present',
+    tldr: '2-handed bowler',
+    notable: '242 PB',
+    description:
+      'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
+    image: [SideQuestImage.BOWLING_DUBHACKS],
+    videoLink: null,
+    videoCaption: null,
+    caption: ['Me finding out some US colleges have their own bowling alleys'],
+    custom: false,
+  },
+  {
+    icon: NwplusNew,
+    date: '2023-2024',
+    tldr: 'HackCamp director @ nwPlus - hackathon organizer',
+    description:
+      "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
+    image: [SideQuestImage.HACKCAMP_1, SideQuestImage.HACKCAMP_2],
+    videoLink: null,
+    caption: [
+      "can you tell who's who? (I should've mentioned this but I have a twin brother 🧍‍♂️🧍‍♂️)",
+      'the dream team behind HackCamp 2023 🤝',
+    ],
+    custom: false,
+  },
+  {
+    icon: Running,
+    date: '2023',
+    tldr: 'runner',
+    notable: '40:37 10km PB',
+    description:
+      'After running track and cross country in high school, I thought I would be done the sport forever, but last year my friend bet that he could beat me in a 10km race so of course I took him up on that >:)!',
+    image: [SideQuestImage.SUN_RUN],
+    videoLink: null,
+    caption: [
+      'It was moments like this which remind me why I quit running in the first place',
+    ],
+    custom: false,
+  },
+  {
+    icon: Drawing,
+    date: '2006-present',
+    tldr: 'wannabe cartoonist',
+    description:
+      "Ever since I was a child, I've had a passion for drawing, where I spent countless hours making comics with my brother and creating our own (admittingly simple) worlds. From the theme of my website, you can probably tell I never grew out of that phase, and it's something I still do to this day!",
+    image: [SideQuestImage.YOUNG_ARTIST],
+    videoLink: null,
+    caption: ["Van Gogh was lucky we weren't drawing in the same era 😎 /s"],
+    custom: false,
+  },
+  {
+    icon: Swimming,
+    date: '2015-2019',
+    tldr: 'swimmer',
+    notable: '58.65 100m Backstroke (SCM)',
+    description:
+      'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',
+    image: [SideQuestImage.SWIMMING],
+    videoLink: null,
+    caption: [
+      'Travelled all the way to Alberta for 50m backstroke but it was worth every penny :)',
+    ],
+    custom: false,
+  },
+  {
+    icon: MushroomLogo,
+    date: '2015-2017',
+    tldr: 'former Mario Kart tryhard',
+    notable: '8th worldwide on Donut Plains 3',
+    description:
+      'A lot of people have a gamer phase and mine was Mario Kart 8 😮‍💨. Having multiple top 10 in Canada times, my proudest feat was achieving 8th in the world in Donut Plains 3. High school me needed to touch some grass...',
+    image: [SideQuestImage.MARIO_KART_TOURNAMENT],
+    videoLink: null,
+    caption: [
+      "If there's a local Mario Kart tournament, chances are you'll see me and my brother there 😌",
+    ],
+    videoCaption: null,
+    custom: false,
+  },
+];
+
+const shelfHeights = [1, 2, 3, 4];
+
 const Fun: FC<FunProps> = ({ id }) => {
-  const standoutText = useColorModeValue(
-    'light.standoutText',
-    'dark.standoutText'
-  );
   const secondaryTextColour = useColorModeValue(
     'light.secondaryTextColour',
     'dark.secondaryTextColour'
@@ -55,16 +191,7 @@ const Fun: FC<FunProps> = ({ id }) => {
 
   const isDesktop = useBreakpointValue({ base: false, md: true });
 
-  const [vidWidth, setVidWidth] = useState(550);
-
-  const [shelfHeight, setShelfHeight] = useState(450);
-
-  useEffect(() => {
-    if (isDesktop) setVidWidth(550);
-    else setVidWidth(300);
-  }, [isDesktop]);
-
-  const [factIndex, setFactIndex] = useState(0);
+  const [shelfHeight] = useState(450);
 
   // rows
   const [rows, setRows] = useState<FunEntry[][]>([]);
@@ -78,154 +205,10 @@ const Fun: FC<FunProps> = ({ id }) => {
     setRows(res);
   }, []);
 
-  // fact details
-  const [factDetails, setFactDetails] = useState<FunEntry | null>(null);
-
-  useEffect(() => {
-    setFactDetails(funEntries[factIndex]);
-  }, [factIndex]);
-
-  const funEntries: FunEntry[] = [
-    // template
-    // {
-    //   icon: null,
-    //   date: null,
-    //   tldr: null,
-    //   notable: null,
-    //   description: null,
-    //   image: [],
-    //   videoLink: [],
-    //   caption: [],
-    //   videoCaption: [],
-    //   custom: false
-    // },
-
-    // CLIMBING
-    // {
-    //   icon: null,
-    //   date: null,
-    //   tldr: null,
-    //   notable: null,
-    //   description: null,
-    //   image: [],
-    //   videoLink: [],
-    //   caption: [],
-    //   videoCaption: [],
-    //   custom: false,
-    // },
-
-    // VOLLEYBALL
-    // {
-    //   icon: null,
-    //   date: null,
-    //   tldr: null,
-    //   notable: null,
-    //   description: null,
-    //   image: [],
-    //   videoLink: [],
-    //   caption: [],
-    //   videoCaption: [],
-    //   custom: false,
-    // },
-
-    {
-      icon: Oculus,
-      date: '2024-present',
-      tldr: 'VR experimentalist',
-      description:
-        'In January of 2024, I bought an Oculus Quest 2 with the sole purpose of creating projects for it. Most recently I used it to create Recall Rehearsal at Stormhacks 2024 (more info in projects). Hopefully more fun updates in the future! o.o',
-      image: [SideQuestImage.WEARING_VR],
-      videoLink: null,
-      caption: ['Does anyone actually look good wearing one of these things??'],
-      videoCaption: null,
-      custom: true,
-    },
-    {
-      icon: Bowling,
-      date: '2023-present',
-      tldr: '2-handed bowler',
-      notable: '242 PB',
-      description:
-        'Back in September 2023 I decided to make the jump from being a casual bowler and joined a bowling league! Once I bought my own ball and shoes, I knew there was no going back ...',
-      image: [SideQuestImage.BOWLING_DUBHACKS],
-      videoLink: null,
-      videoCaption: null,
-      caption: [
-        'Me finding out some US colleges have their own bowling alleys',
-      ],
-      custom: false,
-    },
-    {
-      icon: NwplusNew,
-      date: '2023-2024',
-      tldr: 'HackCamp director @ nwPlus - hackathon organizer',
-      description:
-        "I'm part of nwPlus, the club behind the largest hackathons in western Canada. This past year I was the lead for HackCamp, where we managed to hold its largest iteration EVER, bringing in 250+ first time hackers",
-      image: [SideQuestImage.HACKCAMP_1, SideQuestImage.HACKCAMP_2],
-      videoLink: null,
-      caption: [
-        "can you tell who's who? (I should've mentioned this but I have a twin brother 🧍‍♂️🧍‍♂️)",
-        'the dream team behind HackCamp 2023 🤝',
-      ],
-      custom: false,
-    },
-    {
-      icon: Running,
-      date: '2023',
-      tldr: 'runner',
-      notable: '40:37 10km PB',
-      description:
-        'After running track and cross country in high school, I thought I would be done the sport forever, but last year my friend bet that he could beat me in a 10km race so of course I took him up on that >:)!',
-      image: [SideQuestImage.SUN_RUN],
-      videoLink: null,
-      caption: [
-        'It was moments like this which remind me why I quit running in the first place',
-      ],
-      custom: false,
-    },
-    {
-      icon: Drawing,
-      date: '2006-present',
-      tldr: 'wannabe cartoonist',
-      description:
-        "Ever since I was a child, I've had a passion for drawing, where I spent countless hours making comics with my brother and creating our own (admittingly simple) worlds. From the theme of my website, you can probably tell I never grew out of that phase, and it's something I still do to this day!",
-      image: [SideQuestImage.YOUNG_ARTIST],
-      videoLink: null,
-      caption: ["Van Gogh was lucky we weren't drawing in the same era 😎 /s"],
-      custom: false,
-    },
-    {
-      icon: Swimming,
-      date: '2015-2019',
-      tldr: 'swimmer',
-      notable: '58.65 100m Backstroke (SCM)',
-      description:
-        'I swam competitively for 6 years to the point where I swam at Western Nationals. To this day I have no clue how I was able to wake up for 5:30am practices 🥲.',
-      image: [SideQuestImage.SWIMMING],
-      videoLink: null,
-      caption: [
-        'Travelled all the way to Alberta for 50m backstroke but it was worth every penny :)',
-      ],
-      custom: false,
-    },
-    {
-      icon: MushroomLogo,
-      date: '2015-2017',
-      tldr: 'former Mario Kart tryhard',
-      notable: '8th worldwide on Donut Plains 3',
-      description:
-        'A lot of people have a gamer phase and mine was Mario Kart 8 😮‍💨. Having multiple top 10 in Canada times, my proudest feat was achieving 8th in the world in Donut Plains 3. High school me needed to touch some grass...',
-      image: [SideQuestImage.MARIO_KART_TOURNAMENT],
-      videoLink: null,
-      caption: [
-        "If there's a local Mario Kart tournament, chances are you'll see me and my brother there 😌",
-      ],
-      videoCaption: null,
-      custom: false,
-    },
-  ];
-
-  const shelfHeights = [1, 2, 3, 4];
+  // fact details - initialize with first entry
+  const [factDetails, setFactDetails] = useState<FunEntry | null>(
+    funEntries[0]
+  );
 
   return (
     <Flex
@@ -437,4 +420,3 @@ const Fun: FC<FunProps> = ({ id }) => {
 };
 
 export default Fun;
-

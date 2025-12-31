@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState, useEffect, useRef } from 'react';
+import React, { FC, ReactNode, useState, useEffect } from 'react';
 import Footer from './Footer';
 import { Box, ChakraProvider, VStack } from '@chakra-ui/react';
 import theme from '../../@chakra-ui/gatsby-plugin/theme';
@@ -14,8 +14,6 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const [minTimePassed, setMinTimePassed] = useState(false);
   const [contentReady, setContentReady] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
-
-  const targetRef = useRef<HTMLDivElement>(null);
 
   // Minimum display time of 2 seconds
   useEffect(() => {
@@ -56,7 +54,6 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         display="flex"
         w="100%"
         minHeight="100vh"
-        ref={targetRef}
         opacity={showLoading ? 0 : 1}
         transition="opacity 0.5s ease-in-out"
       >
@@ -76,4 +73,3 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 };
 
 export default Layout;
-
